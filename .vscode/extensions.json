@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "naumovs.color-highlight",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint"
+  ]
+}
