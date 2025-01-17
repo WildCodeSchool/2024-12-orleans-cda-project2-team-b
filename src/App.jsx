@@ -1,13 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import './App.css';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <div className='absolute-center-container'>
       <nav>
-        <Link to='/'>Accueil</Link>
-        <Link to='/recherche'>Recherche</Link>
+        <Navbar />
       </nav>
       <main>
         <Outlet />
