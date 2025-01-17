@@ -10,9 +10,12 @@
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import App from './App';
-import Home from './Components/Pages/Home';
-import Search from './Components/Pages/Search';
+import App from '../App';
+import Favourite from '../Pages/Favourite';
+import History from '../Pages/History';
+import Home from '../Pages/Home';
+import Random from '../Pages/Random';
+import Search from '../Pages/Search';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,27 @@ const router = createBrowserRouter([
       {
         path: '/recherche',
         element: <Search />,
+        children: [
+          {
+            path: '/article-aleatoire',
+            element: <Random />,
+          },
+          // Oops Recherche
+        ],
       },
+      {
+        path: '/favoris',
+        element: <Favourite />,
+        // children NoFav et displayFav
+        // GESTION DES ID POUR LES ARTICLES ?
+      },
+      {
+        path: '/historique',
+        element: <History />,
+        // children displayHistory
+        // GESTION DES ID POUR LES ARTICLES ?
+      },
+      // Faire link Error 404
     ],
   },
 ]);
