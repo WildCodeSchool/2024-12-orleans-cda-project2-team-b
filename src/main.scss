@@ -1,3 +1,6 @@
+@use './mixin' as mixin;
+@use './variables' as vars;
+
 @font-face {
   font-family: 'SofiaSansExtraCondensed';
   src: url('/fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf') format('truetype');
@@ -10,51 +13,6 @@
   src: url('/fonts/SofiaSansExtraCondensed-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
-}
-
-:root {
-  /* COLORS */
-  /* Global */
-  --primaryColor: #25384d;
-  --textColor: #eff4f6;
-  --secondaryColor: #d4e1ed;
-  --colorDetails: #b4dceb;
-  /* BACKGROUND | LIGHT AND DARK THEME */
-  --darkColor: #00040f;
-  --lightColor: #eff4f6;
-  /* --- --- --- */
-  /* LINES */
-  /* Mobile */
-  --mobileBorder: 1px;
-  --mobileBorderRadius: 5px;
-  /* Desktop */
-  --desktopBorder: 3px;
-  --desktopBorderRadius: 15px;
-  /* --- --- --- */
-  /* FONTS */
-  /* Font Family  */
-  --fontFamily: 'SofiaSansExtraCondensed', sans-serif;
-  /* Font Size */
-  /* Mobile */
-  --mobileTitle1: 2rem;
-  --mobileTitle2: 1.5rem;
-  --mobileTitle3: 1.25rem;
-  --mobileContent: 1rem;
-  --mobileDescription: 0.875rem;
-  /* Desktop */
-  --desktopTitle1: 3.125rem;
-  --desktopTitle2: 3rem;
-  --desktopTitle3: 2.5rem;
-  --desktopContent: 2.188rem;
-  --desktopDescription: 1.563rem;
-  /* Font Type */
-  --important: bold;
-  --anotated: italic;
-  /* LINKS */
-  /* Text Decoration */
-  --linksDecoration: underline;
-  --linkColor: var(--primaryColor);
-  --linkHoverColor: var(--colorDetails);
 }
 
 * {
@@ -70,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  font-family: var(--fontFamily);
-  background-color: var(--lightColor);
-  color: var(--primaryColor);
+  font-family: vars.$font-family;
+  background-color: vars.$light-color;
+  color: vars.$primary-color;
 }
