@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 
 function App() {
   return <div className='absolute-center-container'>{'Coucou !'}</div>;
