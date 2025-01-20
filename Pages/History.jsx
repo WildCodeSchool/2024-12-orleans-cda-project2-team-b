@@ -7,6 +7,7 @@ export default function History() {
   return (
     <>
       <Link to={`article-historique/${historyId}`}>Lien d histo selected</Link>
+      <Link to='pas-d-historique'>Pas d historique</Link>
       <p>Page de l historique</p>
       <Outlet />
     </>
