@@ -11,10 +11,17 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from '../App';
+import DisplayFav from '../Pages/DisplayFavourite';
+import DisplayHistory from '../Pages/DisplayHistory';
+import Error404 from '../Pages/Error404';
 import Favourite from '../Pages/Favourite';
 import History from '../Pages/History';
 import Home from '../Pages/Home';
+import NoFav from '../Pages/NoFavourite';
+import NoHistory from '../Pages/NoHistory';
+import Oops from '../Pages/Oops';
 import Random from '../Pages/Random';
+import Results from '../Pages/Results';
 import Search from '../Pages/Search';
 
 const router = createBrowserRouter([
@@ -30,25 +37,51 @@ const router = createBrowserRouter([
         element: <Search />,
         children: [
           {
-            path: '/article-aleatoire',
+            path: '/article-aleatoire/:id',
             element: <Random />,
           },
-          // Oops Recherche
+          {
+            path: '/oops',
+            element: <Oops />,
+          },
+          {
+            path: '/resultat-de-recherche',
+            element: <Results />,
+          },
         ],
       },
       {
         path: '/favoris',
         element: <Favourite />,
-        // children NoFav et displayFav
-        // GESTION DES ID POUR LES ARTICLES ?
+        children: [
+          {
+            path: '/pas-de-favoris',
+            element: <NoFav />,
+          },
+          {
+            path: '/article-favori/:id',
+            element: <DisplayFav />,
+          },
+        ],
       },
       {
         path: '/historique',
         element: <History />,
-        // children displayHistory
-        // GESTION DES ID POUR LES ARTICLES ?
+        children: [
+          {
+            path: '/pas-d-historique',
+            element: <NoHistory />,
+          },
+          {
+            path: '/article-historique/:id',
+            element: <DisplayHistory />,
+          },
+        ],
       },
-      // Faire link Error 404
+      {
+        path: '*',
+        element: <Error404 />,
+      },
     ],
   },
 ]);
