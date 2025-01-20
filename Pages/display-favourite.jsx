@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import './DisplayFavourite.css';
+import './display-favourite.scss';
 
 export default function DisplayFavourite() {
   const { id } = useParams();

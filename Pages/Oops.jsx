@@ -1,4 +1,4 @@
-import './Oops.css';
+import './oops.scss';
 
 export default function Oops() {
   return (

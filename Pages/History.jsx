@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-import './History.css';
+import './history.scss';
 
 export default function History() {
   const historyId = 567;

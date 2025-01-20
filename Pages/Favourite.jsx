@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-import './Favourite.css';
+import './favourite.scss';
 
 export default function Favourite() {
   const articleId = 123; // Example dynamic ID (this could come from props, state, or API data)

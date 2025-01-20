@@ -1,4 +1,4 @@
-import './Random.css';
+import './random.scss';
 
 export default function Random() {
   return (

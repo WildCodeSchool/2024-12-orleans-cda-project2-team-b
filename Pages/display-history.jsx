@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import './DisplayHistory.css';
+import './display-history.scss';
 
 export default function DisplayHistory() {
   const { id } = useParams();

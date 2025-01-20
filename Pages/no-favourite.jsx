@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import './Favourite.css';
+import './no-favourite.scss';
 
 export default function NoFavourite() {
   return (

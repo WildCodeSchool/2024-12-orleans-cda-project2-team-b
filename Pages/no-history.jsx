@@ -1,4 +1,4 @@
-import './NoHistory.css';
+import './no-history.scss';
 
 export default function NoHistory() {
   return (

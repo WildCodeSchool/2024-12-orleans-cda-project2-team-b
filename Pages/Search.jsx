@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import './Search.css';
+import './search.scss';
 
 export default function Search() {
   return (
