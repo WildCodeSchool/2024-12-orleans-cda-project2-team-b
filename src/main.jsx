@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import App from '../App';
 import DisplayFav from '../Pages/DisplayFavourite';
 import DisplayHistory from '../Pages/DisplayHistory';
 import Error404 from '../Pages/Error404';
@@ -14,6 +13,7 @@ import Oops from '../Pages/Oops';
 import Random from '../Pages/Random';
 import Results from '../Pages/Results';
 import Search from '../Pages/Search';
+import App from './App';
 
 const router = createBrowserRouter([
   {
@@ -24,47 +24,47 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/recherche',
+        path: 'recherche',
         element: <Search />,
         children: [
           {
-            path: '/article-aleatoire/:id',
+            path: 'article-aleatoire/:id',
             element: <Random />,
           },
           {
-            path: '/oops',
+            path: 'oops',
             element: <Oops />,
           },
           {
-            path: '/resultat-de-recherche',
+            path: 'resultats-de-recherche',
             element: <Results />,
           },
         ],
       },
       {
-        path: '/favoris',
+        path: 'favoris',
         element: <Favourite />,
         children: [
           {
-            path: '/pas-de-favoris',
+            path: 'pas-de-favoris',
             element: <NoFav />,
           },
           {
-            path: '/article-favori/:id',
+            path: 'article-favori/:id',
             element: <DisplayFav />,
           },
         ],
       },
       {
-        path: '/historique',
+        path: 'historique',
         element: <History />,
         children: [
           {
-            path: '/pas-d-historique',
+            path: 'pas-d-historique',
             element: <NoHistory />,
           },
           {
-            path: '/article-historique/:id',
+            path: 'article-historique/:id',
             element: <DisplayHistory />,
           },
         ],
