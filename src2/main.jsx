@@ -1,20 +1,20 @@
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import DisplayFav from '../Pages/display-favourite';
-import DisplayHistory from '../Pages/display-history';
-import Error404 from '../Pages/error-404';
-import Favourite from '../Pages/favourite';
-import History from '../Pages/history';
-import Home from '../Pages/home';
-import NoFav from '../Pages/no-favourite';
-import NoHistory from '../Pages/no-history';
-import Oops from '../Pages/oops';
-import Random from '../Pages/random';
-import Results from '../Pages/results';
-import Search from '../Pages/search';
-import App from './App';
+import App from './app';
 import './main.scss';
+import DisplayFav from './pages/display-favourite';
+import DisplayHistory from './pages/display-history';
+import Error404 from './pages/error-404';
+import Favourite from './pages/favourite';
+import History from './pages/history';
+import Home from './pages/home';
+import NoFav from './pages/no-favourite';
+import NoHistory from './pages/no-history';
+import Oops from './pages/oops';
+import Random from './pages/random';
+import Results from './pages/results';
+import Search from './pages/search';
 
 const router = createBrowserRouter([
   {
