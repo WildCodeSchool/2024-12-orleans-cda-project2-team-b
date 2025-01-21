@@ -1,15 +1,30 @@
 import { Link } from 'react-router-dom';
 
 import './navbar.scss';
+import { iconList } from './iconList';
 
 export default function Navbar() {
   return (
     <>
-      <Link to='/'>Accueil</Link>
-      <Link to='/recherche'>Recherche</Link>
-      <Link to='/favoris'>Favoris</Link>
-      <Link to='/historique'>Historique</Link>
-      {/* Ajouter la logique de l'insertion de la modale de "à propos de nous." */}
+{/* Création de la navbar icone + texte */}
+      <nav className="NavBar">
+          {iconList.map((icone) => (
+
+              <Link key={icone} to={icone.link}>
+
+                <img src={icone.imgSrc} width={30}/>
+                {icone.name}
+
+              </Link>
+
+          ))}
+      </nav>
+
+
+{/* Ajouter la logique de l'insertion de la modale de "à propos de nous." */}
+
+
     </>
   );
 }
+

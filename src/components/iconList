@@ -1,0 +1,31 @@
+// import homeActive from './icones/homeActive.png';
+// import searchActive from './icones/searchActive.png';
+// import aboutActive from './icones/aboutActive.png';
+
+export const iconList = [
+  {
+    name: "Accueil",
+    imgSrc: "./icones/homeActive.png",
+    link: "/",
+  },
+  {
+    name: "Recherche",
+    imgSrc: "./icones/searchActive.png",
+    link: "/recherche",
+  },
+  {
+    name: "Favoris",
+    imgSrc:"./icones/favActive.png",
+    link: "/favoris",
+  },
+  {
+    name: "Historique",
+    imgSrc:"./icones/histoActive.png",
+    link: "/historique",
+  },
+  {
+    name: "A propos",
+    imgSrc: "./icones/aboutActive.png",
+    link: "/",
+  },
+];
