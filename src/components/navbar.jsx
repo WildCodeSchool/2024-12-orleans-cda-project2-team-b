@@ -10,8 +10,8 @@ export default function Navbar() {
       <nav className='NavBar'>
         {iconList.map((icone) => (
           <Link key={icone} to={icone.link}>
-            <img src={icone.imgSrc} width={30} />
-            {icone.name}
+            <img src={icone.imgSrc} width={25} />
+            <p>{icone.name}</p>
           </Link>
         ))}
       </nav>
