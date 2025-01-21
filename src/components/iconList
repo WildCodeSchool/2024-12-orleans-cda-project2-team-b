@@ -1,31 +1,32 @@
-// import homeActive from './icones/homeActive.png';
-// import searchActive from './icones/searchActive.png';
-// import aboutActive from './icones/aboutActive.png';
-
 export const iconList = [
   {
     name: "Accueil",
-    imgSrc: "./icones/homeActive.png",
+    imgSrcOn: "./icones/homeActive.png",
+    imgSrcOff: "./icones/homeInactive.png",
     link: "/",
   },
   {
     name: "Recherche",
-    imgSrc: "./icones/searchActive.png",
+    imgSrcOn: "./icones/searchActive.png",
+    imgSrcOff: "./icones/searchInactive.png",
     link: "/recherche",
   },
   {
     name: "Favoris",
-    imgSrc:"./icones/favActive.png",
+    imgSrcOn:"./icones/favActive.png",
+    imgSrcOff:"./icones/favInactive.png",
     link: "/favoris",
   },
   {
     name: "Historique",
-    imgSrc:"./icones/histoActive.png",
+    imgSrcOn:"./icones/histoActive.png",
+    imgSrcOff:"./icones/histoInactive.png",
     link: "/historique",
   },
   {
     name: "A propos",
-    imgSrc: "./icones/aboutActive.png",
+    imgSrcOn: "./icones/aboutActive.png",
+    imgSrcOff: "./icones/aboutInactive.png",
     link: "/",
   },
 ];
