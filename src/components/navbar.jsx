@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { iconList } from './iconList';
+import { iconList } from './icon-list';
 import './navbar.scss';
 
 export default function Navbar() {
@@ -26,7 +26,7 @@ export default function Navbar() {
             ) : (
               <img src={icone.imgSrcOff} alt={icone.name} title={icone.name} />
             )}
-            
+
             <p>{icone.name}</p>
           </Link>
         ))}

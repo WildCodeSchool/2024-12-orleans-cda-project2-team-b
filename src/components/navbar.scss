@@ -1,7 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .NavBar {
   background-color: #25384d;
   color: #eff4f6;
-
+  height: 60px;
   position: fixed;
   width: 100dvw;
   display: flex;
@@ -12,20 +16,47 @@
   z-index: 1000;
   gap: 2%;
 
-  top: 0;
-  left: 0;
-  padding: 10px;
+  padding-top: 5px;
 }
 
 .NavBar img,
 .NavBar p {
   margin: 0;
   color: #eff4f6;
-  font-family: 'Nunito', serif;
-  text-decoration: none;
+  font-family: 'Sofia Sans Extra Condensed', serif;
+  font-weight: 150;
+
+  letter-spacing: 0.05rem;
+  font-size: 1.563rem;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .NavBar img {
-  width: 25;
+  width: 25px;
 }
-// comment faire pour retirer train du link?
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.15;
+}
+
+@media (max-width: 700px) {
+  .NavBar {
+    justify-content: space-around;
+    bottom: 0;
+    height: 60px;
+  }
+
+  .NavBar p {
+    display: none;
+  }
+
+  .NavBar img {
+    width: 35px;
+  }
+}
