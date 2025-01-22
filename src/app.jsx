@@ -1,17 +1,19 @@
 import { Outlet } from 'react-router-dom';
 
 import './app.scss';
+import Footer from './components/footer';
 import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className='absolute-center-container'>
+    <div>
       <nav>
         <Navbar />
       </nav>
-      <main>
+      <main className='absolute-center-container'>
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 }
