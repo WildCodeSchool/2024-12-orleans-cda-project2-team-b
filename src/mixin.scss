@@ -1,18 +1,18 @@
-// Mixin pour les polices
+// Mixin for fonts
 @mixin font-settings($size, $weight, $style) {
   font-size: $size;
   font-weight: $weight;
   font-style: $style;
 }
 
-// Mixin pour les bordures
+// Mixin for borders
 @mixin border-settings($bwidth, $bradius, $bcolor) {
   border-width: $bwidth;
   border-radius: $bradius;
   border-color: $bcolor;
 }
 
-// Mixin pour les thèmes
+// Mixin for themes
 @mixin theme-colors($bg-color, $text-color) {
   background-color: $bg-color;
   color: $text-color;
