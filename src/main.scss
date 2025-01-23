@@ -1,19 +1,6 @@
 @use './mixin' as mixin;
 @use './variables' as vars;
 
-@font-face {
-  font-family: 'SofiaSansExtraCondensed';
-  src: url('/fonts/SofiaSansExtraCondensed-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SofiaSansExtraCondensed';
-  src: url('/fonts/SofiaSansExtraCondensed-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
 
 * {
   margin: 0;
