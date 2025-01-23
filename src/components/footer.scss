@@ -1,17 +1,19 @@
+@use '../variables.scss' as vars;
+
 * {
   margin: 0;
   padding: 0;
 }
 
 .footer {
-  background-color: #25384d;
+  background-color: vars.$primary-color;
   width: 100dvw;
   position: fixed;
 
   display: flex;
   bottom: 0;
-  color: #eff4f6;
-  font-family: 'Sofia Sans Extra Condensed', serif;
+  color: vars.$text-color;
+  font-family: vars.$font-family;
   flex-direction: row;
   align-items: center;
   justify-content: center;
