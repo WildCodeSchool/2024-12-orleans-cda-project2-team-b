@@ -1,10 +1,11 @@
+@use '/src/variables.scss' as vars;
 * {
   margin: 0;
   padding: 0;
 }
 .NavBar {
-  background-color: #25384d;
-  color: #eff4f6;
+  background-color: vars.$primary-color;
+  color: vars.$text-color;
   height: 60px;
   position: fixed;
   width: 100dvw;
@@ -22,12 +23,12 @@
 .NavBar img,
 .NavBar p {
   margin: 0;
-  color: #eff4f6;
-  font-family: 'Sofia Sans Extra Condensed', serif;
+  color: vars.$text-color;
+  font-family: vars.$font-family;
   font-weight: 150;
 
   letter-spacing: 0.05rem;
-  font-size: 1.563rem;
+  font-size: vars.$desktop-description;
 
   justify-content: center;
   align-items: center;
