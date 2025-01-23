@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Colors
+$primary-color: #25384d;
+$text-color: #eff4f6;
+$secondary-color: #d4e1ed;
+$color-details: #b4dceb;
+
+// Themes
+$dark-color: #00040f;
+$light-color: #eff4f6;
+
+// Border
+$mobile-border: 1px;
+$mobile-border-radius: 5px;
+$desktop-border: 3px;
+$desktop-border-radius: 15px;
+$border-color: $primary-color;
+
+// Fonts Types
+$font-family: 'Sofia Sans Extra Condensed', sans-serif;
+$important: bold;
+$annotated: italic;
+
+// Font Sizes (mobile)
+$mobile-title1: 2rem;
+$mobile-title2: 1.5rem;
+$mobile-title3: 1.25rem;
+$mobile-content: 1rem;
+$mobile-description: 0.875rem;
+
+// Font Sizes (desktop)
+$desktop-title1: 3.125rem;
+$desktop-title2: 3rem;
+$desktop-title3: 2.5rem;
+$desktop-content: 2.188rem;
+$desktop-description: 1.563rem;
+
+// Links
+$link-decoration: underline;
+$link-color: $primary-color;
+$link-hover-color: $color-details;

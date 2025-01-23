@@ -1,0 +1,20 @@
+@use './mixin' as mixin;
+@use './variables' as vars;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  font-family: vars.$font-family;
+  background-color: vars.$light-color;
+  color: vars.$primary-color;
+}
