@@ -5,7 +5,7 @@
   font-family: vars.$font-family;
   font-size: vars.$desktop-title1;
   font-weight: normal;
-  letter-spacing: 4px;
+  letter-spacing: 0.2rem;
 }
 
 .PrincipalTitleH2 {
@@ -13,7 +13,7 @@
   font-family: vars.$font-family;
   font-size: 2rem;
   font-weight: normal;
-  letter-spacing: 5px;
+  letter-spacing: 0.2px;
 }
 
 .PrincipalTitlePosition {
@@ -28,11 +28,7 @@
     font-family: vars.$font-family;
     font-size: vars.$mobile-title1;
     font-weight: normal;
-    letter-spacing: 1px;
-  }
-
-  header {
-    height: 70px;
+    letter-spacing: 0.2px;
   }
 
   .principaltitleh2 {
@@ -40,7 +36,7 @@
     font-family: vars.$font-family;
     font-size: vars.$mobile-title2;
     font-weight: normal;
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
   }
 
   .principal-title-position {
