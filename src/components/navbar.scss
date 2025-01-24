@@ -1,0 +1,64 @@
+@use '/src/variables.scss' as vars;
+
+.NavBar * {
+  margin: 0;
+  padding: 0;
+}
+.NavBar {
+  background-color: vars.$primary-color;
+  color: vars.$text-color;
+  height: 8.64dvh;
+  position: fixed;
+  width: 100dvw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1000;
+  gap: 2%;
+
+  padding-top: 0.72dvh;
+}
+
+.NavBar img,
+.NavBar p {
+  margin: 0;
+  color: vars.$text-color;
+  font-family: vars.$font-family;
+  font-weight: 100;
+
+  letter-spacing: 0.05rem;
+  font-size: vars.$desktop-description;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.NavBar img {
+  width: 1.63dvw;
+}
+
+.NavBar a {
+  text-decoration: none;
+}
+
+.NavBar a:hover {
+  opacity: 0.15;
+}
+
+@media (max-width: 700px) {
+  .NavBar {
+    justify-content: space-around;
+    bottom: 0;
+    height: 8.64dvh;
+  }
+
+  .NavBar p {
+    display: none;
+  }
+
+  .NavBar img {
+    width: 2.28dvw;
+  }
+}

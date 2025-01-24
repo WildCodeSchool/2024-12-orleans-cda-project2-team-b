@@ -5,11 +5,10 @@ import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className='absolute-center-container'>
-      <nav>
-        <Navbar />
-      </nav>
-      <main>
+    <div>
+      <Navbar />
+
+      <main className='absolute-center-container'>
         <Outlet />
       </main>
     </div>
