@@ -16,17 +16,13 @@
   letter-spacing: 5px;
 }
 
-.principal-title-desktop,
-.principal-title-mobile {
+.principal-title-position {
   text-align: center;
   line-height: 0.84;
+  margin-top: 70px;
 }
 
-.principal-title-mobile {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
   .principaltitleh1 {
     color: vars.$text-color;
     font-family: vars.$font-family;
@@ -47,13 +43,10 @@
     letter-spacing: 1px;
   }
 
-  .principal-title-desktop {
-    display: none;
-  }
-
-  .principal-title-mobile {
+  .principal-title-position {
     display: block;
     background-color: vars.$primary-color;
     text-align: center;
+    margin-top: 0px;
   }
 }

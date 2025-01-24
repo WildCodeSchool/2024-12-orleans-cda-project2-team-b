@@ -2,28 +2,17 @@ import { Outlet } from 'react-router-dom';
 
 import './app.scss';
 import Navbar from './components/navbar';
-import PrincipalTitle from './components/principaltitle';
+import PrincipalTitle from './components/principal-title';
 
 function App() {
   return (
-    <div>
-      <header>
-        <div className='principal-title-mobile'>
-          <PrincipalTitle />
-        </div>
-      </header>
-      <div className='absolute-center-container'>
-        <div className='principal-title-desktop'>
-          <PrincipalTitle />
-        </div>
-        <nav>
-          <Navbar />
-        </nav>
-        <main>
-          <Outlet />
-        </main>
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <PrincipalTitle />
+      <main className='absolute-center-container'>
+        <Outlet />
+      </main>
+    </>
   );
 }
 
