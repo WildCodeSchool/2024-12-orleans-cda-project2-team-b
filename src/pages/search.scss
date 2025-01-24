@@ -1,46 +1,44 @@
 @use '/src/variables.scss' as vars;
 
 .searchBar {
-    border-radius: 50px;
-    height: 10dvh;
-    width: 50dvw;
-    background-color: vars.$color-details;
-    padding: 2dvh;
-    display: flex;
+  border-radius: 50px;
+  height: 10dvh;
+  width: 50dvw;
+  background-color: vars.$color-details;
+  padding: 2dvh;
+  display: flex;
 }
 
-.searchBar:hover{
-    border: solid vars.$primary-color;
+.searchBar:hover {
+  border: solid vars.$primary-color;
 }
 
-.searchBar input{
-    width: 35dvw;
-    border-radius: 50px;
-    padding-left: 1.5dvh;
-    background-color: vars.$color-details;
-    font-family: vars.$font-family;
-    color:vars.$primary-color;
-    font-size: vars.$desktop-content;
-    border: none;
+.searchBar input {
+  width: 35dvw;
+  border-radius: 50px;
+  padding-left: 1.5dvh;
+  background-color: vars.$color-details;
+  font-family: vars.$font-family;
+  color: vars.$primary-color;
+  font-size: vars.$desktop-content;
+  border: none;
 }
 
-.searchBar input::placeholder{
-    opacity: 30%;
+.searchBar input::placeholder {
+  opacity: 30%;
 }
 
-.searchBar input:focus{
-    outline: none;
+.searchBar input:focus {
+  outline: none;
 }
 
 @media (max-width: 700px) {
-    .searchBar{
-        width: 90dvw;
-        height: 6dvh;
-        
-    }
+  .searchBar {
+    width: 90dvw;
+    height: 6dvh;
+  }
 
-    .searchBar input{
-        font-size: vars.$mobile-content;
-    }
-
+  .searchBar input {
+    font-size: vars.$mobile-content;
+  }
 }

@@ -16,10 +16,10 @@ export default function Search() {
       <p>Je suis la page de recherche</p>
       <p>barre de recherche ici</p>
       <br></br>
-      
+
       {/*Plus tard afficher le place holder selon langue choisie */}
-      <div className="searchBar">
-        <img src="/icons/search.png" />
+      <div className='searchBar'>
+        <img src='/icons/search.png' />
         <input type='search' placeholder='Ecrivez votre recherche en français '></input>
       </div>
       <br></br>
