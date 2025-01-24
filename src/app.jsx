@@ -8,8 +8,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      
-      <Oops />
+
       <main className='absolute-center-container'>
         <Outlet />
       </main>
