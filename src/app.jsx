@@ -7,9 +7,8 @@ import Navbar from './components/navbar';
 function App() {
   return (
     <div>
-      <nav>
-        <Navbar />
-      </nav>
+      <Navbar />
+
       <main className='absolute-center-container'>
         <Outlet />
       </main>
