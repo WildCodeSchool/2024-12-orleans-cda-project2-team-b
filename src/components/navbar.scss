@@ -1,5 +1,6 @@
 @use '/src/variables.scss' as vars;
-* {
+
+.NavBar * {
   margin: 0;
   padding: 0;
 }
@@ -38,11 +39,11 @@
   width: 1.63dvw;
 }
 
-a {
+.NavBar a {
   text-decoration: none;
 }
 
-a:hover {
+.NavBar a:hover {
   opacity: 0.15;
 }
 

@@ -17,17 +17,16 @@ export default function Navbar() {
     <>
       {/* Création de la navbar icone + texte */}
       <nav className='NavBar'>
-        {iconList.map((icone) => (
-          <Link key={icone.name} to={icone.link}>
-            {/* Affiche l'icône active ou inactive, relou car le "/" est dans tous les chemins du coup faut faire une double condi*/}
-            {/* !!!Attention les pages recherches aleatoire et erreur n'ont pas "/recherche" dans leur chemin, il faurdrait faire cette modif */}
-            {namePath === icone.link || (icone.link !== '/' && namePath.includes(icone.link)) ? (
-              <img src={icone.imgSrcOn} alt={icone.name} title={icone.name} />
+        {iconList.map((icon) => (
+          <Link key={icon.name} to={icon.link}>
+            {/* Affiche l'icône active ou inactive, + gestion du "/" qui est dans tous les chemins mais seul = home*/}
+            {namePath === icon.link || (icon.link !== '/' && namePath.includes(icon.link)) ? (
+              <img src={icon.imgSrcOn} alt={icon.name} title={icon.name} />
             ) : (
-              <img src={icone.imgSrcOff} alt={icone.name} title={icone.name} />
+              <img src={icon.imgSrcOff} alt={icon.name} title={icon.name} />
             )}
 
-            <p>{icone.name}</p>
+            <p>{icon.name}</p>
           </Link>
         ))}
       </nav>
