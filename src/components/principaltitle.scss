@@ -1,0 +1,58 @@
+@use '/src/variables.scss' as vars;
+
+.principaltitleh1 {
+  color: vars.$primary-color;
+  font-family: vars.$font-family;
+  font-size: vars.$desktop-title1;
+  font-weight: normal;
+  letter-spacing: 4px;
+}
+
+.principaltitleh2 {
+  color: vars.$primary-color;
+  font-family: vars.$font-family;
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 5px;
+}
+
+.principal-title-desktop .principal-title-mobile {
+  text-align: center;
+  line-height: 0.84;
+}
+
+.principal-title-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .principaltitleh1 {
+    color: vars.$text-color;
+    font-family: vars.$font-family;
+    font-size: vars.$mobile-title1;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+
+  header {
+    height: 70px;
+  }
+
+  .principaltitleh2 {
+    color: vars.$text-color;
+    font-family: vars.$font-family;
+    font-size: vars.$mobile-title2;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+
+  .principal-title-desktop {
+    display: none;
+  }
+
+  .principal-title-mobile {
+    display: block;
+    background-color: vars.$primary-color;
+    text-align: center;
+  }
+}
