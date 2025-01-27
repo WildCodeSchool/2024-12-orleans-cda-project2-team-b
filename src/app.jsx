@@ -1,14 +1,14 @@
 import { Outlet } from 'react-router-dom';
 
 import './app.scss';
+import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
-import PrincipalTitle from './components/principal-title';
 
 function App() {
   return (
     <>
       <Navbar />
-      <PrincipalTitle />
+      <MainTitle />
       <main className='absolute-center-container'>
         <Outlet />
       </main>
