@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
 import './app.scss';
-import MainTitle from './components/main-title';
 import Footer from './components/footer';
+import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
 
 function App() {
