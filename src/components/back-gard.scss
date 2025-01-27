@@ -1,9 +1,21 @@
-.backgroundCard {
-  padding-top: 8.63dvh;
-  display: block;
-  margin: auto;
-  width: 60dvw;
-  align-items: center;
-  justify-content: center;
+.background {
+  background-image: url('/back-card.svg');
+  position: absolute;
+  top: 9%; //pour commencer en dessous de la navbar
+  transform: translateY(-9%);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 87%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 9%;
+}
+
+@media (max-width: 700px) {
+  .background {
+    width: 100%;
+    height: 47%;
+  }
 }

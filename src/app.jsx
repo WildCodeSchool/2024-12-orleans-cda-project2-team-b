@@ -12,9 +12,11 @@ function App() {
       <Navbar />
       <BackgroundCard />
       <MainTitle />
+
       <main className='absolute-center-container'>
         <Outlet />
       </main>
+
       <Footer />
     </>
   );
