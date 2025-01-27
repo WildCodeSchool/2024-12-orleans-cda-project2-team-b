@@ -1,6 +1,6 @@
 @use '/src/variables.scss' as vars;
 
-.MainTitleH1 {
+.main-title-h1 {
   color: vars.$primary-color;
   font-family: vars.$font-family;
   font-size: vars.$desktop-title1;
@@ -8,7 +8,7 @@
   letter-spacing: 0.2rem;
 }
 
-.MainTitleH2 {
+.main-title-h2 {
   color: vars.$primary-color;
   font-family: vars.$font-family;
   font-size: 2rem;
@@ -16,14 +16,14 @@
   letter-spacing: 0.2rem;
 }
 
-.MainTitlePosition {
+.main-title-position {
   text-align: center;
   line-height: 0.84;
   margin-top: 9.42dvh;
 }
 
 @media screen and (max-width: 700px) {
-  .MainTitleH1 {
+  .main-title-h1 {
     color: vars.$text-color;
     font-family: vars.$font-family;
     font-size: vars.$mobile-title1;
@@ -31,7 +31,7 @@
     letter-spacing: 0.2rem;
   }
 
-  .MainTitleH2 {
+  .main-title-h2 {
     color: vars.$text-color;
     font-family: vars.$font-family;
     font-size: vars.$mobile-title2;
@@ -39,7 +39,7 @@
     letter-spacing: 0.2rem;
   }
 
-  .MainTitlePosition {
+  .main-title-position {
     display: block;
     background-color: vars.$primary-color;
     text-align: center;

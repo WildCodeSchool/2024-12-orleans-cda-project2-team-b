@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <>
       {/* Création de la navbar icone + texte */}
-      <nav className='NavBar'>
+      <nav className='navbar'>
         {iconList.map((icon) => (
           <Link key={icon.name} to={icon.link}>
             {/* Affiche l'icône active ou inactive, + gestion du "/" qui est dans tous les chemins mais seul = home*/}
