@@ -1,6 +1,6 @@
 @use '/src/variables.scss' as vars;
 
-.nosearchcontainer {
+.no-search-container {
   text-align: center;
   font-size: vars.$desktop-content;
   @media screen and (max-width: 700px) {
@@ -8,6 +8,6 @@
   }
 }
 
-.nosearchicon {
+.no-search-icon {
   height: 35px;
 }
