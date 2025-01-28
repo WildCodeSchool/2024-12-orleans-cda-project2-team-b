@@ -13,9 +13,9 @@ export default function NoFavourite() {
           Laissez-vous tenter par notre recherche aléatoire.
         </p>
         <Link to='random'>
-          <button className='random-button'>Articles aléatoires</button>
+          <button>Rajouter composant bouton aleatoire</button>
         </Link>
-        {/* voir le lien */}
+        
       </div>
     </>
   );
