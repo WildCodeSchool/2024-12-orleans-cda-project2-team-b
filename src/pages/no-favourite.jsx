@@ -15,7 +15,6 @@ export default function NoFavourite() {
         <Link to='random'>
           <button>Rajouter composant bouton aleatoire</button>
         </Link>
-        
       </div>
     </>
   );
