@@ -6,14 +6,14 @@ export default function NoFavourite() {
   return (
     <>
       <Outlet />
-      <div className='NoFavouriteContainer'>
+      <div className='no-favourite-container'>
         <p>
           Vous n’avez pas encore de favoris... 🥹
           <br />
           Laissez-vous tenter par notre recherche aléatoire.
         </p>
         <Link to='random'>
-          <button className='RandomButton'>Articles aléatoires</button>
+          <button className='random-button'>Articles aléatoires</button>
         </Link>
         {/* voir le lien */}
       </div>
