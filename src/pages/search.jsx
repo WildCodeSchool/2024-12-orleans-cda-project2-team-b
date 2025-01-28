@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import './search.scss';
 
@@ -9,6 +9,7 @@ export default function Search() {
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
+      <Outlet />
     </>
   );
 }
