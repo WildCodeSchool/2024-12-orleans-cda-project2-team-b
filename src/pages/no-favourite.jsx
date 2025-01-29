@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import ButtonRandom from '../components/button-random.jsx';
 import './no-favourite.scss';
 
-export default function noFavourite() {
+export default function NoFavourite() {
   return (
     <>
       <Outlet />
