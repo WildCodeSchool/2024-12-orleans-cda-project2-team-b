@@ -1,0 +1,27 @@
+@use '../variables.scss' as vars;
+
+.footer * {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  background-color: vars.$primary-color;
+  width: 100dvw;
+  position: fixed;
+
+  display: flex;
+  bottom: 0;
+  color: vars.$text-color;
+  font-family: vars.$font-family;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    display: none;
+  }
+}

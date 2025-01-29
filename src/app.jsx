@@ -1,18 +1,25 @@
 import { Outlet } from 'react-router-dom';
 
 import './app.scss';
+import BackgroundCard from './components/background-card';
+import Footer from './components/footer';
+import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
 import Oops from './pages/oops';
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
+      <BackgroundCard />
+      <MainTitle />
 
       <main className='absolute-center-container'>
         <Outlet />
       </main>
-    </div>
+
+      <Footer />
+    </>
   );
 }
 

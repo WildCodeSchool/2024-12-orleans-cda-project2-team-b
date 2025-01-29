@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Search />,
         children: [
           {
-            path: 'article-aleatoire/:id',
+            path: 'article-aleatoire',
             element: <Random />,
           },
           {

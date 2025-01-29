@@ -1,10 +1,10 @@
-@use '/src/variables.scss' as vars;
+@use '../variables.scss' as vars;
 
-.NavBar * {
+.navbar * {
   margin: 0;
   padding: 0;
 }
-.NavBar {
+.navbar {
   background-color: vars.$primary-color;
   color: vars.$text-color;
   height: 8.64dvh;
@@ -17,13 +17,11 @@
   text-align: center;
   z-index: 1000;
   gap: 2%;
-
   padding-top: 0.72dvh;
 }
 
-.NavBar img,
-.NavBar p {
-  margin: 0;
+.navbar img,
+.navbar p {
   color: vars.$text-color;
   font-family: vars.$font-family;
   font-weight: 100;
@@ -35,30 +33,30 @@
   align-items: center;
 }
 
-.NavBar img {
-  width: 1.63dvw;
+.navbar img {
+  width: 2dvw;
 }
 
-.NavBar a {
+.navbar a {
   text-decoration: none;
 }
 
-.NavBar a:hover {
+.navbar a:hover {
   opacity: 0.15;
 }
 
 @media (max-width: 700px) {
-  .NavBar {
+  .navbar {
     justify-content: space-around;
     bottom: 0;
     height: 8.64dvh;
   }
 
-  .NavBar p {
+  .navbar p {
     display: none;
   }
 
-  .NavBar img {
-    width: 2.28dvw;
+  .navbar img {
+    width: 6dvw;
   }
 }
