@@ -1,4 +1,4 @@
-import { Link, Outlet, useEffect, useState } from 'react-router-dom';
+import { Link, Outlet, useState } from 'react-router-dom';
 
 import Oops from './oops';
 import './search.scss';
@@ -12,26 +12,22 @@ const placeholderList = [
 ];
 
 export default function Search() {
-  const [searchValid, setSearchValid] = useState(true);
-
-  useEffect(() => {
-    setSearchValid(true);
-  });
+  // const [pageSearch, setpageSearch] = useState(true);
 
   return (
     <>
-      {searchValid ? (
-        <div className='search-bar'>
-          <img src='/icons/search.png' alt='Search Icon' />
-          <input type='search' placeholder='Écrivez votre recherche en français' />
-        </div>
-      ) : (
-        <Oops />
-      )}
+      {/* {pageSearch ? ( */}
 
-      <Link to='resultats-de-recherche' onClick={() => setSearchValid(false)}>
-        Résultats de recherche
-      </Link>
+      {/* ) : ( */}
+      {/* )} */}
+
+      <div className='search-bar'>
+        <img src='/icons/search.png' alt='Search Icon' />
+        <input type='search' placeholder='Écrivez votre recherche en français' />
+      </div>
+
+      <Oops />
+
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
