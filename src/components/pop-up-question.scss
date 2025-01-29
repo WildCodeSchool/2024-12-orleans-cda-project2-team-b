@@ -1,0 +1,48 @@
+@use '../variables.scss' as vars;
+
+.pop-up-question {
+  position: absolute;
+  right: 0px;
+  bottom: 2dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: vars.$color-details;
+  width: 35dvw;
+  padding: 2%;
+
+  h1 {
+    color: vars.$primary-color;
+    font-family: vars.$font-family;
+    letter-spacing: 0.1rem;
+    font-weight: 100;
+  }
+
+  button {
+    width: 20%;
+    display: block;
+    font-family: vars.$font-family;
+  }
+  .button-yes {
+    background-color: vars.$primary-color;
+    color: vars.$text-color;
+  }
+  .button-no {
+    //background-color: vars.$primary-color;
+    color: vars.$primary-color;
+    text-decoration: underline;
+    background-color: red;
+  }
+}
+
+@media (max-width: 700px) {
+  .pop-up-question {
+    width: 100dvw;
+    bottom: 9dvh;
+
+    button {
+      width: 20dvw;
+    }
+  }
+}
