@@ -1,9 +1,6 @@
 @use '../variables.scss' as vars;
 
-
-
 .pop-up-question {
-
   position: absolute;
   right: 0px;
   bottom: 2dvh;
@@ -44,7 +41,6 @@
     color: vars.$primary-color;
     text-decoration: underline;
   }
-
 }
 
 @media (max-width: 700px) {
@@ -57,4 +53,3 @@
     }
   }
 }
-
