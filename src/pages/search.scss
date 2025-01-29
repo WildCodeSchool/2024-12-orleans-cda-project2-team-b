@@ -1,4 +1,4 @@
-@use '/src/variables.scss' as vars;
+@use './src/variables.scss' as vars;
 
 .searchBar {
   border-radius: 50px;
@@ -10,18 +10,17 @@
 }
 
 .searchBar:hover {
-  border: solid vars.$primary-color;
+  border: solid 0.5px vars.$primary-color;
 }
 
 .searchBar input {
-  width: 35dvw;
-  border-radius: 50px;
   padding-left: 1.5dvh;
   background-color: vars.$color-details;
   font-family: vars.$font-family;
   color: vars.$primary-color;
   font-size: vars.$desktop-content;
   border: none;
+  width: 95dvw;
 }
 
 .searchBar input::placeholder {
@@ -32,7 +31,11 @@
   outline: none;
 }
 
-@media (max-width: 700px) {
+.searchBar input::-webkit-search-cancel-button {
+  display: none;
+}
+
+@media (max-width: 770px) {
   .searchBar {
     width: 90dvw;
     height: 6dvh;
@@ -40,5 +43,8 @@
 
   .searchBar input {
     font-size: vars.$mobile-content;
+    margin: -3%;
+    margin-left: 0%;
+    width: 82dvw;
   }
 }
