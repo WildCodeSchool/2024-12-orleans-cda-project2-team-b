@@ -1,0 +1,21 @@
+@use '../variables.scss' as vars;
+
+.no-favourite-container {
+  text-align: center;
+  font-size: vars.$desktop-content;
+  @media screen and (max-width: 700px) {
+    font-size: vars.$desktop-description;
+  }
+}
+
+// CSS bouton aléatoire simple
+
+// .random-button {
+//   background-color: vars.$primary-color;
+//   color: vars.$text-color;
+//   font-family: vars.$font-family;
+//   font-size: vars.$desktop-description;
+//   @media screen and (max-width: 700px) {
+//     font-size: vars.$mobile-description;
+//   }
+// }
