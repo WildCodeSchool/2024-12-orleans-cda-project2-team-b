@@ -1,7 +1,8 @@
-import { Link, Outlet, useState } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
-import Oops from './oops';
+// import ButtonRandom from '../components/button-random';
 import './search.scss';
+
 
 const placeholderList = [
   { language: 'Français', placeholderTraduc: 'Ecrivez votre recherche en français' },
@@ -12,22 +13,17 @@ const placeholderList = [
 ];
 
 export default function Search() {
-  // const [pageSearch, setpageSearch] = useState(true);
-
   return (
     <>
-      {/* {pageSearch ? ( */}
-
-      {/* ) : ( */}
-      {/* )} */}
-
-      <div className='search-bar'>
-        <img src='/icons/search.png' alt='Search Icon' />
-        <input type='search' placeholder='Écrivez votre recherche en français' />
+      {/*Plus tard afficher le place holder selon langue choisie */}
+      <div className='search-container'>
+        <div className='search-bar'>
+          <img src='/icons/search.png' />
+          <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+        </div>
+        {/* <ButtonRandom /> */}
+        
       </div>
-
-      <Oops />
-
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
