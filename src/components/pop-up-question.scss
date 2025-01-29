@@ -10,7 +10,12 @@
   align-items: center;
   background-color: vars.$color-details;
   width: 35dvw;
-  padding: 2%;
+  padding: 1%;
+
+  p {
+    text-align: center;
+    margin-bottom: 2%;
+  }
 
   h1 {
     color: vars.$primary-color;
@@ -20,19 +25,21 @@
   }
 
   button {
-    width: 20%;
     display: block;
     font-family: vars.$font-family;
+    margin-bottom: 0.5%;
+    padding: 0.5%;
   }
   .button-yes {
+    width: 20%;
     background-color: vars.$primary-color;
     color: vars.$text-color;
   }
   .button-no {
-    //background-color: vars.$primary-color;
+    background-color: vars.$color-details;
+    border: none;
     color: vars.$primary-color;
     text-decoration: underline;
-    background-color: red;
   }
 }
 
