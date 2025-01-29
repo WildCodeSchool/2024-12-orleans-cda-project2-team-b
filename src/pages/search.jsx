@@ -3,7 +3,6 @@ import { Link, Outlet } from 'react-router-dom';
 // import ButtonRandom from '../components/button-random';
 import './search.scss';
 
-
 const placeholderList = [
   { language: 'Français', placeholderTraduc: 'Ecrivez votre recherche en français' },
   { language: 'English', placeholderTraduc: 'Write your search in english' },
@@ -22,7 +21,6 @@ export default function Search() {
           <input type='search' placeholder='Ecrivez votre recherche en français '></input>
         </div>
         {/* <ButtonRandom /> */}
-        
       </div>
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
