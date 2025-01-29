@@ -1,6 +1,5 @@
 @use '../variables.scss' as vars;
 
-/* From Uiverse.io by Galahhad */
 .random-button {
   --btn-default-bg: rgb(41, 41, 41);
   --btn-padding: 15px 20px;
@@ -16,10 +15,7 @@
   /* 👆 this field should not be empty */
   --font-weight: 600;
   --font-family: Menlo, Roboto Mono, monospace;
-  /* 👆 this field should not be empty */
 }
-
-/* button settings 👆 */
 
 .random-button {
   box-sizing: border-box;

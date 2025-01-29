@@ -4,7 +4,7 @@ export default function ButtonRandom() {
   return (
     <>
       <button className='random-button'>
-        <span>Article aléatoires</span>
+        <span>Articles aléatoires</span>
       </button>
     </>
   );
