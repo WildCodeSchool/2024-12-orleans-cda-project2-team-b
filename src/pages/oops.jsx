@@ -12,7 +12,7 @@ export default function Oops() {
           Nous n’avons pas de résultat pour votre demande
         </p>
         <Link to='/recherche'>
-          <img className='no-search-icon' src='/icons/search-inactive-black.png' alt='loupe lien vers recherche' />
+          <img className='no-search-icon' src='./../icons/search-inactive-black.png' alt='loupe lien vers recherche' />
         </Link>
       </div>
     </>

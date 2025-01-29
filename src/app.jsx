@@ -5,7 +5,6 @@ import BackgroundCard from './components/background-card';
 import Footer from './components/footer';
 import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
-import Oops from './pages/oops';
 
 function App() {
   return (
