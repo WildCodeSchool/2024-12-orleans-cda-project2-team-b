@@ -29,6 +29,8 @@
     font-family: vars.$font-family;
     margin-bottom: 0.5%;
     padding: 0.5%;
+    border: none;
+    border-radius: 2%;
   }
   .button-yes {
     width: 20%;
@@ -37,7 +39,6 @@
   }
   .button-no {
     background-color: vars.$color-details;
-    border: none;
     color: vars.$primary-color;
     text-decoration: underline;
   }
@@ -52,4 +53,8 @@
       width: 20dvw;
     }
   }
+}
+
+.pop-up-question-no-display {
+  display: none;
 }

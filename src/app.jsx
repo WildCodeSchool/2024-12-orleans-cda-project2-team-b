@@ -13,12 +13,12 @@ function App() {
       <Navbar />
       <BackgroundCard />
       <MainTitle />
-      <PopUpQuestion />
 
       <main className='absolute-center-container'>
         <Outlet />
       </main>
 
+      <PopUpQuestion />
       <Footer />
     </>
   );
