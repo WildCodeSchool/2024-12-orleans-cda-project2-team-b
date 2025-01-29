@@ -1,19 +1,20 @@
-@use './src/variables.scss' as vars;
+@use '../src/variables.scss' as vars;
 
-.searchBar {
+.search-bar {
   border-radius: 50px;
   height: 10dvh;
   width: 50dvw;
   background-color: vars.$color-details;
   padding: 2dvh;
   display: flex;
+  margin-bottom: 5%;
 }
 
-.searchBar:hover {
+.search-bar:hover {
   border: solid 0.5px vars.$primary-color;
 }
 
-.searchBar input {
+.search-bar input {
   padding-left: 1.5dvh;
   background-color: vars.$color-details;
   font-family: vars.$font-family;
@@ -23,25 +24,25 @@
   width: 95dvw;
 }
 
-.searchBar input::placeholder {
+.search-bar input::placeholder {
   opacity: 30%;
 }
 
-.searchBar input:focus {
+.search-bar input:focus {
   outline: none;
 }
 
-.searchBar input::-webkit-search-cancel-button {
+.search-bar input::-webkit-search-cancel-button {
   display: none;
 }
 
 @media (max-width: 770px) {
-  .searchBar {
+  .search-bar {
     width: 90dvw;
     height: 6dvh;
   }
 
-  .searchBar input {
+  .search-bar input {
     font-size: vars.$mobile-content;
     margin: -3%;
     margin-left: 0%;
