@@ -6,34 +6,33 @@ import Modal from './modal';
 import './navbar.scss';
 
 export default function Navbar() {
-  const location = useLocation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const location = useLocation(); //permet d'obtenir chemin dès qu'on change de page
+  const [isModalOpen, SetIsModalOpen] = useState(false);
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+    SetIsModalOpen(!isModalOpen);
   };
-
   return (
     <>
-      {/* Création de la navbar icône + texte */}
+      {/* Création de la navbar icone + texte */}
       <nav className='navbar'>
         {iconList.map((icon) =>
-          icon.isModalTrigger ? (
-            //  Utilisation d'un bouton pour ouvrir la modale si l'élément du tableau comporte le trigger
-            <button
-              type='button'
+          icon.isModaleTrigger ? (
+            // Vérifie si c'est le bouton qui ouvre la modale
+            <div
               key={icon.name}
               className='modal-trigger'
               onClick={toggleModal}
-              aria-expanded={isModalOpen}
+              onKeyDown={(e) => e.key === 'Enter' && toggleModal()}
+              tabIndex={0} // Rendre focusable au clavier
+              role='button' // Indiquer que cet élément agit comme un bouton
             >
               {/* Affiche l'icône active ou inactive */}
               <img src={isModalOpen ? icon.imgSrcOn : icon.imgSrcOff} alt={icon.name} title={icon.name} />
               <p>{icon.name}</p>
-            </button>
+            </div>
           ) : (
             <Link key={icon.name} to={icon.link}>
-              {/* Affiche l'icône active ou inactive, + gestion du "/" qui est dans tous les chemins mais seul = home */}
+              {/* Affiche l'icône active ou inactive, + gestion du "/" qui est dans tous les chemins mais seul = home*/}
               {location.pathname === icon.link || (icon.link !== '/' && location.pathname.includes(icon.link)) ? (
                 <img src={icon.imgSrcOn} alt={icon.name} title={icon.name} />
               ) : (
@@ -44,8 +43,6 @@ export default function Navbar() {
           ),
         )}
       </nav>
-
-      {/* Affichage de la modale */}
       {isModalOpen && (
         <Modal isShowing={isModalOpen} hide={toggleModal}>
           <h2>À propos de nous</h2>
