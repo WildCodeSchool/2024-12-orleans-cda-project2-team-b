@@ -1,8 +1,9 @@
 import { Link, Outlet } from 'react-router-dom';
 
+import ButtonRandom from '../components/button-random.jsx';
 import './no-favourite.scss';
 
-export default function NoFavourite() {
+export default function noFavourite() {
   return (
     <>
       <Outlet />
@@ -13,7 +14,7 @@ export default function NoFavourite() {
           Laissez-vous tenter par notre recherche aléatoire.
         </p>
         <Link to='random'>
-          <button>Rajouter composant bouton aleatoire</button>
+          <ButtonRandom />
         </Link>
       </div>
     </>
