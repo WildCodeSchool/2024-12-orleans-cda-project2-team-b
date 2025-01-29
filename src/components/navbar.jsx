@@ -6,7 +6,7 @@ import Modal from './modal';
 import './navbar.scss';
 
 export default function Navbar() {
-  const location = useLocation(); //permet d'obtenir chemin dès qu'on change de page
+  const location = useLocation();
   const [isModalOpen, SetIsModalOpen] = useState(false);
   const toggleModal = () => {
     SetIsModalOpen(!isModalOpen);
@@ -17,14 +17,13 @@ export default function Navbar() {
       <nav className='navbar'>
         {iconList.map((icon) =>
           icon.isModaleTrigger ? (
-            // Vérifie si c'est le bouton qui ouvre la modale
             <div
               key={icon.name}
               className='modal-trigger'
               onClick={toggleModal}
               onKeyDown={(e) => e.key === 'Enter' && toggleModal()}
-              tabIndex={0} // Rendre focusable au clavier
-              role='button' // Indiquer que cet élément agit comme un bouton
+              tabIndex={0}
+              role='button'
             >
               {/* Affiche l'icône active ou inactive */}
               <img src={isModalOpen ? icon.imgSrcOn : icon.imgSrcOff} alt={icon.name} title={icon.name} />
@@ -43,6 +42,7 @@ export default function Navbar() {
           ),
         )}
       </nav>
+      {/* Affichele la modale et son contenu*/}
       {isModalOpen && (
         <Modal isShowing={isModalOpen} hide={toggleModal}>
           <h2>À propos de nous</h2>
