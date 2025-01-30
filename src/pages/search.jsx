@@ -1,4 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 import './search.scss';
 
@@ -11,15 +12,40 @@ const placeholderList = [
 ];
 
 export default function Search() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchQuery.trim() !== '') {
+      navigate(`/resultats-de-recherche?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   return (
     <>
-      {/*Plus tard afficher le place holder selon langue choisie */}
       <div className='search-bar'>
-        <img src='/icons/search.png' />
-        <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+        <button
+          onClick={handleSearch}
+          style={{
+            backgroundImage: "url('/icons/search.png')",
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            width: '60px',
+            height: '60px',
+            border: 'none',
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+          }}
+        ></button>
+        <input
+          type='search'
+          placeholder='Ecrivez votre recherche en français'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
 
-      <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
       <Outlet />
