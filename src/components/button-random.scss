@@ -17,6 +17,7 @@
 }
 
 .random-button {
+  align-self: center;
   width: 18.75rem;
   box-sizing: border-box;
   padding: var(--btn-padding);
@@ -39,6 +40,11 @@
   box-sizing: border-box;
   position: relative;
   background: inherit;
+}
+
+.random-button > a {
+  color: vars.$text-color;
+  text-decoration: none;
 }
 
 .random-button span::before {

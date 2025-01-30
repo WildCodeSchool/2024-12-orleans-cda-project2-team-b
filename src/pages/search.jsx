@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import './search.scss';
@@ -12,10 +12,11 @@ const placeholderList = [
 ];
 
 export default function Search() {
+  const location = useLocation();
   return (
     <>
       {/*Plus tard afficher le place holder selon langue choisie */}
-      <div className='search-bar'>
+      <div className={location.pathname === '/recherche/oops' ? 'search-bar-no-display' : 'search-bar'}>
         <img src='/icons/search.png' />
         <input type='search' placeholder='Ecrivez votre recherche en français '></input>
       </div>
