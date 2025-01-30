@@ -51,8 +51,8 @@ export default function Navbar() {
       {/* Affichele la modale et son contenu*/}
       {isModalOpen && (
         <Modal isShowing={isModalOpen} hide={toggleModal}>
-          <section>
-            <div>
+          <section className='aboutSection'>
+            <div className='aboutContent'>
               <h2>Présentation et but du projet :</h2>
               <p>
                 Nous sommes trois étudiantes à la Wild Code School en cursus de Concepteur Développeur
@@ -66,13 +66,13 @@ export default function Navbar() {
             </div>
             <div>
               <h2>Notre équipe</h2>
-              <div>
+              <div className='membersInformations'>
                 {/* Utilisation du .map pour pouvoir récupérer la liste des membres du projet et pouvoir les afficher avec leurs datas. */}
                 {memberList.map((member, index) => (
                   <article key={index}>
-                    <img src={member.picture} alt={member.name} />
+                    <img className='memberPicture' src={member.picture} alt={member.name} />
                     <p>{member.name}</p>
-                    <div>
+                    <div className='linksButtons'>
                       <img
                         key={member}
                         src='../../public/icons/github.svg'

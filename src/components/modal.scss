@@ -36,3 +36,38 @@
 .modal-content {
   margin-top: 1rem;
 }
+
+.aboutSection {
+  display: flex;
+  flex-direction: column;
+  .membersInformations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 25%;
+  }
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    padding: 0 25%;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .memberPicture {
+      height: 10rem;
+    }
+    .linksButtons {
+      display: flex;
+      height: 2rem;
+    }
+  }
+}
