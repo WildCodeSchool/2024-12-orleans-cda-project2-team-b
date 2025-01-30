@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { iconList } from './icon-list';
+import { memberList } from './member-list';
 import Modal from './modal';
 import './navbar.scss';
 
@@ -26,6 +27,8 @@ export default function Navbar() {
               onClick={toggleModal}
               onKeyDown={(e) => e.key === 'Enter' && toggleModal()}
               tabIndex={0}
+              // Ignore la règle pour l'exception et le style spécifique à donner qui ne s'applique pas à un <bouton> classique.
+              // biome-ignore lint/a11y/useSemanticElements: <explanation>
               role='button'
             >
               {/* Affiche l'icône active ou inactive */}
@@ -63,16 +66,49 @@ export default function Navbar() {
             </div>
             <div>
               <h2>Notre équipe</h2>
-              <article>
+              <div>
+                {memberList.map((member, index) => (
+                  <article key={index}>
+                    <img src={member.picture} alt={member.name} />
+                    <p>{member.name}</p>
+                    <div>
+                      <img
+                        key={member}
+                        src='../../public/icons/github.svg'
+                        alt='Logo Github'
+                        onClick={() => openInNewTab(member.github)}
+                        onKeyDown={(e) => e.key === 'Enter'}
+                        style={{ cursor: 'pointer' }}
+                      />
+                      <img
+                        key={member}
+                        src='../../public/icons/linkedin.svg'
+                        alt='Logo Linkedin'
+                        onClick={() => openInNewTab(member.linkedin)}
+                        onKeyDown={(e) => e.key === 'Enter'}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </div>
+                  </article>
+                ))}
+              </div>
+              {/* <article>
                 <p>Chloé</p>
               </article>
               <article>
                 <p>Mélissa</p>
               </article>
               <article>
+                <img src='../../public/images/template-picture.svg' alt='Océane' />
                 <p>Océane</p>
                 <div>
-                  <img src='../../public/icons/github.svg' alt='Logo GitHub' />
+                  <img
+                    src='../../public/icons/github.svg'
+                    alt='Logo GitHub'
+                    onClick={() => openInNewTab('https://github.com/ThisIsHowVillainsAreMade')}
+                    onKeyDown={(e) => e.key === 'Enter'}
+                    style={{ cursor: 'pointer' }}
+                  />
                   <img
                     src='../../public/icons/linkedin.svg'
                     alt='Logo LinkedIn'
@@ -81,7 +117,7 @@ export default function Navbar() {
                     style={{ cursor: 'pointer' }}
                   />
                 </div>
-              </article>
+              </article> */}
             </div>
           </section>
         </Modal>
