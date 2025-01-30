@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import './no-favourite.scss';
@@ -13,9 +13,7 @@ export default function NoFavourite() {
           <br />
           Laissez-vous tenter par notre recherche aléatoire.
         </p>
-        <Link to='random'>
-          <ButtonRandom />
-        </Link>
+        <ButtonRandom />
       </div>
     </>
   );
