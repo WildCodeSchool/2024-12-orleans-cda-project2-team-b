@@ -6,7 +6,7 @@ export default function ButtonRandom() {
   return (
     <>
       <button className='random-button'>
-        <Link to='../../recherche/article-aleatoire'>
+        <Link to='/recherche/article-aleatoire'>
           <span>Articles aléatoires</span>
         </Link>
       </button>

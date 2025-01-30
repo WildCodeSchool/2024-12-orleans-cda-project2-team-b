@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import './no-favourite.scss';

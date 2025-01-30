@@ -24,10 +24,7 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
-      {
-        path: 'recherche/oops',
-        element: <Oops />,
-      },
+
       {
         path: 'recherche',
         element: <Search />,
@@ -35,6 +32,10 @@ const router = createBrowserRouter([
           {
             path: 'article-aleatoire',
             element: <Random />,
+          },
+          {
+            path: 'oops',
+            element: <Oops />,
           },
           {
             path: 'resultats-de-recherche',
