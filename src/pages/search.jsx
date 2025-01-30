@@ -20,7 +20,7 @@ export default function Search() {
         <input type='search' placeholder='Ecrivez votre recherche en français '></input>
       </div>
 
-      <div className='search-container'>
+      <div className='search-random'>
         <ButtonRandom />
       </div>
 
