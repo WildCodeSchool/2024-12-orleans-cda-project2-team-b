@@ -67,6 +67,7 @@ export default function Navbar() {
             <div>
               <h2>Notre équipe</h2>
               <div>
+                {/* Utilisation du .map pour pouvoir récupérer la liste des membres du projet et pouvoir les afficher avec leurs datas. */}
                 {memberList.map((member, index) => (
                   <article key={index}>
                     <img src={member.picture} alt={member.name} />
@@ -92,32 +93,6 @@ export default function Navbar() {
                   </article>
                 ))}
               </div>
-              {/* <article>
-                <p>Chloé</p>
-              </article>
-              <article>
-                <p>Mélissa</p>
-              </article>
-              <article>
-                <img src='../../public/images/template-picture.svg' alt='Océane' />
-                <p>Océane</p>
-                <div>
-                  <img
-                    src='../../public/icons/github.svg'
-                    alt='Logo GitHub'
-                    onClick={() => openInNewTab('https://github.com/ThisIsHowVillainsAreMade')}
-                    onKeyDown={(e) => e.key === 'Enter'}
-                    style={{ cursor: 'pointer' }}
-                  />
-                  <img
-                    src='../../public/icons/linkedin.svg'
-                    alt='Logo LinkedIn'
-                    onClick={() => openInNewTab('https://www.linkedin.com/in/oaiw/')}
-                    onKeyDown={(e) => e.key === 'Enter'}
-                    style={{ cursor: 'pointer' }}
-                  />
-                </div>
-              </article> */}
             </div>
           </section>
         </Modal>
