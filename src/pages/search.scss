@@ -1,5 +1,11 @@
 @use '../variables.scss' as vars;
 
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .search-bar {
   border-radius: 50px;
   height: 10dvh;
