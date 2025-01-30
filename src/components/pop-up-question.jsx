@@ -7,10 +7,17 @@ import './pop-up-question.scss';
 export function PopUpQuestion() {
   const [isOk, setIsOk] = useState(false);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const storedChoice = localStorage.getItem('choice');
     if (storedChoice === 'yes') {
       setIsOk(true);
+    } else {
+      // Déclenche l'animation après un petit délai
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 400);
     }
   }, []);
 
@@ -27,7 +34,8 @@ export function PopUpQuestion() {
   ///////////////////////////////////////////////////////
 
   return (
-    <div className={isOk ? 'pop-up-question-no-display' : 'pop-up-question'}>
+    <div className={isOk ? 'pop-up-question-no-display' : `pop-up-question ${isVisible ? 'show' : ''}`}>
+      {/* className={`image-container ${isVisible ? 'show' : ''}`} */}
       <h1>VOTRE EXPÉRIENCE, VOS CHOIX</h1>
       <p>
         Afin d’optimiser votre expérience, consentez-vous à l’enregistrement de vos articles favoris et de votre

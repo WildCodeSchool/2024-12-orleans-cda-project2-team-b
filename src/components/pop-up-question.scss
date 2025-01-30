@@ -2,26 +2,27 @@
 
 .pop-up-question {
   position: absolute;
-  right: 0px;
-  bottom: 2dvh;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: vars.$color-details;
-  width: 35dvw;
+  width: 35%;
   padding: 1%;
-
-  p {
-    text-align: center;
-    margin-bottom: 2%;
-  }
+  opacity: 0;
+  transition:
+    bottom 1s ease-out,
+    opacity 1s ease-out;
 
   h1 {
     color: vars.$primary-color;
     font-family: vars.$font-family;
     letter-spacing: 0.1rem;
     font-weight: 100;
+    margin: 2%;
   }
 
   button {
@@ -33,6 +34,7 @@
     border-radius: 2%;
   }
   .button-yes {
+    margin-top: 3%;
     width: 20%;
     background-color: vars.$primary-color;
     color: vars.$text-color;
@@ -44,14 +46,24 @@
   }
 }
 
+.pop-up-question.show {
+  bottom: 2dvh;
+  opacity: 1;
+}
+
 @media (max-width: 700px) {
   .pop-up-question {
     width: 100dvw;
-    bottom: 9dvh;
+    bottom: 0;
 
     button {
       width: 20dvw;
     }
+  }
+
+  .pop-up-question.show {
+    bottom: 9dvh;
+    opacity: 1;
   }
 }
 
