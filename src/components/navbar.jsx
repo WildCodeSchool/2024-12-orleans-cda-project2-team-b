@@ -11,6 +11,9 @@ export default function Navbar() {
   const toggleModal = () => {
     SetIsModalOpen(!isModalOpen);
   };
+  const openInNewTab = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
   return (
     <>
       {/* Création de la navbar icone + texte */}
@@ -45,14 +48,42 @@ export default function Navbar() {
       {/* Affichele la modale et son contenu*/}
       {isModalOpen && (
         <Modal isShowing={isModalOpen} hide={toggleModal}>
-          <h2>À propos de nous</h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate fuga et sit sint dicta tempora,
-            exercitationem perspiciatis reprehenderit blanditiis doloremque placeat numquam explicabo culpa, natus atque
-            iure esse minima veniam! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam maiores minima
-            dicta in eligendi sed tempore vel est exercitationem magnam error similique dolorem recusandae accusantium
-            facere, animi optio autem incidunt?
-          </p>
+          <section>
+            <div>
+              <h2>Présentation et but du projet :</h2>
+              <p>
+                Nous sommes trois étudiantes à la Wild Code School en cursus de Concepteur Développeur
+                d&apos;Applications. Nous avons eu pour consigne de créer un site internet responsive se nourrissant
+                d&apos;une API. Pour ce faire, nous avons utilisé une API de news et avons créé tout un projet autour de
+                ce concept, allant de l&apos; à la maquetisation, au choix des couleurs ou plus globalement du design
+                pour une Direction Artistique que nous avons souhaité épurée — jusqu&apos;à la conception et la mise en
+                production de notre application. <br />
+                Nous espérons sincèrement que Wild&apos;s News et son concept sauront vous ravir.
+              </p>
+            </div>
+            <div>
+              <h2>Notre équipe</h2>
+              <article>
+                <p>Chloé</p>
+              </article>
+              <article>
+                <p>Mélissa</p>
+              </article>
+              <article>
+                <p>Océane</p>
+                <div>
+                  <img src='../../public/icons/github.svg' alt='Logo GitHub' />
+                  <img
+                    src='../../public/icons/linkedin.svg'
+                    alt='Logo LinkedIn'
+                    onClick={() => openInNewTab('https://www.linkedin.com/in/oaiw/')}
+                    onKeyDown={(e) => e.key === 'Enter'}
+                    style={{ cursor: 'pointer' }}
+                  />
+                </div>
+              </article>
+            </div>
+          </section>
         </Modal>
       )}
     </>
