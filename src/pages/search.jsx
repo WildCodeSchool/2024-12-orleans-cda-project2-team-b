@@ -15,13 +15,15 @@ export default function Search() {
   return (
     <>
       {/*Plus tard afficher le place holder selon langue choisie */}
-      <div className='search-container'>
-        <div className='search-bar'>
-          <img src='/icons/search.png' />
-          <input type='search' placeholder='Ecrivez votre recherche en français '></input>
-        </div>
+      <div className='search-bar'>
+        <img src='/icons/search.png' />
+        <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+      </div>
+
+      <div className='search-random'>
         <ButtonRandom />
       </div>
+
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
