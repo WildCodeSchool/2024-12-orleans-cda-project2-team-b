@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-// import ButtonRandom from '../components/button-random';
+import ButtonRandom from '../components/button-random';
 import './search.scss';
 
 const placeholderList = [
@@ -20,7 +20,7 @@ export default function Search() {
           <img src='/icons/search.png' />
           <input type='search' placeholder='Ecrivez votre recherche en français '></input>
         </div>
-        {/* <ButtonRandom /> */}
+        <ButtonRandom />
       </div>
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
