@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
+import ButtonRandom from '../components/button-random';
 import './search.scss';
 
 const placeholderList = [
@@ -12,38 +12,17 @@ const placeholderList = [
 ];
 
 export default function Search() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
-
-  const handleSearch = () => {
-    if (searchQuery.trim() !== '') {
-      navigate(`/resultats-de-recherche?query=${encodeURIComponent(searchQuery)}`);
-    }
-  };
-
+  const location = useLocation();
   return (
     <>
-      <div className='search-bar'>
-        <button
-          onClick={handleSearch}
-          style={{
-            backgroundImage: "url('/icons/search.png')",
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            width: '60px',
-            height: '60px',
-            border: 'none',
-            backgroundColor: 'transparent',
-            cursor: 'pointer',
-          }}
-        ></button>
-        <input
-          type='search'
-          placeholder='Ecrivez votre recherche en français'
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+      {/*Plus tard afficher le place holder selon langue choisie */}
+      <div className={location.pathname === '/recherche/oops' ? 'search-bar-no-display' : 'search-bar'}>
+        <img src='/icons/search.png' />
+        <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+      </div>
+
+      <div className='search-random'>
+        <ButtonRandom />
       </div>
 
       <Link to='oops'>Erreur de recherche</Link>

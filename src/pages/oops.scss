@@ -1,0 +1,13 @@
+@use '../variables.scss' as vars;
+
+.no-search-container {
+  text-align: center;
+  font-size: vars.$desktop-content;
+  @media screen and (max-width: 700px) {
+    font-size: vars.$mobile-content;
+  }
+}
+
+.no-search-icon {
+  height: 35px;
+}
