@@ -16,5 +16,5 @@ export const countryList = [
     placeholderTraduc: 'Escriba su investigación en español',
     iconSrcCountry: '/icons/flag-spain.svg',
   },
-  { language: 'All', placeholderTraduc: 'You can write in any language', iconSrcCountry: '/icons/flag-earth.svg' },
+  { language: 'All', placeholderTraduc: 'You can write in any language 🤪', iconSrcCountry: '/icons/flag-earth.svg' },
 ];

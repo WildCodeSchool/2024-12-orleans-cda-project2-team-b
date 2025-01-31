@@ -7,49 +7,56 @@ import './search.scss';
 
 export default function Search() {
   const location = useLocation();
-  const [languageActive, setLanguageActive] = useState(false);
+  const [listeLanguageActive, setListeLanguageActive] = useState(false);
 
-  function handleClickLanguage() {
-    if (!languageActive) {
-      setLanguageActive(true);
+  const [language, setLanguage] = useState('Français');
+  const indexCountry = countryList.findIndex((country) => country.language === language);
+  const correctPlaceholder = countryList[indexCountry].placeholderTraduc;
+  //console.log('index : ' + indexCountry);
+
+  function handleClickMoreLanguage() {
+    if (!listeLanguageActive) {
+      setListeLanguageActive(true);
     } else {
-      setLanguageActive(false);
+      setListeLanguageActive(false);
     }
   }
 
   return (
     <>
-      {/*Plus tard afficher le place holder selon langue choisie */}
+      {/* SEARCHBAR */}
       <div className={location.pathname === '/recherche/oops' ? 'search-bar-no-display' : 'search-bar'}>
         <img src='/icons/search.png' />
-        <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+        <input type='search' placeholder={correctPlaceholder}></input>
       </div>
 
+      {/* LIST LANGUAGE */}
       <div className='container-language'>
-        <div className='container-text' onClick={handleClickLanguage}>
+        <div className='container-text' onClick={handleClickMoreLanguage}>
           Langue de recherche
-          <img className={languageActive ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
+          <img className={listeLanguageActive ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
         </div>
 
-        <div className={languageActive ? 'container-flags' : 'container-flags-no-display'}>
+        <div className={listeLanguageActive ? 'container-flags' : 'container-flags-no-display'}>
           {countryList.map((country) => (
             <img
-              key={country.name}
+              onClick={() => setLanguage(country.language)}
+              key={country.language}
               src={country.iconSrcCountry}
-              alt={country.countryName}
-              title={country.countryName}
+              alt={country.language}
+              title={country.language}
             />
           ))}
         </div>
       </div>
 
+      {/* BUTTON RANDOM */}
       <div className='search-random'>
         <ButtonRandom />
       </div>
 
       <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
-      <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
       <Outlet />
     </>
   );
