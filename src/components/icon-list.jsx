@@ -1,30 +1,30 @@
 export const iconList = [
   {
-    name: 'Accueil',
+    countryName: 'Accueil',
     imgSrcOn: '/icons/home-active.png',
     imgSrcOff: '/icons/home-inactive.png',
     link: '/',
   },
   {
-    name: 'Recherche',
+    countryName: 'Recherche',
     imgSrcOn: '/icons/search-active.png',
     imgSrcOff: '/icons/search-inactive.png',
     link: '/recherche',
   },
   {
-    name: 'Favoris',
+    countryName: 'Favoris',
     imgSrcOn: '/icons/fav-active.png',
     imgSrcOff: '/icons/fav-inactive.png',
     link: '/favoris',
   },
   {
-    name: 'Historique',
+    countryName: 'Historique',
     imgSrcOn: '/icons/histo-active.png',
     imgSrcOff: '/icons/histo-inactive.png',
     link: '/historique',
   },
   {
-    name: 'A propos',
+    countryName: 'A propos',
     imgSrcOn: '/icons/about-active.png',
     imgSrcOff: '/icons/about-inactive.png',
     link: '/',
