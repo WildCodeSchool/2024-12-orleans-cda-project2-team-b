@@ -1,5 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
-
+// import { Link, Outlet } from 'react-router-dom';
 import './article-history.scss';
 
 export default function ArticleHistory() {
