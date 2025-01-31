@@ -1,5 +1,14 @@
 @use '../variables.scss' as vars;
 
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (max-width: 700px) {
+    margin-top: 40%;
+  }
+}
+
 .search-random {
   display: flex;
   flex-direction: column;
@@ -7,7 +16,9 @@
 }
 
 .search-bar {
-  border-radius: 50px;
+  overflow-x: hidden;
+  margin-top: 25px;
+  border-radius: 3rem;
   height: 10dvh;
   width: 50dvw;
   background-color: vars.$color-details;
@@ -56,6 +67,8 @@
   }
 }
 
-.search-bar-no-display {
+.search-bar-no-display,
+.search-random-no-display,
+.search-container-no-display {
   display: none;
 }

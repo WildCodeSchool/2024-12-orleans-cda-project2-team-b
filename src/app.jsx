@@ -14,7 +14,7 @@ function App() {
       <BackgroundCard />
       <MainTitle />
 
-      <main className='absolute-center-container'>
+      <main>
         <Outlet />
       </main>
 

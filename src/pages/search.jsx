@@ -16,16 +16,35 @@ export default function Search() {
   return (
     <>
       {/*Plus tard afficher le place holder selon langue choisie */}
-      <div className={location.pathname === '/recherche/oops' ? 'search-bar-no-display' : 'search-bar'}>
-        <img src='/icons/search.png' />
-        <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+      <div
+        className={
+          location.pathname === '/recherche/article-choisi' ? 'search-container-no-display' : 'search-container'
+        }
+      >
+        <div
+          className={
+            location.pathname === '/recherche/oops' || location.pathname === '/recherche/article-choisi'
+              ? 'search-bar-no-display'
+              : 'search-bar'
+          }
+        >
+          <img src='/icons/search.png' />
+          <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+        </div>
+
+        <div
+          className={
+            location.pathname === '/recherche/article-choisi' || location.pathname === '/recherche/oops'
+              ? 'search-random-no-display'
+              : 'search-random'
+          }
+        >
+          {/* <div className='search-random '> */}
+          <ButtonRandom />
+          {/* </div> */}
+        </div>
       </div>
 
-      <div className='search-random'>
-        <ButtonRandom />
-      </div>
-
-      <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
       <Outlet />

@@ -34,6 +34,14 @@
   box-shadow: var(--btn-shadow);
 }
 
+@media (max-width: 770px) {
+  .random-button {
+    height: 1.5rem;
+    width: 15rem;
+    font-size: 0.9rem;
+  }
+}
+
 .random-button span {
   letter-spacing: var(--btn-letter-spacing);
   transition: var(--btn-transition);
