@@ -1,0 +1,72 @@
+@use '../variables.scss' as vars;
+
+.pop-up-question {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: vars.$color-details;
+  width: 35%;
+  padding: 1%;
+  opacity: 0;
+  transition:
+    bottom 1s ease-out,
+    opacity 1s ease-out;
+
+  h1 {
+    color: vars.$primary-color;
+    font-family: vars.$font-family;
+    letter-spacing: 0.1rem;
+    font-weight: 100;
+    margin: 2%;
+  }
+
+  button {
+    display: block;
+    font-family: vars.$font-family;
+    margin-bottom: 0.5%;
+    padding: 0.5%;
+    border: none;
+    border-radius: 2%;
+  }
+  .button-yes {
+    margin-top: 3%;
+    width: 20%;
+    background-color: vars.$primary-color;
+    color: vars.$text-color;
+  }
+  .button-no {
+    background-color: vars.$color-details;
+    color: vars.$primary-color;
+    text-decoration: underline;
+  }
+}
+
+.pop-up-question.show {
+  bottom: 2dvh;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .pop-up-question {
+    width: 100dvw;
+    bottom: 0;
+
+    button {
+      width: 20dvw;
+    }
+  }
+
+  .pop-up-question.show {
+    bottom: 9dvh;
+    opacity: 1;
+  }
+}
+
+.pop-up-question-no-display {
+  display: none;
+}
