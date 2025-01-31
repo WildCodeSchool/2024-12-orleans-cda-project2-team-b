@@ -1,0 +1,22 @@
+@use '../variables.scss' as vars;
+
+.title-like-history {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-history {
+  width: 80dvw;
+  height: 4.2rem;
+  margin: 10px;
+  border: 1px black solid;
+  filter: drop-shadow(2px 2px 2px #000000);
+  background-color: vars.$secondary-color;
+  border-radius: 6px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.article-history > p {
+  margin-top: 10px;
+}
