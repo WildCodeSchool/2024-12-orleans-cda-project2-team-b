@@ -16,7 +16,11 @@ export default function Search() {
   return (
     <>
       {/*Plus tard afficher le place holder selon langue choisie */}
-      <div className='search-container'>
+      <div
+        className={
+          location.pathname === '/recherche/article-choisi' ? 'search-container-no-display' : 'search-container'
+        }
+      >
         <div
           className={
             location.pathname === '/recherche/oops' || location.pathname === '/recherche/article-choisi'

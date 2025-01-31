@@ -16,7 +16,7 @@
 }
 
 .article-box {
-  margin-top: 20px;
+  margin-top: 1.2rem;
   text-align: justify;
   border: black solid 1px;
   filter: drop-shadow(1px 1px 2px #000000);
@@ -30,25 +30,25 @@
 }
 
 .article-box > img {
-  margin-top: 10px;
+  margin-top: 1rem;
   width: 77%;
   height: 38dvh;
 }
 
 .article-box > h2 {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 1rem;
   width: 77%;
 }
 
 .article-box > p {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   width: 77%;
 }
 
 .text-article {
-  height: 40px;
+  height: 2.2rem;
   overflow-y: hidden;
   text-overflow: [ellipsis];
 }
@@ -63,13 +63,13 @@
 .complete-article,
 .like-button {
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 1.2rem;
 }
 
 .previous-article,
 .next-article {
   position: relative;
-  margin: 30px;
+  margin: 2rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -77,7 +77,7 @@
     height: 60dvh;
   }
   .article-box > img {
-    margin-top: 10px;
+    margin-top: 1rem;
     width: 77%;
     height: auto;
   }
@@ -94,6 +94,6 @@
   .previous-article,
   .next-article {
     margin: 0;
-    margin-top: 20px;
+    margin-top: 1.5rem;
   }
 }
