@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
@@ -6,6 +6,10 @@ import { countryList } from '../components/country-list';
 import './search.scss';
 
 export default function Search() {
+  useEffect(() => {
+    const storedChoiceLanguage = localStorage.getItem('language');
+  });
+
   const location = useLocation();
   const [listeLanguageActive, setListeLanguageActive] = useState(false);
 
@@ -26,7 +30,9 @@ export default function Search() {
     <>
       {/* SEARCHBAR */}
       <div className={location.pathname === '/recherche/oops' ? 'search-bar-no-display' : 'search-bar'}>
-        <img src='/icons/search.png' />
+        <Link to='resultats-de-recherche'>
+          <img src='/icons/search.svg' alt='search' title='search' />
+        </Link>
         <input type='search' placeholder={correctPlaceholder}></input>
       </div>
 
@@ -40,7 +46,9 @@ export default function Search() {
         <div className={listeLanguageActive ? 'container-flags' : 'container-flags-no-display'}>
           {countryList.map((country) => (
             <img
-              onClick={() => setLanguage(country.language)}
+              onClick={() => {
+                setLanguage(country.language), localStorage.setItem('language', country.language);
+              }}
               key={country.language}
               src={country.iconSrcCountry}
               alt={country.language}
@@ -55,7 +63,6 @@ export default function Search() {
         <ButtonRandom />
       </div>
 
-      <Link to='resultats-de-recherche'>Résultats de recherche</Link>
       <Link to='oops'>Erreur de recherche</Link>
       <Outlet />
     </>
