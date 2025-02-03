@@ -75,3 +75,19 @@ div.modal {
     }
   }
 }
+
+@media (max-width: 700px) {
+  div.modal {
+    max-height: 90dvh;
+    // width: 70dvw;
+    overflow-x: scroll;
+  }
+
+  .aboutSection p {
+    padding: 0 0 5% 0;
+  }
+  .aboutSection,
+  .membersInformations {
+    padding: 0 !important;
+  }
+}
