@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   @media screen and (max-width: 700px) {
-    margin-top: 100px;
+    margin-top: 40%;
   }
 }
 
@@ -18,7 +18,7 @@
 .search-bar {
   overflow-x: hidden;
   margin-top: 25px;
-  border-radius: 50px;
+  border-radius: 3rem;
   height: 10dvh;
   width: 50dvw;
   background-color: vars.$color-details;
@@ -67,10 +67,8 @@
   }
 }
 
-.search-bar-no-display {
-  display: none;
-}
-
-.search-random-no-display {
+.search-bar-no-display,
+.search-random-no-display,
+.search-container-no-display {
   display: none;
 }
