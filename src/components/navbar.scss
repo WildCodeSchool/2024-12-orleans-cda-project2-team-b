@@ -1,4 +1,4 @@
-@use '/src/variables.scss' as vars;
+@use '../variables.scss' as vars;
 
 .navbar * {
   margin: 0;
@@ -22,7 +22,6 @@
 
 .navbar img,
 .navbar p {
-  margin: 0;
   color: vars.$text-color;
   font-family: vars.$font-family;
   font-weight: 100;

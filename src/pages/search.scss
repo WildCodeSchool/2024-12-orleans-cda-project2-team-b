@@ -1,0 +1,74 @@
+@use '../variables.scss' as vars;
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (max-width: 700px) {
+    margin-top: 40%;
+  }
+}
+
+.search-random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar {
+  overflow-x: hidden;
+  margin-top: 1.563rem;
+  border-radius: 3rem;
+  height: 10dvh;
+  width: 50dvw;
+  background-color: vars.$color-details;
+  padding: 2dvh;
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.search-bar:hover {
+  border: solid 0.5px vars.$primary-color;
+}
+
+.search-bar input {
+  padding-left: 1.5dvh;
+  background-color: vars.$color-details;
+  font-family: vars.$font-family;
+  color: vars.$primary-color;
+  font-size: vars.$desktop-content;
+  border: none;
+  width: 95dvw;
+}
+
+.search-bar input::placeholder {
+  opacity: 30%;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar input::-webkit-search-cancel-button {
+  display: none;
+}
+
+@media (max-width: 770px) {
+  .search-bar {
+    width: 90dvw;
+    height: 6dvh;
+  }
+
+  .search-bar input {
+    font-size: vars.$mobile-content;
+    margin: -3%;
+    margin-left: 0%;
+    width: 82dvw;
+  }
+}
+
+.search-bar-no-display,
+.search-random-no-display,
+.search-container-no-display {
+  display: none;
+}

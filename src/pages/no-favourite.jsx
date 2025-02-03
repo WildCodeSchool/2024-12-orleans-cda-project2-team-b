@@ -1,12 +1,20 @@
 import { Outlet } from 'react-router-dom';
 
+import ButtonRandom from '../components/button-random';
 import './no-favourite.scss';
 
 export default function NoFavourite() {
   return (
     <>
-      <p>Je suis la page d erreurs quand il n y a aucun favoris.</p>
       <Outlet />
+      <div className='no-favourite-container'>
+        <p>
+          Vous n’avez pas encore de favoris... 🥹
+          <br />
+          Laissez-vous tenter par notre recherche aléatoire.
+        </p>
+        <ButtonRandom />
+      </div>
     </>
   );
 }

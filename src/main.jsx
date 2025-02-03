@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from './app';
 import './main.scss';
-import DisplayFav from './pages/display-favourite';
+import DisplayArticle from './pages/display-article';
 import DisplayHistory from './pages/display-history';
 import Error404 from './pages/error-404';
 import Favourite from './pages/favourite';
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Search />,
         children: [
           {
-            path: 'article-aleatoire/:id',
+            path: 'article-aleatoire',
             element: <Random />,
           },
           {
@@ -39,6 +39,10 @@ const router = createBrowserRouter([
           {
             path: 'resultats-de-recherche',
             element: <Results />,
+          },
+          {
+            path: 'article-choisi',
+            element: <DisplayArticle />,
           },
         ],
       },
@@ -52,7 +56,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'article-favori/:id',
-            element: <DisplayFav />,
+            element: <DisplayArticle />,
           },
         ],
       },
