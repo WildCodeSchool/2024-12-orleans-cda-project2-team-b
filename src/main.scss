@@ -18,3 +18,9 @@ body {
   background-color: vars.$light-color;
   color: vars.$primary-color;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
