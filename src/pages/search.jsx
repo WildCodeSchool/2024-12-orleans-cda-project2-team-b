@@ -6,7 +6,6 @@ import { countryList } from '../components/country-list';
 import './search.scss';
 
 export default function Search() {
-  const [language, setLanguage] = useState('');
   const [listeLanguageActive, setListeLanguageActive] = useState(false);
   const [correctPlaceholder, setCorrectPlaceholder] = useState('');
   const location = useLocation();
@@ -14,18 +13,15 @@ export default function Search() {
   useEffect(() => {
     const storedChoiceLanguage = localStorage.getItem('language');
     if (!storedChoiceLanguage) {
-      setLanguage('Français');
       localStorage.setItem('language', 'Français');
       setCorrectPlaceholder(countryList[0].placeholderTraduc);
     } else {
-      setLanguage(storedChoiceLanguage);
       const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
       setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
     }
   }, []);
 
   function handleClickChoiceLanguage(value) {
-    setLanguage(value);
     localStorage.setItem('language', value);
     const indexCountry = countryList.findIndex((country) => country.language === value);
     setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);

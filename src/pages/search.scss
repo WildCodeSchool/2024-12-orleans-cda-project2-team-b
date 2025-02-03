@@ -8,6 +8,10 @@
     margin-top: 40%;
   }
 }
+.search-container img {
+  width: 2rem;
+  height: auto;
+}
 
 .search-random {
   display: flex;
@@ -17,6 +21,9 @@
 
 .search-bar {
   overflow-x: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin-top: 1.563rem;
   border-radius: 3rem;
   height: 10dvh;
