@@ -1,0 +1,99 @@
+@use '../variables.scss' as vars;
+
+.article-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.background-article {
+  position: absolute;
+  z-index: 0;
+  filter: blur(0.3rem);
+  width: 90%;
+  height: 69dvh;
+}
+
+.article-box {
+  margin-top: 1.2rem;
+  text-align: justify;
+  border: black solid 1px;
+  filter: drop-shadow(1px 1px 2px #000000);
+  width: 60%;
+  position: relative;
+  z-index: 1;
+  background-color: vars.$secondary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-box > img {
+  margin-top: 1rem;
+  width: 77%;
+  height: 38dvh;
+}
+
+.article-box > h2 {
+  text-align: center;
+  margin-top: 1rem;
+  width: 77%;
+}
+
+.article-box > p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 77%;
+}
+
+.text-article {
+  height: 2.2rem;
+  overflow-y: hidden;
+  text-overflow: [ellipsis];
+}
+
+.under-text-article,
+.under-article {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.complete-article,
+.like-button {
+  color: black;
+  margin-bottom: 1.2rem;
+}
+
+.previous-article,
+.next-article {
+  position: relative;
+  margin: 2rem;
+}
+
+@media screen and (max-width: 700px) {
+  .background-article {
+    height: 60dvh;
+  }
+  .article-box > img {
+    margin-top: 1rem;
+    width: 77%;
+    height: auto;
+  }
+  .background-article {
+    display: none;
+  }
+  .article-box {
+    width: 90%;
+    height: 65dvh;
+  }
+  .article-box > p {
+    height: 100dvh;
+  }
+  .previous-article,
+  .next-article {
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+}

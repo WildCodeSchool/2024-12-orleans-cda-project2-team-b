@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import { countryList } from '../components/country-list';
@@ -34,13 +34,24 @@ export default function Search() {
   return (
     <>
       {/* SEARCHBAR */}
-      <div className={location.pathname === '/recherche/oops' ? 'search-bar-no-display' : 'search-bar'}>
-        <Link to='resultats-de-recherche'>
-          <img src='/icons/search.svg' alt='search' title='search' />
-        </Link>
-        <input type='search' placeholder={correctPlaceholder}></input>
+      <div
+        className={
+          location.pathname === '/recherche/article-choisi' ? 'search-container-no-display' : 'search-container'
+        }
+      >
+        <div
+          className={
+            location.pathname === '/recherche/oops' || location.pathname === '/recherche/article-choisi'
+              ? 'search-bar-no-display'
+              : 'search-bar'
+          }
+        >
+          <Link to='resultats-de-recherche'>
+            <img src='/icons/search.png' alt='search' title='search' />
+          </Link>
+          <input type='search' placeholder={correctPlaceholder}></input>
+        </div>
       </div>
-
       {/* LIST LANGUAGE */}
       <div className='container-language'>
         <div className='container-text' onClick={() => setListeLanguageActive((prev) => !prev)}>
@@ -65,9 +76,6 @@ export default function Search() {
       <div className='search-random'>
         <ButtonRandom />
       </div>
-
-      <Link to='oops'>Erreur de recherche</Link>
-      <Outlet />
     </>
   );
 }

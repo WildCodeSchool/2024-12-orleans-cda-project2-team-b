@@ -1,9 +1,10 @@
 import './no-history.scss';
+import Oops from './oops';
 
 export default function NoHistory() {
   return (
     <>
-      <p>Je suis la page d erreurs de l historique</p>
+      <Oops />
     </>
   );
 }
