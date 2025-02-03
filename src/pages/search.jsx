@@ -6,24 +6,29 @@ import { countryList } from '../components/country-list';
 import './search.scss';
 
 export default function Search() {
+  const [language, setLanguage] = useState('');
+  const [listeLanguageActive, setListeLanguageActive] = useState(false);
+  const [correctPlaceholder, setCorrectPlaceholder] = useState('');
+  const location = useLocation();
+
   useEffect(() => {
     const storedChoiceLanguage = localStorage.getItem('language');
-  });
-
-  const location = useLocation();
-  const [listeLanguageActive, setListeLanguageActive] = useState(false);
-
-  const [language, setLanguage] = useState('Français');
-  const indexCountry = countryList.findIndex((country) => country.language === language);
-  const correctPlaceholder = countryList[indexCountry].placeholderTraduc;
-  //console.log('index : ' + indexCountry);
-
-  function handleClickMoreLanguage() {
-    if (!listeLanguageActive) {
-      setListeLanguageActive(true);
+    if (!storedChoiceLanguage) {
+      setLanguage('Français');
+      localStorage.setItem('language', 'Français');
+      setCorrectPlaceholder(countryList[0].placeholderTraduc);
     } else {
-      setListeLanguageActive(false);
+      setLanguage(storedChoiceLanguage);
+      const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
+      setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
     }
+  }, []);
+
+  function handleClickChoiceLanguage(value) {
+    setLanguage(value);
+    localStorage.setItem('language', value);
+    const indexCountry = countryList.findIndex((country) => country.language === value);
+    setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
   }
 
   return (
@@ -38,7 +43,7 @@ export default function Search() {
 
       {/* LIST LANGUAGE */}
       <div className='container-language'>
-        <div className='container-text' onClick={handleClickMoreLanguage}>
+        <div className='container-text' onClick={() => setListeLanguageActive((prev) => !prev)}>
           Langue de recherche
           <img className={listeLanguageActive ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
         </div>
@@ -46,9 +51,7 @@ export default function Search() {
         <div className={listeLanguageActive ? 'container-flags' : 'container-flags-no-display'}>
           {countryList.map((country) => (
             <img
-              onClick={() => {
-                setLanguage(country.language), localStorage.setItem('language', country.language);
-              }}
+              onClick={() => handleClickChoiceLanguage(country.language)}
               key={country.language}
               src={country.iconSrcCountry}
               alt={country.language}
