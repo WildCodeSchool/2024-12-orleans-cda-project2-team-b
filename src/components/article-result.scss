@@ -37,3 +37,33 @@
 .under-image-results > span {
   font-size: 1.5rem;
 }
+
+@media screen and (max-width: 700px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .results-container {
+    margin: 1rem;
+    width: 8.75rem;
+    height: 8.75rem;
+  }
+  .results-container > p {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    margin-top: 0.2rem;
+  }
+
+  .under-image-results > span {
+    font-size: 0.813rem;
+  }
+
+  .under-image-results > button {
+    font-size: 0.3rem;
+  }
+
+  .results-container > img {
+    height: 3.875rem;
+    width: 7.438rem;
+  }
+}
