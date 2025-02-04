@@ -1,17 +1,19 @@
-// import { Link, Outlet } from 'react-router-dom';
-import tiktok from '../assets/Tiktokimg.png';
 import './article-result.scss';
 
-export default function ArticleResult() {
-  //   const historyId = 567;
+export default function ArticleResult({ article }) {
+  if (!article) return null; // Évite les erreurs si `article` est `undefined`.
+
   return (
     <div className='results-container'>
-      <p>Des « réfugiés » américains de TikTok adoptent une autre application chinoise</p>
-      <img src={tiktok} alt="photo de l'article" />
+      <p>{article.description || 'Aucune description disponible'}</p>
+      {article.image_url && <img src={article.image_url} alt="photo de l'article" />}
       <div className='under-image-results'>
-        <button>Likebuttontest</button>
-        {/* <LikeButton /> */}
-        <span>Source article</span>
+        <button>Like</button>
+        <span>
+          <a href={article.link} target='_blank' rel='noopener noreferrer'>
+            {/* Lire l'article */}lirearticle
+          </a>
+        </span>
       </div>
     </div>
   );

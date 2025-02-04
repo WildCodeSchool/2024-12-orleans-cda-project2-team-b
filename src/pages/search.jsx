@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
@@ -13,9 +14,16 @@ const placeholderList = [
 
 export default function Search() {
   const location = useLocation();
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = () => {
+    // console.log('Valeur de la recherche:', searchValue);
+    // Ici, tu peux rediriger vers une page de résultats ou effectuer une action avec la valeur
+  };
+
   return (
     <>
-      {/*Plus tard afficher le place holder selon langue choisie */}
+      {/*Plus tard afficher le placeholder selon langue choisie */}
       <div
         className={
           location.pathname === '/recherche/article-choisi' || location.pathname === '/recherche/resultats-de-recherche'
@@ -32,8 +40,14 @@ export default function Search() {
               : 'search-bar'
           }
         >
-          <img src='/icons/search.png' />
-          <input type='search' placeholder='Ecrivez votre recherche en français '></input>
+          <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
+
+          <input
+            type='search'
+            placeholder='Ecrivez votre recherche en français'
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
         </div>
 
         <div
@@ -45,9 +59,7 @@ export default function Search() {
               : 'search-random'
           }
         >
-          {/* <div className='search-random '> */}
           <ButtonRandom />
-          {/* </div> */}
         </div>
       </div>
 
