@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import { countryList } from '../components/country-list';
+import { ChoicesContext } from '../contexts/choices-context';
 import './search.scss';
 
 export default function Search() {
   const [listeLanguageActive, setListeLanguageActive] = useState(false);
   const [correctPlaceholder, setCorrectPlaceholder] = useState('');
   const location = useLocation();
+  // const { choiceLocalStorage } = useContext(ChoicesContext);
 
   // If no language is chosen, display french placeholder else display the language chosen
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function Search() {
     }
   }, []);
 
+  //if storedChoice==="yes", we keep in localStorage the language else we keep it in sessionStorage
   function handleClickChoiceLanguage(value) {
     const indexCountry = countryList.findIndex((country) => country.language === value);
     setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
