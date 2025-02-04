@@ -2,16 +2,15 @@ import { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
-// import Results from './results';
 import './search.scss';
 
-const placeholderList = [
-  { language: 'Français', placeholderTraduc: 'Ecrivez votre recherche en français' },
-  { language: 'English', placeholderTraduc: 'Write your search in english' },
-  { language: 'Deutsch', placeholderTraduc: 'Schreiben Sie Ihre Suche auf Deutsch' },
-  { language: '中文', placeholderTraduc: '用中文写下您的搜索' },
-  { language: 'Español', placeholderTraduc: 'Escriba su búsqueda en español' },
-];
+// const placeholderList = [
+//   { language: 'Français', placeholderTraduc: 'Ecrivez votre recherche en français' },
+//   { language: 'English', placeholderTraduc: 'Write your search in english' },
+//   { language: 'Deutsch', placeholderTraduc: 'Schreiben Sie Ihre Suche auf Deutsch' },
+//   { language: '中文', placeholderTraduc: '用中文写下您的搜索' },
+//   { language: 'Español', placeholderTraduc: 'Escriba su búsqueda en español' },
+// ];
 
 export default function Search() {
   const navigate = useNavigate();

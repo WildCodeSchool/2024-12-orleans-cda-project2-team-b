@@ -1,7 +1,7 @@
 import './article-result.scss';
 
 export default function ArticleResult({ article }) {
-  if (!article) return null; // Évite les erreurs si `article` est `undefined`.
+  if (!article) return null;
 
   return (
     <div className='results-container'>
