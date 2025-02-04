@@ -55,10 +55,12 @@
   .pop-up-question {
     width: 100dvw;
     bottom: 0;
-    padding: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
 
-    button {
-      width: 20dvw;
+    .button-yes,
+    .button-no {
+      width: 10dvw;
     }
   }
 
@@ -70,10 +72,10 @@
 
 @media (max-width: 700px) {
   .pop-up-question {
-    //width: 100dvw;
-    bottom: 0;
+    padding: 0px;
 
-    button {
+    .button-yes,
+    .button-no {
       width: 20dvw;
     }
   }
