@@ -1,34 +1,35 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import ArticleResult from '../components/article-result';
 import './results.scss';
 
-export default function Results({ value }) {
-  // Renommé `result` en `{ value }` pour la clarté
+export default function Results() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const searchValue = queryParams.get('query');
   const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (value) {
+    if (searchValue) {
       fetch(
         `https://newsdata.io/api/1/latest?apikey=pub_65230da8465946290c3170781460092e243d2&q=${encodeURIComponent(
-          value,
+          searchValue,
         )}`,
       )
         .then((response) => response.json())
         .then((data) => {
-          setArticles(data.results || []); // Correction de `data.article[]` en `data.results || []`
-        })
-        .catch((error) => console.error('Erreur lors de la récupération des articles :', error));
+          setArticles(data.results);
+        });
     }
-  }, [value]);
+  }, [searchValue]);
 
   return (
     <div className='article-result-wrap'>
-      {articles.length > 0 ? (
-        articles.map((article, index) => <ArticleResult key={index} article={article} />)
-      ) : (
-        <p>Aucun article trouvé.</p>
-      )}
+      {articles.length > 0
+        ? articles.map((article, index) => <ArticleResult key={index} article={article} />)
+        : navigate(`/recherche/oops`)}
     </div>
   );
 }

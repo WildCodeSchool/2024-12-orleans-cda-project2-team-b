@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
+// import Results from './results';
 import './search.scss';
 
 const placeholderList = [
@@ -13,12 +14,20 @@ const placeholderList = [
 ];
 
 export default function Search() {
+  const navigate = useNavigate();
   const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = () => {
-    // console.log('Valeur de la recherche:', searchValue);
-    // Ici, tu peux rediriger vers une page de résultats ou effectuer une action avec la valeur
+    if (searchValue.trim() !== '') {
+      navigate(`/recherche/resultats-de-recherche?query=${encodeURIComponent(searchValue)}`);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   return (
@@ -47,6 +56,7 @@ export default function Search() {
             placeholder='Ecrivez votre recherche en français'
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
 
@@ -65,6 +75,8 @@ export default function Search() {
 
       <Link to='oops'>Erreur de recherche</Link>
       <Link to='article-aleatoire'>Lien vers les articles Aléatoires</Link>
+      <Link to='resultats-de-recherche'>Résultat de recherche</Link>
+
       <Outlet />
     </>
   );

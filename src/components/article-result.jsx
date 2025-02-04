@@ -11,7 +11,7 @@ export default function ArticleResult({ article }) {
         <button>Like</button>
         <span>
           <a href={article.link} target='_blank' rel='noopener noreferrer'>
-            {/* Lire l'article */}lirearticle
+            Lire l&apos;article
           </a>
         </span>
       </div>
