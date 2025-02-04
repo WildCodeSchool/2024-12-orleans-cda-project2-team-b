@@ -51,9 +51,26 @@
   opacity: 1;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
   .pop-up-question {
     width: 100dvw;
+    bottom: 0;
+    padding: 40px;
+
+    button {
+      width: 20dvw;
+    }
+  }
+
+  .pop-up-question.show {
+    bottom: 1dvh;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .pop-up-question {
+    //width: 100dvw;
     bottom: 0;
 
     button {

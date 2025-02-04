@@ -10,8 +10,10 @@ export default function Search() {
   const [correctPlaceholder, setCorrectPlaceholder] = useState('');
   const location = useLocation();
 
+  // If no language is chosen, display french placeholder else display the language chosen
   useEffect(() => {
     const storedChoiceLanguage = localStorage.getItem('language');
+
     if (!storedChoiceLanguage) {
       localStorage.setItem('language', 'Français');
       setCorrectPlaceholder(countryList[0].placeholderTraduc);
@@ -22,9 +24,9 @@ export default function Search() {
   }, []);
 
   function handleClickChoiceLanguage(value) {
-    localStorage.setItem('language', value);
     const indexCountry = countryList.findIndex((country) => country.language === value);
     setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
+    localStorage.setItem('language', value);
   }
 
   return (
@@ -48,6 +50,7 @@ export default function Search() {
           <input type='search' placeholder={correctPlaceholder}></input>
         </div>
       </div>
+
       {/* LIST LANGUAGE */}
       <div className='container-language'>
         <div className='container-text' onClick={() => setListeLanguageActive((prev) => !prev)}>

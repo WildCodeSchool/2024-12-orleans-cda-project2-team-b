@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5%;
+
   @media screen and (max-width: 700px) {
     margin-top: 40%;
   }
@@ -13,12 +15,6 @@
   height: auto;
 }
 
-.search-random {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .search-bar {
   overflow-x: hidden;
   display: flex;
@@ -26,7 +22,7 @@
   align-items: center;
   margin-top: 1.563rem;
   border-radius: 3rem;
-  height: 10dvh;
+  height: 11 dvh;
   width: 50dvw;
   background-color: vars.$color-details;
   padding: 2dvh;
@@ -104,12 +100,12 @@
   white-space: nowrap;
 }
 
-.container-language img {
+.container-text img {
   transform: rotate(180deg);
   margin-left: 2%;
 }
 
-.container-language .arrow-return {
+.container-text .arrow-return {
   transform: rotate(360deg);
 }
 
