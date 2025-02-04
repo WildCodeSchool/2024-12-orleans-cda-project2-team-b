@@ -1,5 +1,3 @@
-import { Link, Outlet } from 'react-router-dom';
-
 import ArticleResult from '../components/article-result';
 import './results.scss';
 
