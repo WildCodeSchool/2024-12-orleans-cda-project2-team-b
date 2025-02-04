@@ -1,0 +1,8 @@
+@use '../variables.scss' as vars;
+
+.article-result-wrap {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

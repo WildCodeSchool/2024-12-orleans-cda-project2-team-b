@@ -18,12 +18,16 @@ export default function Search() {
       {/*Plus tard afficher le place holder selon langue choisie */}
       <div
         className={
-          location.pathname === '/recherche/article-choisi' ? 'search-container-no-display' : 'search-container'
+          location.pathname === '/recherche/article-choisi' || location.pathname === '/recherche/resultats-de-recherche'
+            ? 'search-container-no-display'
+            : 'search-container'
         }
       >
         <div
           className={
-            location.pathname === '/recherche/oops' || location.pathname === '/recherche/article-choisi'
+            location.pathname === '/recherche/oops' ||
+            location.pathname === '/recherche/article-choisi' ||
+            location.pathname === '/recherche/resultats-de-recherche'
               ? 'search-bar-no-display'
               : 'search-bar'
           }
@@ -34,7 +38,9 @@ export default function Search() {
 
         <div
           className={
-            location.pathname === '/recherche/article-choisi' || location.pathname === '/recherche/oops'
+            location.pathname === '/recherche/article-choisi' ||
+            location.pathname === '/recherche/oops' ||
+            location.pathname === '/recherche/resultats-de-recherche'
               ? 'search-random-no-display'
               : 'search-random'
           }

@@ -1,5 +1,25 @@
+import { Link, Outlet } from 'react-router-dom';
+
+import ArticleResult from '../components/article-result';
 import './results.scss';
 
 export default function Results() {
-  return <p>Je suis la page de résultat des articles</p>;
+  return (
+    <>
+      <div className='article-result-wrap'>
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+        <ArticleResult />
+      </div>
+    </>
+  );
 }
