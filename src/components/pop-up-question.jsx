@@ -1,27 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
+import { ChoicesContext } from '../contexts/choices-context';
 import './pop-up-question.scss';
 
-//Si l'utilisateur répond oui on garde en mémoire sa réponse en local, donc prochaine ouverture ou F5 la pop-up ne se réaffiche pas
-//Si il clique sur non alors au prochain F5 ou connexion pop-up réapparaît, mais prochaine page ne compte pas comme un F5 car react=single page
+// If user answer "yes" we keep in localstorage the choice, so no-display pop up for the next opening
+// if answer "no", for the next connection or page update we display the pop-up
 export function PopUpQuestion() {
+  const { choiceLocalStorage } = useContext(ChoicesContext);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const storedChoice = localStorage.getItem('choice');
-    if (storedChoice === 'yes') {
+    if (choiceLocalStorage === 'yes') {
       setIsVisible(false);
     } else {
       setTimeout(() => {
         setIsVisible(true);
       }, 400);
     }
-  }, []);
+  }, [choiceLocalStorage]);
 
   function handleChoice(value) {
     setIsVisible(false);
     if (value === 'yes') {
-      localStorage.setItem('choice', 'yes');
+      localStorage.setItem('choiceLocalStorage', 'yes');
     }
   }
 
