@@ -12,10 +12,9 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
           <p>
             Nous sommes trois étudiantes à la Wild Code School en cursus de Concepteur Développeur d&apos;Applications.
             Nous avons eu pour consigne de créer un site internet responsive se nourrissant d&apos;une API. Pour ce
-            faire, nous avons utilisé une API de news et avons créé tout un projet autour de ce concept, allant de
-            l&apos; à la maquetisation, au choix des couleurs ou plus globalement du design pour une Direction
-            Artistique que nous avons souhaité épurée — jusqu&apos;à la conception et la mise en production de notre
-            application. <br />
+            faire, nous avons utilisé une API de news et avons créé tout un projet autour de ce concept, allant de la
+            maquetisation, au choix des couleurs ou plus globalement du design pour une Direction Artistique que nous
+            avons souhaité épurée — jusqu&apos;à la conception et la mise en production de notre application. <br />
             Nous espérons sincèrement que Wild&apos;s News et son concept sauront vous ravir.
           </p>
         </div>
