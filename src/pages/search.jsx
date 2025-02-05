@@ -15,11 +15,9 @@ export default function Search() {
 
   //We keep in local only if user said Yes, if not we don't keep the language choice
   function handleClickChoiceLanguage(value) {
-    // const indexCountry = countryList.findIndex((country) => country.language === value);
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', value);
     }
-    // setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
     setStoredChoiceLanguage(value);
   }
 

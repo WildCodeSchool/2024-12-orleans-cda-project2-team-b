@@ -8,12 +8,10 @@ export const ChoicesContextProvider = ({ children }) => {
   const choiceLocalStorage = localStorage.getItem('choiceLocalStorage');
 
   const [storedChoiceLanguage, setStoredChoiceLanguage] = useState(localStorage.getItem('language') || 'Français');
-  const [correctPlaceholder, setCorrectPlaceholder] = useState(countryList[0].placeholderTraduc);
-
   const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
+  const correctPlaceholder = countryList[indexCountry].placeholderTraduc;
 
   useEffect(() => {
-    setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
     }
@@ -24,7 +22,6 @@ export const ChoicesContextProvider = ({ children }) => {
       value={{
         choiceLocalStorage,
         correctPlaceholder,
-        setCorrectPlaceholder,
         storedChoiceLanguage,
         setStoredChoiceLanguage,
       }}
