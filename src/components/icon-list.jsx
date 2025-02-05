@@ -28,6 +28,6 @@ export const iconList = [
     imgSrcOn: '/icons/about-active.png',
     imgSrcOff: '/icons/about-inactive.png',
     link: '/',
-    isModaleTrigger: true,
+    isModalTrigger: true,
   },
 ];

@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 
 import './modal.scss';
 
@@ -10,7 +10,7 @@ export default function Modal({ isShowing, hide, children }) {
   };
 
   return isShowing
-    ? ReactDOM.createPortal(
+    ? createPortal(
         <>
           <div className='modal-overlay' onClick={hide} onKeyDown={handleKeyDown} tabIndex={0} role='button' />
           <div className='modal'>
