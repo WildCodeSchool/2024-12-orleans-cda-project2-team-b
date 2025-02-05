@@ -6,20 +6,23 @@ import Footer from './components/footer';
 import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
 import { PopUpQuestion } from './components/pop-up-question';
+import { ChoicesContextProvider } from './contexts/choices-context';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <BackgroundCard />
-      <MainTitle />
+      <ChoicesContextProvider>
+        <Navbar />
+        <BackgroundCard />
+        <MainTitle />
 
-      <main>
-        <Outlet />
-      </main>
+        <main>
+          <Outlet />
+        </main>
 
-      <PopUpQuestion />
-      <Footer />
+        <PopUpQuestion />
+        <Footer />
+      </ChoicesContextProvider>
     </>
   );
 }
