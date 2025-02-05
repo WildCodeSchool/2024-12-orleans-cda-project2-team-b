@@ -15,7 +15,7 @@ export const ChoicesContextProvider = ({ children }) => {
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
     }
-  }, [storedChoiceLanguage, choiceLocalStorage, indexCountry]);
+  }, [storedChoiceLanguage, choiceLocalStorage]);
 
   return (
     <ChoicesContext.Provider
