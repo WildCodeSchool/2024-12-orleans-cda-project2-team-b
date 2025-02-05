@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 
-import { countryList } from '../components/country-list';
+import { countryList } from '../data/country-list';
 
 export const ChoicesContext = createContext();
 
@@ -10,14 +10,14 @@ export const ChoicesContextProvider = ({ children }) => {
   const [storedChoiceLanguage, setStoredChoiceLanguage] = useState(localStorage.getItem('language') || 'Français');
   const [correctPlaceholder, setCorrectPlaceholder] = useState(countryList[0].placeholderTraduc);
 
-  useEffect(() => {
-    const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
-    setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
+  const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
 
+  useEffect(() => {
+    setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
     }
-  }, [storedChoiceLanguage, choiceLocalStorage]);
+  }, [storedChoiceLanguage, choiceLocalStorage, indexCountry]);
 
   return (
     <ChoicesContext.Provider

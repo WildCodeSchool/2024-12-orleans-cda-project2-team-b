@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
-import { countryList } from '../components/country-list';
 import { ChoicesContext } from '../contexts/choices-context';
+import { countryList } from '../data/country-list';
 import './search.scss';
 
 export default function Search() {
-  const [listeLanguageActive, setListeLanguageActive] = useState(false);
+  const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
   const location = useLocation();
 
   const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage, storedChoiceLanguage } =
@@ -47,12 +47,12 @@ export default function Search() {
 
       {/* LIST LANGUAGE */}
       <div className='container-language'>
-        <div className='container-text' onClick={() => setListeLanguageActive((prev) => !prev)}>
+        <div className='container-text' onClick={() => setIsActiveLanguageList((prev) => !prev)}>
           Langue de recherche
-          <img className={listeLanguageActive ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
+          <img className={isActiveLanguageList ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
         </div>
 
-        <div className={listeLanguageActive ? 'container-flags' : 'container-flags-no-display'}>
+        <div className={isActiveLanguageList ? 'container-flags' : 'container-flags-no-display'}>
           {countryList.map((country) => (
             <img
               className={storedChoiceLanguage === country.language ? 'flag active' : 'flag'}
