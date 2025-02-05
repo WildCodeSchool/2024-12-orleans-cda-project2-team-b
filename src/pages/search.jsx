@@ -8,28 +8,18 @@ import './search.scss';
 
 export default function Search() {
   const [listeLanguageActive, setListeLanguageActive] = useState(false);
-  const [correctPlaceholder, setCorrectPlaceholder] = useState('');
   const location = useLocation();
-  // const { choiceLocalStorage } = useContext(ChoicesContext);
 
-  // If no language is chosen, display french placeholder else display the language chosen
-  useEffect(() => {
-    const storedChoiceLanguage = localStorage.getItem('language');
+  const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage } = useContext(ChoicesContext);
 
-    if (!storedChoiceLanguage) {
-      localStorage.setItem('language', 'Français');
-      setCorrectPlaceholder(countryList[0].placeholderTraduc);
-    } else {
-      const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
-      setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
-    }
-  }, []);
-
-  //if storedChoice==="yes", we keep in localStorage the language else we keep it in sessionStorage
+  //We keep in local only if user said Yes, if not we don't keep the language choice
   function handleClickChoiceLanguage(value) {
-    const indexCountry = countryList.findIndex((country) => country.language === value);
-    setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
-    localStorage.setItem('language', value);
+    // const indexCountry = countryList.findIndex((country) => country.language === value);
+    if (choiceLocalStorage === 'yes') {
+      localStorage.setItem('language', value);
+    }
+    // setCorrectPlaceholder(countryList[indexCountry].placeholderTraduc);
+    setStoredChoiceLanguage(value);
   }
 
   return (
