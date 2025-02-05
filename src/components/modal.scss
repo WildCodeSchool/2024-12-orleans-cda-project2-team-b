@@ -76,6 +76,16 @@ div.modal {
   }
 }
 
+@media screen and (min-width: 960px) and (max-width: 1024px) {
+  div.modal {
+    max-height: 90dvh;
+    overflow-x: scroll;
+  }
+  .membersInformations {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 700px) {
   div.modal {
     max-height: 90dvh;
