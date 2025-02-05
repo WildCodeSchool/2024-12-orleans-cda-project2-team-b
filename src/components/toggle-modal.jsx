@@ -29,14 +29,14 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
                 <p>{member.name}</p>
                 <div className='linksButtons'>
                   <img
-                    src='../../public/icons/github.svg'
+                    src='/icons/github.svg'
                     alt='Logo Github'
                     onClick={() => openInNewTab(member.github)}
                     onKeyDown={(e) => e.key === 'Enter'}
                     style={{ cursor: 'pointer' }}
                   />
                   <img
-                    src='../../public/icons/linkedin.svg'
+                    src='/icons/linkedin.svg'
                     alt='Logo Linkedin'
                     onClick={() => openInNewTab(member.linkedin)}
                     onKeyDown={(e) => e.key === 'Enter'}
