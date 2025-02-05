@@ -7,9 +7,9 @@ import ToggleModal from './toggle-modal';
 
 export default function Navbar() {
   const location = useLocation();
-  const [isModalOpen, SetIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => {
-    SetIsModalOpen(!isModalOpen);
+    setIsModalOpen(!isModalOpen);
   };
   const openInNewTab = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
