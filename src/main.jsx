@@ -63,17 +63,17 @@ const router = createBrowserRouter([
       {
         path: 'historique',
         element: <History />,
-        children: [
-          {
-            path: 'pas-d-historique',
-            element: <NoHistory />,
-          },
-          {
-            path: 'article-historique/:id',
-            element: <DisplayHistory />,
-          },
-        ],
       },
+
+      {
+        path: 'pas-d-historique',
+        element: <NoHistory />,
+      },
+      {
+        path: 'article-historique/:id',
+        element: <DisplayHistory />,
+      },
+
       {
         path: '*',
         element: <Error404 />,
