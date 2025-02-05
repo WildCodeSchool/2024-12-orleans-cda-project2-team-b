@@ -125,6 +125,18 @@
   opacity: 0.6;
 }
 
+.flag {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.flag.active {
+  transform: scale(1.1);
+  // border: 1px solid vars.$color-details; /* Bordure pour le visuel */
+  border-radius: 100%;
+  box-shadow: 7px 7px 13px rgba(31, 18, 152, 0.5); /* Ombre en bas à droite */
+}
+
 .container-flags-no-display {
   display: none;
 }

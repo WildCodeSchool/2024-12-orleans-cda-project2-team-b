@@ -10,7 +10,8 @@ export default function Search() {
   const [listeLanguageActive, setListeLanguageActive] = useState(false);
   const location = useLocation();
 
-  const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage } = useContext(ChoicesContext);
+  const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage, storedChoiceLanguage } =
+    useContext(ChoicesContext);
 
   //We keep in local only if user said Yes, if not we don't keep the language choice
   function handleClickChoiceLanguage(value) {
@@ -54,6 +55,7 @@ export default function Search() {
         <div className={listeLanguageActive ? 'container-flags' : 'container-flags-no-display'}>
           {countryList.map((country) => (
             <img
+              className={storedChoiceLanguage === country.language ? 'flag active' : 'flag'}
               onClick={() => handleClickChoiceLanguage(country.language)}
               key={country.language}
               src={country.iconSrcCountry}
