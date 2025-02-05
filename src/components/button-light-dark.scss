@@ -1,8 +1,11 @@
 .switch {
   position: relative;
-  display: inline-block;
   width: 60px;
   height: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  // padding-top: 5%;
+  margin-bottom: 5%;
 }
 
 .switch #input {
