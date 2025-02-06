@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 
 import { memberList } from '../data/member-list';
+import ButtonLightDark from './button-light-dark';
 import Modal from './modal';
 
 export default function ToggleModal({ isShowing, hide, openInNewTab }) {
   return (
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>
+        <ButtonLightDark />
         <div className='aboutContent'>
           <h2>Présentation et but du projet :</h2>
           <p>
