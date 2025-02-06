@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom';
-
+// import { useParams } from 'react-router-dom';
+import LikeButton from '../components/like-button';
 import './display-history.scss';
 
 export default function DisplayHistory() {
-  const { id } = useParams();
+  // const { id } = useParams();
   return (
     <>
       <div className='container-display-history'>
@@ -21,7 +21,7 @@ export default function DisplayHistory() {
         </div>
         <div className='container-plus-like'>
           <a href='#'>Article complet</a>
-          <p>buttonlike</p>
+          <LikeButton />
         </div>
       </div>
       <div className='button-after'>précédent</div>
