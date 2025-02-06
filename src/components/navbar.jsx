@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { iconList } from './icon-list';
+import { iconList } from '../data/icon-list';
 import './navbar.scss';
 import ToggleModal from './toggle-modal';
 
