@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { memberList } from '../data/member-list';
 import ButtonLightDark from './button-light-dark';
-import { memberList } from './member-list';
 import Modal from './modal';
 
 export default function ToggleModal({ isShowing, hide, openInNewTab }) {
