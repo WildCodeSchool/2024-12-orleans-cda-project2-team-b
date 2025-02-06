@@ -51,12 +51,31 @@
   opacity: 1;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
   .pop-up-question {
     width: 100dvw;
     bottom: 0;
+    padding-left: 5%;
+    padding-right: 5%;
 
-    button {
+    .button-yes,
+    .button-no {
+      width: 10dvw;
+    }
+  }
+
+  .pop-up-question.show {
+    bottom: 1dvh;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .pop-up-question {
+    padding: 0px;
+
+    .button-yes,
+    .button-no {
       width: 20dvw;
     }
   }
