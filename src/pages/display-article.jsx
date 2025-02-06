@@ -1,5 +1,6 @@
 // import { useParams } from 'react-router-dom';
 import chien from '../assets/chien-robot.png';
+import LikeButton from '../components/like-button';
 import './display-article.scss';
 
 export default function DisplayArticle() {
@@ -10,6 +11,7 @@ export default function DisplayArticle() {
         <img className='background-article' src={chien} />
         <div className='article-box'>
           <h2>{"Les chiens robots, de nouveaux animaux de compagnies à offrir sans crainte d'abandon"}</h2>
+          <h3>La source</h3>
           <img src={chien} alt='image article' />
           <p className='text-article'>
             {
@@ -22,8 +24,7 @@ export default function DisplayArticle() {
               Article complet
             </a>
             <div className='like-button'>
-              <button>likebuttontest</button>
-              {/* <LikeButton /> */}
+              <LikeButton />
             </div>
           </div>
         </div>

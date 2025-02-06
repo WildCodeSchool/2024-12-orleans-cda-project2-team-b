@@ -32,13 +32,24 @@
 .article-box > img {
   margin-top: 1rem;
   width: 77%;
-  height: 38dvh;
+  // height: 38dvh;
 }
 
 .article-box > h2 {
   text-align: center;
   margin-top: 1rem;
-  width: 77%;
+  width: 90%;
+  font-size: vars.$desktop-title2;
+  line-height: 3rem;
+}
+
+.article-box > h3 {
+  font-size: vars.$desktop-title3;
+  font-weight: lighter;
+  font-style: italic;
+  letter-spacing: 0.2rem;
+  margin-top: -2.5%;
+  text-shadow: 3px 3px vars.$color-details;
 }
 
 .article-box > p {
@@ -64,6 +75,7 @@
 .like-button {
   color: black;
   margin-bottom: 1.2rem;
+  font-size: vars.$desktop-description;
 }
 
 .previous-article,
@@ -72,9 +84,23 @@
   margin: 2rem;
 }
 
+@media screen and (max-width: 770px) {
+  .article-box {
+    width: 90%;
+    // height: 65dvh;
+  }
+  .background-article {
+    width: 95%;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .background-article {
     height: 60dvh;
+  }
+  .article-box > h2 {
+    font-size: vars.$mobile-title2;
+    line-height: 2rem;
   }
   .article-box > img {
     margin-top: 1rem;
@@ -84,12 +110,13 @@
   .background-article {
     display: none;
   }
-  .article-box {
-    width: 90%;
-    height: 65dvh;
-  }
+
   .article-box > p {
     height: 100dvh;
+    font-size: vars.$mobile-content;
+  }
+  .complete-article {
+    font-size: vars.$mobile-description;
   }
   .previous-article,
   .next-article {

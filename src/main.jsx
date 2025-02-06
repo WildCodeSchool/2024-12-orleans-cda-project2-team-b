@@ -54,11 +54,11 @@ const router = createBrowserRouter([
             path: 'pas-de-favoris',
             element: <NoFav />,
           },
-          {
-            path: 'article-favori/:id',
-            element: <DisplayArticle />,
-          },
         ],
+      },
+      {
+        path: 'article-favori/:id',
+        element: <DisplayArticle />,
       },
       {
         path: 'historique',

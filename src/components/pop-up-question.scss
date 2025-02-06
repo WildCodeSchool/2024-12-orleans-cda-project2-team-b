@@ -16,6 +16,7 @@
   transition:
     bottom 1s ease-out,
     opacity 1s ease-out;
+  z-index: 1;
 
   h1 {
     color: vars.$primary-color;
