@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './app';
 import './main.scss';
 import DisplayArticle from './pages/display-article';
-import DisplayHistory from './pages/display-history';
+import DisplayFavorite from './pages/display-favorite';
 import Error404 from './pages/error-404';
 import Favourite from './pages/favourite';
 import History from './pages/history';
@@ -54,26 +54,26 @@ const router = createBrowserRouter([
             path: 'pas-de-favoris',
             element: <NoFav />,
           },
-          {
-            path: 'article-favori/:id',
-            element: <DisplayArticle />,
-          },
         ],
+      },
+      {
+        path: 'favoris-article/:id',
+        element: <DisplayFavorite />,
       },
       {
         path: 'historique',
         element: <History />,
-        children: [
-          {
-            path: 'pas-d-historique',
-            element: <NoHistory />,
-          },
-          {
-            path: 'article-historique/:id',
-            element: <DisplayHistory />,
-          },
-        ],
       },
+
+      {
+        path: 'pas-d-historique',
+        element: <NoHistory />,
+      },
+      {
+        path: 'historique-article/:id',
+        element: <DisplayArticle />,
+      },
+
       {
         path: '*',
         element: <Error404 />,

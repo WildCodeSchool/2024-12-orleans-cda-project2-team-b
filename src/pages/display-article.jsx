@@ -1,44 +1,31 @@
 // import { useParams } from 'react-router-dom';
-import chien from '../assets/chien-robot.png';
+import LikeButton from '../components/like-button';
 import './display-article.scss';
 
 export default function DisplayArticle() {
   // const { id } = useParams();
   return (
     <>
-      <div className='article-container'>
-        <img className='background-article' src={chien} />
-        <div className='article-box'>
-          <h2>{"Les chiens robots, de nouveaux animaux de compagnies à offrir sans crainte d'abandon"}</h2>
-          <img src={chien} alt='image article' />
-          <p className='text-article'>
-            {
-              "Alice, passionnée par les animaux, hésite à adopter un nouveau compagnon après la perte de son chien bien-aimé. Pour des personnes comme elle, les chiens robots offrent une alternative fascinante, sans les contraintes émotionnelles liées à la mort d'un animal vivant. Ces compagnons numériques, mêlant technologie et affection, redéfinissent le concept d'animal de compagnie. Les chiens robots, comme l'Aibo de Sony ou le Go2 d'Unitree Robotics, sont bien plus que de simples gadgets. Dotés d'intelligence artificielle, de reconnaissance vocale et faciale, ainsi que de capteurs sophistiqués, ils interagissent avec leur environnement et leurs propriétaires. Conçus pour imiter le comportement d'un chien réel, ils peuvent marcher, aboyer, remuer la queue et même simuler des émotions."
-            }
+      <div className='container-display-article'>
+        <div className='container-display-contents'>
+          <h2>Des « réfugiés » américains de TikTok adoptent une autre application chinoise</h2>
+          <h3>La presse CA</h3>
+          {/* <div className='container-picture-text'> */}
+          <img src='/example-article.png' alt='image_article' title='image article'></img>
+          <p>
+            De nombreux créateurs de contenus et utilisateurs américains ont rejoint Xiaohongshu (« Petit Livre Rouge
+            »), une application chinoise similaire à Instagram, se présentant parfois comme des « réfugiés » de TikTok,
+            propriété du groupe chinois ByteDance, qui pourrait être interdite à partir de dimanche aux États-Unis.
           </p>
-
-          <div className='under-text-article'>
-            <a className='complete-article' href='#'>
-              Article complet
-            </a>
-            <div className='like-button'>
-              <button>likebuttontest</button>
-              {/* <LikeButton /> */}
-            </div>
-          </div>
+          {/* </div> */}
         </div>
-
-        <div className='under-article'>
-          <div className='previous-article'>
-            <button>articleprecedenttest</button>
-            {/* <ArticleNavComponent title='Article précédent' /> */}
-          </div>
-          <div className='next-article'>
-            <button>articlesuivanttest</button>
-            {/* <ArticleNavComponent title='Article suivant' /> */}
-          </div>
+        <div className='container-plus-like'>
+          <a href='#'>Article complet</a>
+          <LikeButton />
         </div>
       </div>
+      <div className='button-after'>précédent</div>
+      <div className='button-before'>suivant</div>
     </>
   );
 }

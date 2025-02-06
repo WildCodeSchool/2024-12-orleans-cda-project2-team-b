@@ -1,0 +1,31 @@
+@use '../variables.scss' as vars;
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.background-article {
+  position: absolute;
+  z-index: -1;
+  filter: blur(0.4rem) grayscale(1);
+  width: 80%;
+  height: 75dvh;
+}
+
+@media screen and (max-width: 770px) {
+  .article-box {
+    width: 90%;
+  }
+  .background-article {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .background-article {
+    display: none;
+  }
+}

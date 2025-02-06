@@ -1,5 +1,6 @@
 // import { Link, Outlet } from 'react-router-dom';
 import './article-history.scss';
+import LikeButton from './like-button';
 
 export default function ArticleHistory() {
   //   const historyId = 567;
@@ -8,7 +9,7 @@ export default function ArticleHistory() {
       <div className='article-history'>
         <div className='title-like-history'>
           <h3>I Robot, le remplacement.</h3>
-          <button>Likebuttontest</button>
+          <LikeButton />
           {/* <LikeButton /> */}
         </div>
         <p>
