@@ -14,14 +14,14 @@ export default function Results() {
   useEffect(() => {
     if (searchValue) {
       fetch(
-        `https://newsdata.io/api/1/latest?apikey=pub_65230da8465946290c3170781460092e243d2&q=${encodeURIComponent(
+        `https://newsdata.io/api/1/latest?apikey=pub_65232fbbf2a92bccb58b53492c068ed55dc6a&q=${encodeURIComponent(
           searchValue,
         )}`,
       )
         .then((response) => response.json())
         .then((data) => {
           setArticles(data.results);
-          console.log(data);
+          // console.log(data);
         });
     }
   }, [searchValue]);
@@ -33,9 +33,9 @@ export default function Results() {
       </p>
 
       <div className='article-result-wrap'>
-        {/* {articles.length > 0
+        {articles.length > 0
           ? articles.map((article, index) => <ResultsList key={index} article={article} />)
-          : navigate(`/oops`)} */}
+          : navigate(`/oops`)}
       </div>
     </>
   );
