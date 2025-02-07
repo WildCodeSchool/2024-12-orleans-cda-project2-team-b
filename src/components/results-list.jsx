@@ -10,6 +10,15 @@ export default function ResultsList({ article }) {
   // navigate(`/recherche-article-choisi`);
   // récuperer l'id de l'article le mettre dans contexte et afficher le display article correct
   // }
+  const renderTitle = () => {
+    if (article.title) {
+      if (window.innerWidth <= 700) {
+        return article.title.length <= 30 ? article.title : article.title.slice(0, 30) + '...';
+      } else {
+        return article.title.length <= 60 ? article.title : article.title.slice(0, 60) + '...';
+      }
+    } else return 'Aucun titre';
+  };
 
   if (!article) return null;
 
@@ -18,17 +27,7 @@ export default function ResultsList({ article }) {
       {/* faire le onclick pr display article choisi */}
 
       <div className='results-container'>
-        <p>
-          {article.title
-            ? window.innerWidth <= 700
-              ? article.title.length <= 30
-                ? article.title
-                : article.title.slice(0, 30) + '...'
-              : article.title.length <= 60
-                ? article.title
-                : article.title.slice(0, 60) + '...'
-            : 'Aucun titre'}
-        </p>
+        <p>{renderTitle()}</p>
 
         {article.image_url ? (
           article.image_url && <img src={article.image_url} alt="photo de l'article" />
