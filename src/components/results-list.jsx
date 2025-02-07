@@ -6,6 +6,7 @@ import './results-list.scss';
 export default function ResultsList({ article }) {
   const navigate = useNavigate();
 
+  // A utiliser plus tard
   function handleClickArticle() {
     navigate(`/recherche-article-choisi`);
     // récuperer l'id de l'article le mettre dans contexte et afficher le display article correct
@@ -14,7 +15,9 @@ export default function ResultsList({ article }) {
   if (!article) return null;
 
   return (
-    <button className='article-button' title='Appuyer pour voir plus' onClick={handleClickArticle}>
+    <button className='article-button' title='Appuyer pour voir plus'>
+      {/* faire le onclick pr display article choisi */}
+
       <div className='results-container'>
         <p>
           {(article.title &&
