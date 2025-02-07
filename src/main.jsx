@@ -24,42 +24,44 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
+
+      // SEARCH PAGE
       {
         path: 'recherche',
         element: <Search />,
-        children: [
-          {
-            path: 'article-aleatoire',
-            element: <Random />,
-          },
-          {
-            path: 'oops',
-            element: <Oops />,
-          },
-          {
-            path: 'resultats-de-recherche',
-            element: <Results />,
-          },
-          {
-            path: 'article-choisi',
-            element: <DisplayArticle />,
-          },
-        ],
       },
+      {
+        path: 'recherche-article-choisi',
+        element: <DisplayArticle />,
+      },
+      {
+        path: 'recherche-oops',
+        element: <Oops />,
+      },
+      {
+        path: 'recherche-resultats',
+        element: <Results />,
+      },
+      {
+        path: 'recherche-article-aleatoire',
+        element: <Random />,
+      },
+
+      // FAVORITE PAGE
       {
         path: 'favoris',
         element: <Favourite />,
-        children: [
-          {
-            path: 'pas-de-favoris',
-            element: <NoFav />,
-          },
-        ],
+      },
+      {
+        path: 'favoris-inconnu',
+        element: <NoFav />,
       },
       {
         path: 'favoris-article/:id',
         element: <DisplayFavorite />,
       },
+
+      //HISTORY PAGE
       {
         path: 'historique',
         element: <History />,
@@ -74,6 +76,7 @@ const router = createBrowserRouter([
         element: <DisplayArticle />,
       },
 
+      //ERROR PAGE
       {
         path: '*',
         element: <Error404 />,

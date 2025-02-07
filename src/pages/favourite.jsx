@@ -7,7 +7,7 @@ export default function Favourite() {
   return (
     <>
       <Link to={`/favoris-article/${articleId}`}>Favori sélectionné</Link>
-      <Link to='pas-de-favoris'>Erreur Pas de favoris</Link>
+      <Link to='/favoris-inconnu'>Erreur Pas de favoris</Link>
       <p>Page de recherche des favoris</p>
       <Outlet />
     </>
