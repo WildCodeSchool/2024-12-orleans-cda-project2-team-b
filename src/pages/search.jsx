@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import { ChoicesContext } from '../contexts/choices-context';
@@ -26,20 +26,29 @@ export default function Search() {
     setStoredChoiceLanguage(value);
   }
 
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchValue.trim() !== '') {
+      navigate(`/recherche-resultats`);
+    }
+  };
+
   return (
     <>
       {/* SEARCHBAR */}
       <div className='search-container'>
         <div className='search-bar'>
-          <Link to='/recherche-resultats'>
-            <img src='/icons/search.png' alt='search' title='search' />
-          </Link>
+          <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
           <input
             type='search'
             placeholder={correctPlaceholder}
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-          ></input>
+            onKeyDown={(event) => {
+              event.key === 'Enter' && handleSearch();
+            }}
+          />
         </div>
       </div>
 
