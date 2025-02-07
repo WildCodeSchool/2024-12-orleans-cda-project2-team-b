@@ -9,31 +9,36 @@
   font-size: vars.$desktop-content;
   background-color: #afc7e1;
   filter: drop-shadow(2px 2px 4px #000000);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  p {
+    padding: 0.7rem;
+    margin-top: 0.2rem;
+    overflow: hidden;
+    font-size: vars.$desktop-content;
+    line-height: 90%;
+  }
+
+  .under-image-results {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: vars.$desktop-description;
+    // padding-top: 0;
+    // align-items: flex-end;
+  }
 }
+
 .results-container > img {
   height: 6.188rem;
   width: 15rem;
 }
-.results-container > p {
-  padding: 0.7rem;
-  margin-top: 0.2rem;
-  height: 7.5rem;
-  overflow: hidden;
-}
-.under-image-results {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-  width: 100%;
-  padding: 0.7rem;
-}
-.under-image-results > span {
-  font-size: 1.5rem;
-}
+
 @media screen and (max-width: 700px) {
   * {
     margin: 0;
