@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import { ChoicesContext } from '../contexts/choices-context';
@@ -9,8 +9,14 @@ import './search.scss';
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
 
-  const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage, storedChoiceLanguage } =
-    useContext(ChoicesContext);
+  const {
+    choiceLocalStorage,
+    correctPlaceholder,
+    setStoredChoiceLanguage,
+    storedChoiceLanguage,
+    searchValue,
+    setSearchValue,
+  } = useContext(ChoicesContext);
 
   //We keep in local only if user said Yes, if not we don't keep the language choice
   function handleClickChoiceLanguage(value) {
@@ -20,15 +26,29 @@ export default function Search() {
     setStoredChoiceLanguage(value);
   }
 
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchValue.trim() !== '') {
+      navigate(`/recherche-resultats`);
+    }
+  };
+
   return (
     <>
       {/* SEARCHBAR */}
       <div className='search-container'>
         <div className='search-bar'>
-          <Link to='/recherche-resultats'>
-            <img src='/icons/search.png' alt='search' title='search' />
-          </Link>
-          <input type='search' placeholder={correctPlaceholder}></input>
+          <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
+          <input
+            type='search'
+            placeholder={correctPlaceholder}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            onKeyDown={(event) => {
+              event.key === 'Enter' && handleSearch();
+            }}
+          />
         </div>
       </div>
 
