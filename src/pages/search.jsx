@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import { ChoicesContext } from '../contexts/choices-context';
@@ -8,7 +8,6 @@ import './search.scss';
 
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
-  // const location = useLocation();
 
   const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage, storedChoiceLanguage } =
     useContext(ChoicesContext);
