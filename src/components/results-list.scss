@@ -1,42 +1,38 @@
 @use '../variables.scss' as vars;
 .results-container {
-  margin-left: 3rem;
-  margin-right: 3rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  height: 18.75rem;
-  width: 18.75rem;
-  font-size: vars.$desktop-content;
-  background-color: #afc7e1;
-  filter: drop-shadow(2px 2px 4px #000000);
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+
+  height: 18.75rem;
+  width: 18.75rem;
+
+  margin: 1.5rem 3rem 1rem 3rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+
+  background-color: #afc7e1;
+  filter: drop-shadow(2px 2px 4px #000000);
+  border-radius: 5%;
+
+  font-size: vars.$desktop-content;
 
   p {
-    padding: 0.7rem;
-    margin-top: 0.2rem;
     overflow: hidden;
-    font-size: vars.$desktop-content;
     line-height: 90%;
   }
 
   .under-image-results {
     display: flex;
     justify-content: space-between;
-    margin-top: 0.5rem;
     width: 100%;
-    padding: 0.7rem;
     font-size: vars.$desktop-description;
-    // padding-top: 0;
-    // align-items: flex-end;
   }
-}
 
-.results-container > img {
-  height: 6.188rem;
-  width: 15rem;
+  > img {
+    height: 6.188rem;
+    width: 15rem;
+  }
 }
 
 @media screen and (max-width: 700px) {
