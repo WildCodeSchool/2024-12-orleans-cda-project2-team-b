@@ -30,7 +30,6 @@ export default function ResultsList({ article }) {
             'Aucun titre disponible'}
         </p>
 
-        {/* penser à couper titre à40carc */}
         {article.image_url ? (
           article.image_url && <img src={article.image_url} alt="photo de l'article" />
         ) : (
