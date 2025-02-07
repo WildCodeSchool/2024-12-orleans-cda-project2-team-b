@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import ResultsList from '../components/results-list';
 import { ChoicesContext } from '../contexts/choices-context';
-import ResultsList from './results-list';
 import './results.scss';
 
 export default function Results() {

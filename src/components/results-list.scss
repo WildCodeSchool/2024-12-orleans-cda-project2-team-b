@@ -1,0 +1,76 @@
+@use '../variables.scss' as vars;
+
+.article-button {
+  background-color: transparent;
+  border: none;
+  font-family: vars.$font-family;
+
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 18.75rem;
+    width: 18.75rem;
+
+    margin: 1.5rem 3rem 1rem 3rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+
+    background-color: vars.$color-details;
+    filter: drop-shadow(2px 2px 4px #000000);
+    border-radius: 5%;
+
+    p {
+      overflow: hidden;
+      line-height: 90%;
+      font-size: vars.$desktop-description;
+    }
+
+    .under-image-results {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+
+      .source {
+        font-style: italic;
+      }
+    }
+
+    > img {
+      height: 9rem;
+      width: auto;
+      max-width: 17rem;
+    }
+    transition: transform 0.5s;
+  }
+
+  .results-container:hover {
+    -ms-transform: scale(1.08); /* IE 9 */
+    -webkit-transform: scale(1.08); /* Safari 3-8 */
+    transform: scale(1.08);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .article-button {
+    .results-container {
+      margin: 1rem;
+      width: 10rem;
+      height: 10rem;
+
+      > p {
+        font-size: vars.$mobile-description;
+        margin-top: 0.2rem;
+      }
+
+      > img {
+        height: 3.875rem;
+        width: auto;
+        max-width: 9rem;
+        margin: 3% 0 3% 0;
+      }
+    }
+  }
+}
