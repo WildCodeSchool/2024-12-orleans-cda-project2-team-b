@@ -1,9 +1,9 @@
 @use '../variables.scss' as vars;
 .article-result-wrap {
-  width: 85%;
+  width: 90%;
   height: 74dvh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: scroll;
 }

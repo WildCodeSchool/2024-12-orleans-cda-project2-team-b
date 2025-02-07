@@ -19,18 +19,15 @@ export default function ResultsList({ article }) {
 
       <div className='results-container'>
         <p>
-          {/* {(article.title &&
-            (window.innerWidth <= 700
+          {article.title
+            ? window.innerWidth <= 700
               ? article.title.length <= 30
                 ? article.title
                 : article.title.slice(0, 30) + '...'
-              : article.title.length <= 90
+              : article.title.length <= 60
                 ? article.title
-                : article.title.slice(0, 90) + '...')) ||
-            'Aucun titre disponible'} */}
-          {/* Voir plus tard pour remettre ces ternaires */}
-
-          {article.title || 'Aucun titre disponible'}
+                : article.title.slice(0, 60) + '...'
+            : 'Aucun titre'}
         </p>
 
         {article.image_url ? (
