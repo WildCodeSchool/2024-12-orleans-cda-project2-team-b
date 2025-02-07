@@ -1,37 +1,55 @@
 @use '../variables.scss' as vars;
-.results-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 
-  height: 18.75rem;
-  width: 18.75rem;
+.article-button {
+  background-color: transparent;
+  border: none;
+  font-family: vars.$font-family;
 
-  margin: 1.5rem 3rem 1rem 3rem;
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-
-  background-color: #afc7e1;
-  filter: drop-shadow(2px 2px 4px #000000);
-  border-radius: 5%;
-
-  font-size: vars.$desktop-content;
-
-  p {
-    overflow: hidden;
-    line-height: 90%;
-  }
-
-  .under-image-results {
+  .results-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    font-size: vars.$desktop-description;
+
+    height: 18.75rem;
+    width: 18.75rem;
+
+    margin: 1.5rem 3rem 1rem 3rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+
+    background-color: vars.$color-details;
+    filter: drop-shadow(2px 2px 4px #000000);
+    border-radius: 5%;
+
+    p {
+      overflow: hidden;
+      line-height: 90%;
+      font-size: vars.$desktop-description;
+    }
+
+    .under-image-results {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+
+      .source {
+        font-style: italic;
+      }
+    }
+
+    > img {
+      height: 9rem;
+      width: auto;
+    }
   }
 
-  > img {
-    height: 6.188rem;
-    width: 15rem;
+  transition: transform 10s;
+
+  .results-container:hover {
+    -ms-transform: scale(1.08); /* IE 9 */
+    -webkit-transform: scale(1.08); /* Safari 3-8 */
+    transform: scale(1.08);
   }
 }
 
