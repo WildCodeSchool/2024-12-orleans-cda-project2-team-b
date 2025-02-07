@@ -1,16 +1,15 @@
-import { useNavigate } from 'react-router-dom';
-
+// import { useNavigate } from 'react-router-dom';
 import LikeButton from './like-button';
 import './results-list.scss';
 
 export default function ResultsList({ article }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // A utiliser plus tard
-  function handleClickArticle() {
-    navigate(`/recherche-article-choisi`);
-    // récuperer l'id de l'article le mettre dans contexte et afficher le display article correct
-  }
+  // function handleClickArticle() {
+  // navigate(`/recherche-article-choisi`);
+  // récuperer l'id de l'article le mettre dans contexte et afficher le display article correct
+  // }
 
   if (!article) return null;
 
