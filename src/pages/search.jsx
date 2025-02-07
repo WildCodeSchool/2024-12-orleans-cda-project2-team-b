@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
 import { ChoicesContext } from '../contexts/choices-context';
@@ -8,7 +8,6 @@ import './search.scss';
 
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
-  const location = useLocation();
 
   const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage, storedChoiceLanguage } =
     useContext(ChoicesContext);
@@ -24,19 +23,9 @@ export default function Search() {
   return (
     <>
       {/* SEARCHBAR */}
-      <div
-        className={
-          location.pathname === '/recherche/article-choisi' ? 'search-container-no-display' : 'search-container'
-        }
-      >
-        <div
-          className={
-            location.pathname === '/recherche/oops' || location.pathname === '/recherche/article-choisi'
-              ? 'search-bar-no-display'
-              : 'search-bar'
-          }
-        >
-          <Link to='resultats-de-recherche'>
+      <div className='search-container'>
+        <div className='search-bar'>
+          <Link to='/recherche-resultats'>
             <img src='/icons/search.png' alt='search' title='search' />
           </Link>
           <input type='search' placeholder={correctPlaceholder}></input>

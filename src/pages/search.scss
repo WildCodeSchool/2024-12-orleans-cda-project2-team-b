@@ -60,6 +60,7 @@
   .search-bar {
     width: 90dvw;
     height: 6dvh;
+    overflow: hidden;
   }
 
   .search-bar input {
@@ -68,12 +69,6 @@
     margin-left: 0%;
     width: 82dvw;
   }
-}
-
-.search-bar-no-display,
-.search-random-no-display,
-.search-container-no-display {
-  display: none;
 }
 
 .container-language {
