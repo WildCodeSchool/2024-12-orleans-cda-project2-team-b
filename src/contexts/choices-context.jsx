@@ -11,6 +11,8 @@ export const ChoicesContextProvider = ({ children }) => {
   const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
   const correctPlaceholder = countryList[indexCountry].placeholderTraduc;
 
+  const [searchValue, setSearchValue] = useState('');
+
   useEffect(() => {
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
@@ -24,6 +26,8 @@ export const ChoicesContextProvider = ({ children }) => {
         correctPlaceholder,
         storedChoiceLanguage,
         setStoredChoiceLanguage,
+        searchValue,
+        setSearchValue,
       }}
     >
       {children}

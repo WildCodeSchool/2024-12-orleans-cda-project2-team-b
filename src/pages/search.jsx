@@ -9,8 +9,14 @@ import './search.scss';
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
 
-  const { choiceLocalStorage, correctPlaceholder, setStoredChoiceLanguage, storedChoiceLanguage } =
-    useContext(ChoicesContext);
+  const {
+    choiceLocalStorage,
+    correctPlaceholder,
+    setStoredChoiceLanguage,
+    storedChoiceLanguage,
+    searchValue,
+    setSearchValue,
+  } = useContext(ChoicesContext);
 
   //We keep in local only if user said Yes, if not we don't keep the language choice
   function handleClickChoiceLanguage(value) {
@@ -28,7 +34,12 @@ export default function Search() {
           <Link to='/recherche-resultats'>
             <img src='/icons/search.png' alt='search' title='search' />
           </Link>
-          <input type='search' placeholder={correctPlaceholder}></input>
+          <input
+            type='search'
+            placeholder={correctPlaceholder}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          ></input>
         </div>
       </div>
 

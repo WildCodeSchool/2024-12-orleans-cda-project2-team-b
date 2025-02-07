@@ -1,5 +1,10 @@
+import { useContext } from 'react';
+
+import { ChoicesContext } from '../contexts/choices-context';
 import './results.scss';
 
 export default function Results() {
-  return <p>Je suis la page de résultat des articles</p>;
+  const { searchValue } = useContext(ChoicesContext);
+
+  return <p>Recherche souhaitée : {searchValue}</p>;
 }
