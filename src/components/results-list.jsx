@@ -1,15 +1,21 @@
 // import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { ChoicesContext } from '../contexts/choices-context';
 import LikeButton from './like-button';
 import './results-list.scss';
 
 export default function ResultsList({ article }) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // A utiliser plus tard
-  // function handleClickArticle() {
-  // navigate(`/recherche-article-choisi`);
-  // récuperer l'id de l'article le mettre dans contexte et afficher le display article correct
-  // }
+  const { setArticleTabl } = useContext(ChoicesContext);
+
+  function handleClickArticle() {
+    setArticleTabl(article);
+    navigate(`/recherche-article-choisi`);
+  }
+
   const renderTitle = () => {
     if (article.title) {
       if (window.innerWidth <= 700) {
@@ -23,7 +29,7 @@ export default function ResultsList({ article }) {
   if (!article) return null;
 
   return (
-    <button className='article-button' title='Appuyer pour voir plus'>
+    <button className='article-button' title='Appuyer pour voir plus' onClick={handleClickArticle}>
       {/* faire le onclick pr display article choisi */}
 
       <div className='results-container'>
@@ -32,7 +38,7 @@ export default function ResultsList({ article }) {
         {article.image_url ? (
           article.image_url && <img src={article.image_url} alt="photo de l'article" />
         ) : (
-          <img src='/no-image.svg' alt="photo de l'article" />
+          <img src='/no-image.svg' alt='photo logo' />
         )}
 
         <div className='under-image-results'>

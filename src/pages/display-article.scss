@@ -22,16 +22,17 @@
       font-size: vars.$desktop-title2;
       font-weight: bolder;
       grid-column: span;
-      grid-area: 1/1/2/3;
+      grid-area: 2/1/3/3;
+      margin-bottom: 2.5%;
     }
     h3 {
-      margin-top: -3%;
-      margin-bottom: 2%;
-      font-size: vars.$desktop-title3;
+      margin-top: 1.5%;
+      margin-bottom: 0px;
+      font-size: vars.$desktop-description;
       font-weight: lighter;
       font-style: italic;
       letter-spacing: 0.2rem;
-      grid-area: 2/1/3/3;
+      grid-area: 1/1/2/3;
       text-shadow: 3px 3px vars.$color-details;
     }
     img {
@@ -70,7 +71,7 @@
       }
       h3 {
         grid-area: 2/1/3/2;
-        font-size: vars.$mobile-title3;
+        font-size: vars.$mobile-description;
         z-index: 1;
         margin-top: 0%;
       }
@@ -83,6 +84,9 @@
         grid-area: 4/1/5/2;
         margin-bottom: 2%;
       }
+    }
+    .container-plus-like {
+      font-size: vars.$mobile-description;
     }
   }
 }
