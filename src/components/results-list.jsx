@@ -16,16 +16,6 @@ export default function ResultsList({ article }) {
     navigate(`/recherche-article-choisi`);
   }
 
-  // const renderTitle = () => {
-  //   if (article.title) {
-  //     if (window.innerWidth <= 700) {
-  //       return article.title.length <= 30 ? article.title : article.title.slice(0, 30) + '...';
-  //     } else {
-  //       return article.title.length <= 60 ? article.title : article.title.slice(0, 60) + '...';
-  //     }
-  //   } else return 'Aucun titre';
-  // };
-
   if (!article) return null;
 
   return (
