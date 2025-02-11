@@ -9,22 +9,22 @@ import './results-list.scss';
 export default function ResultsList({ article }) {
   const navigate = useNavigate();
 
-  const { setArticleTabl } = useContext(ChoicesContext);
+  const { setArticleChosen } = useContext(ChoicesContext);
 
   function handleClickArticle() {
-    setArticleTabl(article);
+    setArticleChosen(article);
     navigate(`/recherche-article-choisi`);
   }
 
-  const renderTitle = () => {
-    if (article.title) {
-      if (window.innerWidth <= 700) {
-        return article.title.length <= 30 ? article.title : article.title.slice(0, 30) + '...';
-      } else {
-        return article.title.length <= 60 ? article.title : article.title.slice(0, 60) + '...';
-      }
-    } else return 'Aucun titre';
-  };
+  // const renderTitle = () => {
+  //   if (article.title) {
+  //     if (window.innerWidth <= 700) {
+  //       return article.title.length <= 30 ? article.title : article.title.slice(0, 30) + '...';
+  //     } else {
+  //       return article.title.length <= 60 ? article.title : article.title.slice(0, 60) + '...';
+  //     }
+  //   } else return 'Aucun titre';
+  // };
 
   if (!article) return null;
 
@@ -33,7 +33,7 @@ export default function ResultsList({ article }) {
       {/* faire le onclick pr display article choisi */}
 
       <div className='results-container'>
-        <p>{renderTitle()}</p>
+        <p className='article-title'>{article.title}</p>
 
         {article.image_url ? (
           article.image_url && <img src={article.image_url} alt="photo de l'article" />

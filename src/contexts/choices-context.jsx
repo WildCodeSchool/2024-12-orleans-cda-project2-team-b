@@ -13,7 +13,7 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  const [articleTabl, setArticleTabl] = useState([]);
+  const [articleChosen, setArticleChosen] = useState({});
 
   useEffect(() => {
     if (choiceLocalStorage === 'yes') {
@@ -30,8 +30,8 @@ export const ChoicesContextProvider = ({ children }) => {
         setStoredChoiceLanguage,
         searchValue,
         setSearchValue,
-        articleTabl,
-        setArticleTabl,
+        articleChosen,
+        setArticleChosen,
       }}
     >
       {children}

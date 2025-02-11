@@ -6,21 +6,21 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
 
 export default function DisplayArticle() {
-  const { articleTabl } = useContext(ChoicesContext);
+  const { articleChosen } = useContext(ChoicesContext);
 
   return (
     <>
       <div className='container-display-article'>
         <div className='container-display-contents'>
-          <h2>{articleTabl.title}</h2>
-          <h3>-{articleTabl.source_id}-</h3>
+          <h2>{articleChosen.title}</h2>
+          <h3>-{articleChosen.source_id}-</h3>
           {/* <div className='container-picture-text'> */}
-          <img src={articleTabl.image_url} title='image article'></img>
-          <p> {articleTabl.description}</p>
+          <img src={articleChosen.image_url} title='image article'></img>
+          <p> {articleChosen.description}</p>
           {/* </div> */}
         </div>
         <div className='container-plus-like'>
-          <a href={articleTabl.link} target='_blank' rel='noreferrer'>
+          <a href={articleChosen.link} target='_blank' rel='noreferrer'>
             Article complet
           </a>
           <LikeButton />
