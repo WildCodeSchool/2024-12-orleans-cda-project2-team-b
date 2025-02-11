@@ -1,42 +1,34 @@
 // import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { ChoicesContext } from '../contexts/choices-context';
 import LikeButton from './like-button';
 import './results-list.scss';
 
 export default function ResultsList({ article }) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // A utiliser plus tard
-  // function handleClickArticle() {
-  // navigate(`/recherche-article-choisi`);
-  // récuperer l'id de l'article le mettre dans contexte et afficher le display article correct
-  // }
+  const { setArticleChosen } = useContext(ChoicesContext);
+
+  function handleClickArticle() {
+    setArticleChosen(article);
+    navigate(`/recherche-article-choisi`);
+  }
 
   if (!article) return null;
 
   return (
-    <button className='article-button' title='Appuyer pour voir plus'>
+    <button className='article-button' title='Appuyer pour voir plus' onClick={handleClickArticle}>
       {/* faire le onclick pr display article choisi */}
 
       <div className='results-container'>
-        <p>
-          {/* {(article.title &&
-            (window.innerWidth <= 700
-              ? article.title.length <= 30
-                ? article.title
-                : article.title.slice(0, 30) + '...'
-              : article.title.length <= 90
-                ? article.title
-                : article.title.slice(0, 90) + '...')) ||
-            'Aucun titre disponible'} */}
-          {/* Voir plus tard pour remettre ces ternaires */}
-
-          {article.title || 'Aucun titre disponible'}
-        </p>
+        <p className='article-title'>{article.title}</p>
 
         {article.image_url ? (
           article.image_url && <img src={article.image_url} alt="photo de l'article" />
         ) : (
-          <img src='/no-image.svg' alt="photo de l'article" />
+          <img src='/no-image.svg' alt='photo logo' />
         )}
 
         <div className='under-image-results'>

@@ -1,26 +1,28 @@
 // import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+
 import LikeButton from '../components/like-button';
+import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
 
 export default function DisplayArticle() {
-  // const { id } = useParams();
+  const { articleChosen } = useContext(ChoicesContext);
+
   return (
     <>
       <div className='container-display-article'>
         <div className='container-display-contents'>
-          <h2>Des « réfugiés » américains de TikTok adoptent une autre application chinoise</h2>
-          <h3>La presse CA</h3>
+          <h2>{articleChosen.title}</h2>
+          <h3>-{articleChosen.source_id}-</h3>
           {/* <div className='container-picture-text'> */}
-          <img src='/example-article.png' alt='image_article' title='image article'></img>
-          <p>
-            De nombreux créateurs de contenus et utilisateurs américains ont rejoint Xiaohongshu (« Petit Livre Rouge
-            »), une application chinoise similaire à Instagram, se présentant parfois comme des « réfugiés » de TikTok,
-            propriété du groupe chinois ByteDance, qui pourrait être interdite à partir de dimanche aux États-Unis.
-          </p>
+          <img src={articleChosen.image_url} title='image article'></img>
+          <p> {articleChosen.description}</p>
           {/* </div> */}
         </div>
         <div className='container-plus-like'>
-          <a href='#'>Article complet</a>
+          <a href={articleChosen.link} target='_blank' rel='noreferrer'>
+            Article complet
+          </a>
           <LikeButton />
         </div>
       </div>

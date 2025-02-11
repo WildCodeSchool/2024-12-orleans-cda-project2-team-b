@@ -31,6 +31,7 @@ export default function Search() {
   const handleSearch = () => {
     if (searchValue.trim() !== '') {
       navigate(`/recherche-resultats`);
+      // ouvre results-list
     }
   };
 
