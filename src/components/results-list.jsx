@@ -26,10 +26,10 @@ export default function ResultsList({ article }) {
     // navigate(`/recherche-article-choisi`);
   }
 
-  useEffect(() => {
-    console.log('Historique mis à jour :', listHistory);
-    // console.log(listHistory.slice(0,10));
-  }, [listHistory]);
+  // useEffect(() => {
+  //   console.log('Historique mis à jour :', listHistory);
+  //   // console.log(listHistory.slice(0,10));
+  // }, [listHistory]);
 
   if (!article) return null;
 

@@ -15,13 +15,14 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [articleChosen, setArticleChosen] = useState({});
 
-  const [listHistory, setListHistory] = useState([]);
+  const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
 
   useEffect(() => {
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
+      localStorage.setItem('tablHistory', JSON.stringify(listHistory));
     }
-  }, [storedChoiceLanguage, choiceLocalStorage]);
+  }, [storedChoiceLanguage, choiceLocalStorage, listHistory]);
 
   return (
     <ChoicesContext.Provider

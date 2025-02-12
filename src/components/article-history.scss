@@ -1,22 +1,22 @@
-@use '../variables.scss' as vars;
+// @use '../variables.scss' as vars;
 
-.title-like-history {
-  display: flex;
-  justify-content: space-between;
-}
+// .title-like-history {
+//   display: flex;
+//   justify-content: space-between;
+// }
 
-.article-history {
-  width: 80dvw;
-  height: 4.2rem;
-  margin: 0.625rem;
-  border: 1px black solid;
-  filter: drop-shadow(2px 2px 2px #000000);
-  background-color: vars.$secondary-color;
-  border-radius: 0.375rem;
-  padding: 0.625rem;
-  overflow: hidden;
-}
+// .article-history {
+//   width: 80dvw;
+//   height: 4.2rem;
+//   margin: 0.625rem;
+//   border: 1px black solid;
+//   filter: drop-shadow(2px 2px 2px #000000);
+//   background-color: vars.$secondary-color;
+//   border-radius: 0.375rem;
+//   padding: 0.625rem;
+//   overflow: hidden;
+// }
 
-.article-history > p {
-  margin-top: 0.625rem;
-}
+// .article-history > p {
+//   margin-top: 0.625rem;
+// }

@@ -1,5 +1,19 @@
 @use '../variables.scss' as vars;
 
-.history-list {
-  margin-top: 4rem;
+.article-history {
+  width: 80dvw;
+  border: 1px vars.$primary-color solid;
+  filter: drop-shadow(2px 2px 2px vars.$primary-color);
+  background-color: vars.$secondary-color;
+  border-radius: 0.375rem;
+  padding: 0.625rem;
+  overflow: hidden;
+  margin: 3%;
+  font-size: vars.$desktop-content;
+
+  .title-like-history {
+    display: flex;
+    justify-content: space-between;
+    font-size: vars.$desktop-title3;
+  }
 }
