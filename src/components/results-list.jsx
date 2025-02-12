@@ -23,7 +23,7 @@ export default function ResultsList({ article }) {
       setListHistory((prev) => [...prev, article]);
     }
 
-    // navigate(`/recherche-article-choisi`);
+    navigate(`/recherche-article-choisi`);
   }
 
   // useEffect(() => {
