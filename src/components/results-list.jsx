@@ -9,7 +9,7 @@ import './results-list.scss';
 export default function ResultsList({ article }) {
   const navigate = useNavigate();
 
-  const { setArticleChosen, articleChosen, choiceLocalStorage, setListHistory, listHistory } =
+  const { setArticleChosen, articleChosen, choiceLocalStorage, setListHistory, listHistory, setHourHistory } =
     useContext(ChoicesContext);
 
   function handleClickArticle() {
@@ -17,10 +17,13 @@ export default function ResultsList({ article }) {
 
     // If user say yes to save his data, we keep in memory consulted articles for the history
     if (choiceLocalStorage === 'yes') {
-      if (listHistory.length >= 10) {
-        setListHistory(listHistory.slice(-9));
-      }
-      setListHistory((prev) => [...prev, article]);
+      const hour = new Date().getTime();
+      setHourHistory(hour);
+
+      setListHistory((prev) => {
+        const updatedHistory = [...prev, { ...article, hourConsulted: hour }];
+        return updatedHistory.slice(-10).sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
+      });
     }
 
     navigate(`/recherche-article-choisi`);

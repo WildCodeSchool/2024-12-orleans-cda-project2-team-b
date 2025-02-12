@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // import ArticleHistory from '../components/article-history';
@@ -16,35 +16,42 @@ export default function History({ article }) {
 
     // If user say yes to save his data, we keep in memory consulted articles for the history
     if (choiceLocalStorage === 'yes') {
-      if (listHistory.length >= 10) {
-        setListHistory(listHistory.slice(-9));
-      }
       const hour = new Date().getTime();
       setHourHistory(hour);
-      setListHistory((prev) => [...prev, { ...article, hourConsulted: hour }]);
+
+      setListHistory((prev) => {
+        const updatedHistory = [...prev, { ...article, hourConsulted: hour }];
+        return updatedHistory.slice(-10).sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
+      });
     }
     navigate(`/historique-choisi`);
   }
-
-  // const hour = new Date().getTime(); // Obtenir l'heure actuelle
-
-  // setListHistory((prev) => [...prev, { ...article, hourConsulted: hour }]);
+  useEffect(() => {
+    console.log('listHistory mis à jour :', listHistory);
+  }, [listHistory]); // Exécute ce log chaque fois que listHistory change
+  {
+    console.log('Rendering listHistory:', listHistory);
+  }
 
   return (
     <>
-      <div className='container-history' title='Cliquez pour voir plus'>
-        {listHistory.map((article, index) => (
-          <ul key={index} className='article-history' onClick={() => handleClickHistory(article)}>
-            <div className='title-like-history'>
-              <li>{article.title}</li>
-              <li>
-                <LikeButton />
-              </li>
-            </div>
-            <li>{article.description}</li>
-          </ul>
-        ))}
-      </div>
+      {listHistory.length > 0 ? (
+        <div className='container-history' title='Cliquez pour voir plus'>
+          {listHistory.map((article, index) => (
+            <ul key={index} className='article-history' onClick={() => handleClickHistory(article)}>
+              <div className='title-like-history'>
+                <li>{article.title}</li>
+                <li>
+                  <LikeButton />
+                </li>
+              </div>
+              <li>{article.description}</li>
+            </ul>
+          ))}
+        </div>
+      ) : (
+        <p>no article</p>
+      )}
 
       {/* <Link to={`/historique-article/${historyId}`}>Lien d histo selected</Link> */}
       <Link to='/pas-d-historique'>Pas d historique</Link>
