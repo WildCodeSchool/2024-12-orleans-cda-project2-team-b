@@ -17,6 +17,8 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
 
+  const [hourHistory, setHourHistory] = useState('');
+
   useEffect(() => {
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
@@ -37,6 +39,8 @@ export const ChoicesContextProvider = ({ children }) => {
         setArticleChosen,
         setListHistory,
         listHistory,
+        hourHistory,
+        setHourHistory,
       }}
     >
       {children}

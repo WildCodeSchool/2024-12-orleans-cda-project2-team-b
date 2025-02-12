@@ -6,10 +6,11 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
 
 export default function DisplayArticle() {
-  const { articleChosen } = useContext(ChoicesContext);
+  const { articleChosen, hourHistory } = useContext(ChoicesContext);
 
   return (
     <>
+      <p>{hourHistory}</p>
       <div className='container-display-article'>
         <div className='container-display-contents'>
           <h2>{articleChosen.title}</h2>

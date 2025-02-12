@@ -7,7 +7,8 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './history.scss';
 
 export default function History({ article }) {
-  const { listHistory, setArticleChosen, choiceLocalStorage, setListHistory } = useContext(ChoicesContext);
+  const { listHistory, setArticleChosen, choiceLocalStorage, setListHistory, setHourHistory, hourHistory } =
+    useContext(ChoicesContext);
   const navigate = useNavigate();
 
   function handleClickHistory(article) {
@@ -18,10 +19,16 @@ export default function History({ article }) {
       if (listHistory.length >= 10) {
         setListHistory(listHistory.slice(-9));
       }
-      setListHistory((prev) => [...prev, article]);
+      const hour = new Date().getTime();
+      setHourHistory(hour);
+      setListHistory((prev) => [...prev, { ...article, hourConsulted: hour }]);
     }
     navigate(`/historique-choisi`);
   }
+
+  // const hour = new Date().getTime(); // Obtenir l'heure actuelle
+
+  // setListHistory((prev) => [...prev, { ...article, hourConsulted: hour }]);
 
   return (
     <>
