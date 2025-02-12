@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <NoHistory />,
       },
       {
-        path: 'historique-article',
+        path: 'historique-choisi',
         element: <DisplayArticle />,
       },
 

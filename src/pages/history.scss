@@ -1,5 +1,12 @@
 @use '../variables.scss' as vars;
-
+.container-history {
+  width: 90%;
+  height: 74dvh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
 .article-history {
   width: 80dvw;
   height: 15dvh;
@@ -9,7 +16,7 @@
   border-radius: 0.375rem;
   padding: 0.625rem;
   overflow: hidden;
-  margin: 2%;
+  margin: 1%;
   font-size: vars.$desktop-description;
   transition: transform 0.2s ease;
 
