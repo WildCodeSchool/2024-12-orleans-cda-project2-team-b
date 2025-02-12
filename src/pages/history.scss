@@ -24,24 +24,6 @@
   text-overflow: ellipsis;
   text-wrap: nowrap;
 
-  // .title-like-history {
-  //   display: flex;
-  //   justify-content: space-between; /* Espacement entre le titre et le bouton */
-  //   align-items: flex-start; /* Aligne le bouton en haut */
-  //   width: 100%; /* S'assure que l'élément prend toute la largeur */
-  //   position: relative; /* Permet un positionnement plus précis */
-  // }
-
-  // .title-like-history li:first-child {
-  //   flex: 1; /* Le titre prend tout l'espace disponible */
-  // }
-
-  // .title-like-history li:last-child {
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  // }
-
   .title-like-history {
     display: flex;
     justify-content: space-between;
@@ -75,5 +57,4 @@
 
 .article-history:hover {
   transform: scale(1.02); /* Effet d'agrandissement */
-  // box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
