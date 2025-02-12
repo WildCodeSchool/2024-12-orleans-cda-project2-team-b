@@ -24,10 +24,30 @@
   text-overflow: ellipsis;
   text-wrap: nowrap;
 
+  // .title-like-history {
+  //   display: flex;
+  //   justify-content: space-between; /* Espacement entre le titre et le bouton */
+  //   align-items: flex-start; /* Aligne le bouton en haut */
+  //   width: 100%; /* S'assure que l'élément prend toute la largeur */
+  //   position: relative; /* Permet un positionnement plus précis */
+  // }
+
+  // .title-like-history li:first-child {
+  //   flex: 1; /* Le titre prend tout l'espace disponible */
+  // }
+
+  // .title-like-history li:last-child {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  // }
+
   .title-like-history {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
     font-size: vars.$desktop-title3;
     list-style-type: none;
 
@@ -38,9 +58,12 @@
       text-wrap: nowrap;
     }
 
-    li:nth-child(2) {
+    li:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
       display: flex;
-      // margin-top: -4%;
+      align-items: flex-start;
     }
   }
   li:last-child {
