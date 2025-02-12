@@ -8,11 +8,8 @@ export default function NoFavourite() {
     <>
       <Outlet />
       <div className='no-favourite-container'>
-        <p>
-          Vous n’avez pas encore de favoris... 🥹
-          <br />
-          Laissez-vous tenter par notre recherche aléatoire.
-        </p>
+        <p>Vous n’avez pas encore de favoris... 🥹</p>
+        <p>Laissez-vous tenter par notre recherche aléatoire.</p>
         <ButtonRandom />
       </div>
     </>
