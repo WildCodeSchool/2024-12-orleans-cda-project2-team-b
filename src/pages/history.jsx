@@ -1,13 +1,14 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // import ArticleHistory from '../components/article-history';
 import LikeButton from '../components/like-button';
 import { ChoicesContext } from '../contexts/choices-context';
 import './history.scss';
+import NoHistory from './no-history';
 
-export default function History({ article }) {
-  const { listHistory, setArticleChosen, choiceLocalStorage, setListHistory, setHourHistory, hourHistory } =
+export default function History() {
+  const { listHistory, setArticleChosen, choiceLocalStorage, setListHistory, setHourHistory } =
     useContext(ChoicesContext);
   const navigate = useNavigate();
 
@@ -25,12 +26,6 @@ export default function History({ article }) {
       });
     }
     navigate(`/historique-choisi`);
-  }
-  useEffect(() => {
-    console.log('listHistory mis à jour :', listHistory);
-  }, [listHistory]); // Exécute ce log chaque fois que listHistory change
-  {
-    console.log('Rendering listHistory:', listHistory);
   }
 
   return (
@@ -50,11 +45,8 @@ export default function History({ article }) {
           ))}
         </div>
       ) : (
-        <p>no article</p>
+        <NoHistory />
       )}
-
-      {/* <Link to={`/historique-article/${historyId}`}>Lien d histo selected</Link> */}
-      <Link to='/pas-d-historique'>Pas d historique</Link>
     </>
   );
 }
