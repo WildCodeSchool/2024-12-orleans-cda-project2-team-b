@@ -1,5 +1,6 @@
 // import { useParams } from 'react-router-dom';
 import LikeButton from '../components/like-button';
+import Navigation from '../components/navigation';
 import './display-article.scss';
 
 export default function DisplayArticle() {
@@ -24,8 +25,9 @@ export default function DisplayArticle() {
           <LikeButton />
         </div>
       </div>
-      <div className='button-after'>précédent</div>
-      <div className='button-before'>suivant</div>
+      <Navigation />
+      {/* <div className='button-after'>précédent</div>
+      <div className='button-before'>suivant</div> */}
     </>
   );
 }
