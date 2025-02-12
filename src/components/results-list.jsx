@@ -1,5 +1,5 @@
 // import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
@@ -9,19 +9,32 @@ import './results-list.scss';
 export default function ResultsList({ article }) {
   const navigate = useNavigate();
 
-  const { setArticleChosen } = useContext(ChoicesContext);
+  const { setArticleChosen, articleChosen, choiceLocalStorage, setListHistory, listHistory } =
+    useContext(ChoicesContext);
 
   function handleClickArticle() {
     setArticleChosen(article);
-    navigate(`/recherche-article-choisi`);
+
+    // If user say yes to save his data, we keep in memory consulted articles for the history
+    if (choiceLocalStorage === 'yes') {
+      if (listHistory.length >= 10) {
+        setListHistory(listHistory.slice(-9));
+      }
+      setListHistory((prev) => [...prev, article]);
+    }
+
+    // navigate(`/recherche-article-choisi`);
   }
+
+  useEffect(() => {
+    console.log('Historique mis à jour :', listHistory);
+    // console.log(listHistory.slice(0,10));
+  }, [listHistory]);
 
   if (!article) return null;
 
   return (
     <button className='article-button' title='Appuyer pour voir plus' onClick={handleClickArticle}>
-      {/* faire le onclick pr display article choisi */}
-
       <div className='results-container'>
         <p className='article-title'>{article.title}</p>
 
