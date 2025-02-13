@@ -1,23 +1,39 @@
-import { Link, Outlet } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import ArticleHistory from '../components/article-history';
+import LikeButton from '../components/like-button';
+import { ChoicesContext } from '../contexts/choices-context';
 import './history.scss';
+import NoHistory from './no-history';
 
 export default function History() {
-  const historyId = 567;
+  const { listHistory, addArticleToHistory } = useContext(ChoicesContext);
+  const navigate = useNavigate();
+
+  function handleClickHistory(article) {
+    addArticleToHistory(article);
+    navigate(`/historique-choisi`);
+  }
+
   return (
     <>
-      <div className='history-list'>
-        <ArticleHistory />
-        <ArticleHistory />
-        <ArticleHistory />
-        <ArticleHistory />
-        <ArticleHistory />
-      </div>
-
-      <Link to={`/historique-article/${historyId}`}>Lien d histo selected</Link>
-      <Link to='/pas-d-historique'>Pas d historique</Link>
-      <Outlet />
+      {listHistory.length > 0 ? (
+        <div className='container-history' title='Cliquez pour voir plus'>
+          {listHistory.map((article, index) => (
+            <ul key={index} className='article-history' onClick={() => handleClickHistory(article)}>
+              <div className='title-like-history'>
+                <li>{article.title}</li>
+                <li>
+                  <LikeButton />
+                </li>
+              </div>
+              <li>{article.description}</li>
+            </ul>
+          ))}
+        </div>
+      ) : (
+        <NoHistory />
+      )}
     </>
   );
 }

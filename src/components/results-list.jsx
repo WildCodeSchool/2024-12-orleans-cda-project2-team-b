@@ -9,10 +9,10 @@ import './results-list.scss';
 export default function ResultsList({ article }) {
   const navigate = useNavigate();
 
-  const { setArticleChosen } = useContext(ChoicesContext);
+  const { addArticleToHistory } = useContext(ChoicesContext);
 
   function handleClickArticle() {
-    setArticleChosen(article);
+    addArticleToHistory(article);
     navigate(`/recherche-article-choisi`);
   }
 
@@ -20,8 +20,6 @@ export default function ResultsList({ article }) {
 
   return (
     <button className='article-button' title='Appuyer pour voir plus' onClick={handleClickArticle}>
-      {/* faire le onclick pr display article choisi */}
-
       <div className='results-container'>
         <p className='article-title'>{article.title}</p>
 

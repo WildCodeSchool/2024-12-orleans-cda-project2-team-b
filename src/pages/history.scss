@@ -1,5 +1,60 @@
 @use '../variables.scss' as vars;
+.container-history {
+  width: 90%;
+  height: 74dvh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.article-history {
+  width: 80dvw;
+  height: 15dvh;
+  border: 1px vars.$primary-color solid;
+  box-shadow: 4px 4px 4px 0px vars.$primary-color;
+  background-color: vars.$secondary-color;
+  border-radius: 0.375rem;
+  padding: 0.625rem;
+  overflow: hidden;
+  margin: 1%;
+  font-size: vars.$desktop-description;
+  transition: transform 0.2s ease;
 
-.history-list {
-  margin-top: 4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+
+  .title-like-history {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    font-size: vars.$desktop-title3;
+    list-style-type: none;
+
+    li:first-child {
+      width: 70dvw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+    }
+
+    li:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+  li:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+  }
+}
+
+.article-history:hover {
+  transform: scale(1.02); /* Effet d'agrandissement */
 }

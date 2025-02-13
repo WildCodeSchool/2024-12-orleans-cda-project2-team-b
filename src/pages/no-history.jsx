@@ -4,7 +4,9 @@ import Oops from './oops';
 export default function NoHistory() {
   return (
     <>
-      <Oops />
+      <div className='container-oops'>
+        <Oops />
+      </div>
     </>
   );
 }
