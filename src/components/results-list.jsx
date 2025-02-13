@@ -9,12 +9,10 @@ import './results-list.scss';
 export default function ResultsList({ article }) {
   const navigate = useNavigate();
 
-  const { setArticleChosen, addArticleToHistory } = useContext(ChoicesContext);
+  const { addArticleToHistory } = useContext(ChoicesContext);
 
   function handleClickArticle() {
-    setArticleChosen(article);
     addArticleToHistory(article);
-    //display the component DisplayArticle
     navigate(`/recherche-article-choisi`);
   }
 

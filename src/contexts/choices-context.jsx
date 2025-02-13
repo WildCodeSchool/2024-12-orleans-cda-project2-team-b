@@ -19,6 +19,7 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const addArticleToHistory = useCallback(
     (article) => {
+      setArticleChosen(article);
       if (choiceLocalStorage === 'yes') {
         //Add or modify the hourConsulted to allow the sort of listHistory
         setListHistory((prev) => {
