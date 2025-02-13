@@ -21,26 +21,33 @@ export default function Navigation() {
 
   const [articles, setArticles] = useState([]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     fetch({ apiKey }) // Remplacez par votre URL d'API
       .then((response) => response.json())
       .then((data) => setArticles(data));
-  }, []);
+  }, [apiKey]);
 
   return (
-    <div>
+    <div className='buttonsSection'>
       {articles.length > 0 && (
         <div>
           <h2>{articles[currentIndex].title}</h2>
           <p>{articles[currentIndex].content}</p>
         </div>
       )}
-      <button type='button' onClick={handlePrevClick} disabled={currentIndex === 0}>
+      <button className='navButtons' type='button' onClick={handlePrevClick} disabled={currentIndex === 0}>
         Précédent
       </button>
-      <button type='button' onClick={handleNextClick} disabled={currentIndex === articles.length - 1}>
+      <button
+        type='button'
+        className='navButtons'
+        onClick={handleNextClick}
+        disabled={currentIndex === articles.length - 1}
+      >
         Suivant
       </button>
+      console.log(1)
     </div>
   );
 }
