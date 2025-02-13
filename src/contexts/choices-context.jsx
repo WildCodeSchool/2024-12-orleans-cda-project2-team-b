@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 
 import { countryList } from '../data/country-list';
 
@@ -16,6 +16,29 @@ export const ChoicesContextProvider = ({ children }) => {
   const [articleChosen, setArticleChosen] = useState({});
 
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
+
+  const addArticleToHistory = useCallback(
+    (article) => {
+      if (choiceLocalStorage === 'yes') {
+        //Add or modify the hourConsulted to allow the sort of listHistory
+        setListHistory((prev) => {
+          const updatedHistory = [...prev];
+          const hour = new Date().getTime();
+          //check if article is already in history, if yes > update hourConsulted, if no > add article + hourConsulted
+          const articleExistingIndex = prev.findIndex((a) => a.title === article.title);
+          if (articleExistingIndex !== -1) {
+            updatedHistory[articleExistingIndex] = { ...updatedHistory[articleExistingIndex], hourConsulted: hour };
+          } else {
+            updatedHistory.push({ ...article, hourConsulted: hour });
+          }
+
+          //we keep only the 10 last article consulted + sort to see the last article consulted in first
+          return updatedHistory.slice(-10).sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
+        });
+      }
+    },
+    [choiceLocalStorage],
+  );
 
   useEffect(() => {
     if (choiceLocalStorage === 'yes') {
@@ -37,6 +60,7 @@ export const ChoicesContextProvider = ({ children }) => {
         setArticleChosen,
         setListHistory,
         listHistory,
+        addArticleToHistory,
       }}
     >
       {children}
