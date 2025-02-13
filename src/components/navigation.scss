@@ -1,5 +1,25 @@
+@use '../variables.scss' as vars;
+
 .buttonsSection {
   width: 100svw;
   display: flex;
   justify-content: space-around;
+}
+
+button.navButtons {
+  border: none;
+  background: none;
+}
+
+.navButtons {
+  color: vars.$primary-color;
+  transition:
+    color 0.1s ease-in-out,
+    opacity 0.1s ease-in-out;
+  transition-delay: 0.1s;
+  &:hover {
+    opacity: 0.5;
+    transition: ease-in-out 0.1;
+    cursor: pointer;
+  }
 }

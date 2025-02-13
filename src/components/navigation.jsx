@@ -47,7 +47,6 @@ export default function Navigation() {
       >
         Suivant
       </button>
-      console.log(1)
     </div>
   );
 }
