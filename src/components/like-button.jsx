@@ -11,12 +11,13 @@ export default function LikeButton({ article }) {
     //to not declenche the handleClickHistory or handleClickArticle
     event.stopPropagation();
     addArticleToFavourite(article);
+    // console.log('j"ai ajouté' + article)
   }
 
   return (
     <>
       <button className='button-like' type='button' onClick={handleClickLike}>
-        {article?.article_id && listFavourite.findIndex((fav) => fav.article_id === article.article_id) === -1 ? (
+        {(article?.article_id ? listFavourite.findIndex((fav) => fav.article_id === article.article_id) : -1) === -1 ? (
           <img src='/icons/like-empty.svg' alt='not-like' title='Ajouter aux favoris' />
         ) : (
           <img src='/icons/like-full.svg' alt='like' title='Retirer des favoris' />
