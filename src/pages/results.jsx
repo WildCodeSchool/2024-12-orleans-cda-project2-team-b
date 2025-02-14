@@ -20,7 +20,6 @@ export default function Results() {
         .then((response) => response.json())
         .then((data) => {
           setArticles(data.results);
-          // console.log(data);
         });
     }
   }, [searchValue]);
@@ -32,7 +31,6 @@ export default function Results() {
       </p>
 
       <div className='article-result-wrap'>
-        {/* <div> */}
         {articles.length > 0
           ? articles.map((article, index) => <ResultsList key={index} article={article} />)
           : navigate(`/oops`)}

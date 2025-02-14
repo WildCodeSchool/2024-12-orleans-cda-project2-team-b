@@ -6,6 +6,7 @@ import ResultsList from '../components/results-list';
 import { ChoicesContext } from '../contexts/choices-context';
 import './favourite.scss';
 import NoFavourite from './no-favourite';
+import './results.scss';
 
 export default function Favourite() {
   // const articleId = 123; // Example dynamic ID (this could come from props, state, or API data)
@@ -16,9 +17,11 @@ export default function Favourite() {
       {listFavourite.length > 0 ? (
         <>
           <p>Vous avez {listFavourite.length} 💙 dans votre liste. </p>
-          {listFavourite.map((article, index) => (
-            <ResultsList key={index} article={article} />
-          ))}
+          <div className='article-result-wrap'>
+            {listFavourite.map((article, index) => (
+              <ResultsList key={index} article={article} />
+            ))}
+          </div>
         </>
       ) : (
         <NoFavourite />
