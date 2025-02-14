@@ -56,9 +56,9 @@
 
 @media screen and (max-width: 700px) {
   .results-container {
-    margin: 1rem;
-    width: 10rem;
-    height: 10rem;
+    margin: 2dvh;
+    width: 43dvw;
+    height: 30dvh;
 
     .article-title {
       font-size: vars.$mobile-description;
@@ -66,9 +66,9 @@
     }
 
     > img {
-      height: 3.875rem;
-      width: auto;
-      max-width: 9rem;
+      height: 15dvh;
+      // width: auto;
+      max-width: 38dvw;
       margin: 3% 0 3% 0;
     }
   }
