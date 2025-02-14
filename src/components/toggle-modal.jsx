@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { memberList } from '../data/member-list';
 import ButtonLightDark from './button-light-dark';
 import Modal from './modal';
+import './toggle-modal.scss';
 
 export default function ToggleModal({ isShowing, hide, openInNewTab }) {
   return (
@@ -30,6 +31,7 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
                 <p>{member.name}</p>
                 <div className='linksButtons'>
                   <img
+                    className='icon-github'
                     src='/icons/github.svg'
                     alt='Logo Github'
                     onClick={() => openInNewTab(member.github)}
@@ -37,6 +39,7 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
                     style={{ cursor: 'pointer' }}
                   />
                   <img
+                    className='icon-linked'
                     src='/icons/linkedin.svg'
                     alt='Logo Linkedin'
                     onClick={() => openInNewTab(member.linkedin)}
