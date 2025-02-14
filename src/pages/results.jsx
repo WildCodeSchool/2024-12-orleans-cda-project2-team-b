@@ -32,6 +32,7 @@ export default function Results() {
       </p>
 
       <div className='article-result-wrap'>
+        {/* <div> */}
         {articles.length > 0
           ? articles.map((article, index) => <ResultsList key={index} article={article} />)
           : navigate(`/oops`)}

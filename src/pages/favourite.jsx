@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import ResultsList from '../components/results-list';
 // import { Link } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
@@ -15,7 +16,9 @@ export default function Favourite() {
       {listFavourite.length > 0 ? (
         <>
           <p>Vous avez {listFavourite.length} 💙 dans votre liste. </p>
-          {/* //Affichage du tableau des fav*/}
+          {listFavourite.map((article, index) => (
+            <ResultsList key={index} article={article} />
+          ))}
         </>
       ) : (
         <NoFavourite />
