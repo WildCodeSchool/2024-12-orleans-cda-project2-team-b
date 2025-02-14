@@ -34,7 +34,7 @@ export default function ResultsList({ article }) {
 
       <div className='under-image-results'>
         <div className='source'>{article.source_id}</div>
-        <LikeButton />
+        <LikeButton article={article} />
       </div>
     </div>
   );
