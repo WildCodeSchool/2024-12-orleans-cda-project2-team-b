@@ -7,7 +7,7 @@ import './display-favorite.scss';
 
 export default function DisplayFavorite() {
   const { articleChosen } = useContext(ChoicesContext);
-  // const { id } = useParams();
+
   return (
     <>
       <div className='article-container'>

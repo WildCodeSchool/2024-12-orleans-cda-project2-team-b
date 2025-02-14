@@ -17,6 +17,7 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
   const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tablFav')) || []);
+  const [isLike, setIsLike] = useState();
 
   const addArticleToHistory = useCallback(
     (article) => {
@@ -47,17 +48,36 @@ export const ChoicesContextProvider = ({ children }) => {
       setArticleChosen(article);
 
       if (choiceLocalStorage === 'yes') {
+        //si like faux on ajoute le favoris et on ajoute islike=true
+        // if (!isLike) {
+        setIsLike(true);
         setListFavourite((prev) => {
           const updateFav = [...prev];
           const hour = new Date().getTime();
           const articleExistingIndex = prev.findIndex((a) => a.title === article.title);
           if (articleExistingIndex !== -1) {
-            updateFav[articleExistingIndex] = { ...updateFav[articleExistingIndex], hourConsulted: hour };
+            updateFav[articleExistingIndex] = {
+              ...updateFav[articleExistingIndex],
+              hourConsulted: hour,
+              likeLink: '/icons/like-full.svg',
+            };
           } else {
-            updateFav.push({ ...article, hourConsulted: hour });
+            updateFav.push({ ...article, hourConsulted: hour, likeLink: '/icons/like-full.svg' });
           }
           return updateFav.slice(-10).sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
         });
+        // } else {
+        //   // retirer des favoris
+        //   setIsLike(false);
+        //   setListFavourite((prev) => {
+        //     const updateFav = [...prev];
+        //     //trouver index de l'article
+        //     const articleIndex = listFavourite.findIndex(article);
+        //     //splice sur cet index
+        //     updateFav.splice(articleIndex, 1);
+        //     return updateFav;
+        //   });
+        // }
       }
     },
     [choiceLocalStorage],
