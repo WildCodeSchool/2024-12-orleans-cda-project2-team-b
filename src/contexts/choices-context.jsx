@@ -42,8 +42,10 @@ export const ChoicesContextProvider = ({ children }) => {
     [choiceLocalStorage],
   );
 
-  const addArticleToFavorite = useCallback(
+  const addArticleToFavourite = useCallback(
     (article) => {
+      setArticleChosen(article);
+
       if (choiceLocalStorage === 'yes') {
         setListFavourite((prev) => {
           const updateFav = [...prev];
@@ -85,7 +87,7 @@ export const ChoicesContextProvider = ({ children }) => {
         addArticleToHistory,
         listFavourite,
         setListFavourite,
-        addArticleToFavorite,
+        addArticleToFavourite,
       }}
     >
       {children}

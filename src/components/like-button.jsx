@@ -3,15 +3,15 @@ import { useContext, useState } from 'react';
 import { ChoicesContext } from '../contexts/choices-context';
 import './like-button.scss';
 
-export default function LikeButton() {
+export default function LikeButton({ article }) {
   const [isLike, setIsLike] = useState(false);
   const { addArticleToFavourite } = useContext(ChoicesContext);
 
-  function handleClickLike(event, article) {
+  function handleClickLike(event) {
+    //to not declenche the handleClickHistory or handleClickArticle
     event.stopPropagation();
-    setIsLike((prev) => !prev);
     addArticleToFavourite(article);
-    console.log('j"i cliqué');
+    setIsLike((prev) => !prev);
   }
 
   return (
