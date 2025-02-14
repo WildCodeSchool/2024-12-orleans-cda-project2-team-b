@@ -7,8 +7,8 @@ import NoFavourite from './no-favourite';
 
 export default function Favourite() {
   const articleId = 123; // Example dynamic ID (this could come from props, state, or API data)
-  const { addArticleToFavourite, listFavorite } = useContext(ChoicesContext);
-  console.log(listFavorite.length);
+  const { listFavorite } = useContext(ChoicesContext);
+
   return (
     <>
       <p>Page de recherche des favoris</p>
