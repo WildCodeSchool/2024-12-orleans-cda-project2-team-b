@@ -11,7 +11,6 @@ export default function LikeButton({ article }) {
     //to not declenche the handleClickHistory or handleClickArticle
     event.stopPropagation();
     addArticleToFavourite(article);
-    // console.log('j"ai ajouté' + article)
   }
 
   return (

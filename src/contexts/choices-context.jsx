@@ -45,25 +45,31 @@ export const ChoicesContextProvider = ({ children }) => {
   const addArticleToFavourite = useCallback(
     (article) => {
       setArticleChosen(article);
+      if (article.article_id) {
+        if (choiceLocalStorage === 'yes') {
+          setListFavourite((prev) => {
+            const updateFav = [...prev];
+            const hour = new Date().getTime();
 
-      if (choiceLocalStorage === 'yes') {
-        setListFavourite((prev) => {
-          const updateFav = [...prev];
-          const hour = new Date().getTime();
-
-          //vérifier si article déjà dans favoris ou pas
-          const articleExistingIndex = article?.article_id
-            ? prev.findIndex((a) => a.article_id === article.article_id)
-            : -1;
-          if (articleExistingIndex !== -1) {
-            //si existe on retire
-            updateFav.splice(articleExistingIndex, 1);
-          } else {
-            //si existe pas on ajoute
-            updateFav.push({ ...article, hourConsulted: hour });
-          }
-          return updateFav.sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
-        });
+            //check if article is in ListFav
+            const articleExistingIndex = article?.article_id
+              ? prev.findIndex((a) => a.article_id === article.article_id)
+              : -1;
+            if (articleExistingIndex !== -1) {
+              //if is already here -> we delete it
+              updateFav.splice(articleExistingIndex, 1);
+            } else {
+              //if not -> we add it
+              updateFav.push({ ...article, hourConsulted: hour });
+            }
+            return updateFav.sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
+          });
+        } else {
+          //A voir plus tard pour faire une vrai pop-up
+          alert(
+            'Vous n avez pas souhaité enregistrer de favoris, cette option n est donc pas disponible. 😬 Avez vous changé d avis ? Actualisez la page et répondez oui pour débloquer cette option. ✅',
+          );
+        }
       }
     },
     [choiceLocalStorage],

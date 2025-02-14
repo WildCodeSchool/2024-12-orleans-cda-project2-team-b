@@ -11,15 +11,20 @@ export default function DisplayArticle() {
     <>
       <div className='container-display-article'>
         <div className='container-display-contents'>
-          <h2>{articleChosen.title}</h2>
-          <h3>-{articleChosen.source_id}-</h3>
-          <img src={articleChosen.image_url} title='image article'></img>
-          <p> {articleChosen.description}</p>
+          <h2>{articleChosen.title || 'titre inconnu'}</h2>
+          <h3>-{articleChosen.source_id || 'source introuvable'}-</h3>
+          <img src={articleChosen.image_url || '/no-image.svg'} alt='image article' title='image article'></img>
+          <p> {articleChosen.description || "Nous n'avons pas de texte à vous proposer pour cet article..."}</p>
         </div>
         <div className='container-plus-like'>
-          <a href={articleChosen.link} target='_blank' rel='noreferrer'>
-            Article complet
-          </a>
+          {articleChosen.link ? (
+            <a href={articleChosen.link} target='_blank' rel='noreferrer'>
+              Article complet
+            </a>
+          ) : (
+            "Pas d'information"
+          )}
+
           <LikeButton article={articleChosen} />
         </div>
       </div>

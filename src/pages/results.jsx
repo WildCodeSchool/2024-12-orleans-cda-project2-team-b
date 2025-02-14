@@ -27,7 +27,7 @@ export default function Results() {
   return (
     <>
       <p>
-        {articles.length} article(s) ont été trouvés avec votre recherche : &quot;{searchValue}&quot;
+        {articles.length} article(s) ont été trouvé(s) avec votre recherche : &quot;{searchValue}&quot;
       </p>
 
       <div className='article-result-wrap'>
