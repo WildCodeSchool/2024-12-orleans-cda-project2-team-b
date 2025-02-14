@@ -6,13 +6,13 @@ import DisplayArticle from './display-article';
 import './display-favorite.scss';
 
 export default function DisplayFavorite() {
-  const { articleTabl } = useContext(ChoicesContext);
+  const { articleChosen } = useContext(ChoicesContext);
   // const { id } = useParams();
   return (
     <>
       <div className='article-container'>
         <DisplayArticle />
-        <img className='background-article' src={articleTabl.image_url} />
+        <img className='background-article' src={articleChosen.image_url} />
       </div>
     </>
   );
