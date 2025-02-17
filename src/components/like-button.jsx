@@ -4,7 +4,6 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './like-button.scss';
 
 export default function LikeButton({ article }) {
-  // const [isLike, setIsLike] = useState(false);
   const { addArticleToFavourite, listFavourite } = useContext(ChoicesContext);
 
   function handleClickLike(event) {
