@@ -1,22 +1,25 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
+import { ChoicesContext } from '../contexts/choices-context';
 import './like-button.scss';
 
-export default function LikeButton() {
-  const [isLike, setIsLike] = useState(false);
+export default function LikeButton({ article }) {
+  const { addArticleToFavourite, listFavourite } = useContext(ChoicesContext);
 
-  function handleClickLike() {
-    setIsLike((prev) => !prev);
+  function handleClickLike(event) {
+    //to not declenche the handleClickHistory or handleClickArticle
+    event.stopPropagation();
+    addArticleToFavourite(article);
   }
 
   return (
     <>
       <button className='button-like' type='button' onClick={handleClickLike}>
-        <img
-          src={isLike ? '/icons/like-full.svg' : '/icons/like-empty.svg'}
-          alt={isLike ? 'like' : 'not-like'}
-          title={isLike ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-        />
+        {(article?.article_id ? listFavourite.findIndex((fav) => fav.article_id === article.article_id) : -1) === -1 ? (
+          <img src='/icons/like-empty.svg' alt='not-like' title='Ajouter aux favoris' />
+        ) : (
+          <img src='/icons/like-full.svg' alt='like' title='Retirer des favoris' />
+        )}
       </button>
     </>
   );

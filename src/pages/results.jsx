@@ -20,7 +20,6 @@ export default function Results() {
         .then((response) => response.json())
         .then((data) => {
           setArticles(data.results);
-          // console.log(data);
         });
     }
   }, [searchValue]);
@@ -28,7 +27,7 @@ export default function Results() {
   return (
     <>
       <p>
-        {articles.length} article(s) ont été trouvés avec votre recherche : &quot;{searchValue}&quot;
+        {articles.length} article(s) ont été trouvé(s) avec votre recherche : &quot;{searchValue}&quot;
       </p>
 
       <div className='article-result-wrap'>

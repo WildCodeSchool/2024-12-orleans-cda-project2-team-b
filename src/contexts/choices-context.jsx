@@ -16,26 +16,54 @@ export const ChoicesContextProvider = ({ children }) => {
   const [articleChosen, setArticleChosen] = useState({});
 
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
+  const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tablFav')) || []);
+
+  // Fonction used for addArticleToHistory and addArticleToFavourite
+  const updateList = (prevList, article, title, shouldRemove = false) => {
+    const updatedList = [...prevList];
+    const hour = new Date().getTime();
+
+    const articleIndex = updatedList.findIndex((a) => a[title] === article[title]);
+
+    if (articleIndex !== -1) {
+      shouldRemove
+        ? updatedList.splice(articleIndex, 1)
+        : (updatedList[articleIndex] = { ...updatedList[articleIndex], hourConsulted: hour });
+    } else {
+      updatedList.push({ ...article, hourConsulted: hour });
+    }
+
+    return updatedList.sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
+  };
 
   const addArticleToHistory = useCallback(
     (article) => {
       setArticleChosen(article);
       if (choiceLocalStorage === 'yes') {
-        //Add or modify the hourConsulted to allow the sort of listHistory
-        setListHistory((prev) => {
-          const updatedHistory = [...prev];
-          const hour = new Date().getTime();
-          //check if article is already in history, if yes > update hourConsulted, if no > add article + hourConsulted
-          const articleExistingIndex = prev.findIndex((a) => a.title === article.title);
-          if (articleExistingIndex !== -1) {
-            updatedHistory[articleExistingIndex] = { ...updatedHistory[articleExistingIndex], hourConsulted: hour };
-          } else {
-            updatedHistory.push({ ...article, hourConsulted: hour });
-          }
+        setListHistory((prev) => updateList(prev, article, 'title').slice(-10));
+      }
+    },
+    [choiceLocalStorage],
+  );
 
-          //we keep only the 10 last article consulted + sort to see the last article consulted in first
-          return updatedHistory.slice(-10).sort((a, b) => (b.hourConsulted || 0) - (a.hourConsulted || 0));
-        });
+  const addArticleToFavourite = useCallback(
+    (article) => {
+      setArticleChosen(article);
+      if (article.title) {
+        if (choiceLocalStorage === 'yes') {
+          setListFavourite((prev) =>
+            updateList(
+              prev,
+              article,
+              'title',
+              prev.some((a) => a.title === article.title),
+            ),
+          );
+        } else {
+          alert(
+            "Vous n'avez pas souhaité enregistrer de favoris, cette option n'est donc pas disponible. 😬 Avez-vous changé d'avis ? Actualisez la page et répondez oui pour débloquer cette option. ✅",
+          );
+        }
       }
     },
     [choiceLocalStorage],
@@ -45,8 +73,9 @@ export const ChoicesContextProvider = ({ children }) => {
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
       localStorage.setItem('tablHistory', JSON.stringify(listHistory));
+      localStorage.setItem('tablFav', JSON.stringify(listFavourite));
     }
-  }, [storedChoiceLanguage, choiceLocalStorage, listHistory]);
+  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite]);
 
   return (
     <ChoicesContext.Provider
@@ -62,6 +91,9 @@ export const ChoicesContextProvider = ({ children }) => {
         setListHistory,
         listHistory,
         addArticleToHistory,
+        listFavourite,
+        setListFavourite,
+        addArticleToFavourite,
       }}
     >
       {children}

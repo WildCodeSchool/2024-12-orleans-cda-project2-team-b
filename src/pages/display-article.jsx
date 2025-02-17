@@ -1,4 +1,3 @@
-// import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 
 import LikeButton from '../components/like-button';
@@ -12,18 +11,21 @@ export default function DisplayArticle() {
     <>
       <div className='container-display-article'>
         <div className='container-display-contents'>
-          <h2>{articleChosen.title}</h2>
-          <h3>-{articleChosen.source_id}-</h3>
-          {/* <div className='container-picture-text'> */}
-          <img src={articleChosen.image_url} title='image article'></img>
-          <p> {articleChosen.description}</p>
-          {/* </div> */}
+          <h2>{articleChosen.title || 'titre inconnu'}</h2>
+          <h3>-{articleChosen.source_id || 'source introuvable'}-</h3>
+          <img src={articleChosen.image_url || '/no-image.svg'} alt='image article' title='image article'></img>
+          <p> {articleChosen.description || "Nous n'avons pas de texte à vous proposer pour cet article..."}</p>
         </div>
         <div className='container-plus-like'>
-          <a href={articleChosen.link} target='_blank' rel='noreferrer'>
-            Article complet
-          </a>
-          <LikeButton />
+          {articleChosen.link ? (
+            <a href={articleChosen.link} target='_blank' rel='noreferrer'>
+              Article complet
+            </a>
+          ) : (
+            "Pas d'information"
+          )}
+
+          <LikeButton article={articleChosen} />
         </div>
       </div>
       <div className='button-after'>précédent</div>
