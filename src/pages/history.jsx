@@ -12,7 +12,7 @@ export default function History() {
 
   function handleClickHistory(article) {
     addArticleToHistory(article);
-    navigate(`/historique-choisi`);
+    navigate(`/historique-choisi/${article.article_id}`);
   }
 
   return (
@@ -20,15 +20,17 @@ export default function History() {
       {listHistory.length > 0 ? (
         <div className='container-history' title='Cliquez pour voir plus'>
           {listHistory.map((article, index) => (
-            <ul key={index} className='article-history' onClick={() => handleClickHistory(article)}>
-              <div className='title-like-history'>
-                <li>{article.title}</li>
-                <li>
-                  <LikeButton />
-                </li>
-              </div>
-              <li>{article.description}</li>
-            </ul>
+            <>
+              <ul key={index} className='article-history' onClick={() => handleClickHistory(article)}>
+                <div className='title-like-history'>
+                  <li>{article.title}</li>
+                  <li>
+                    <LikeButton article={article} />
+                  </li>
+                </div>
+                <li>{article.description}</li>
+              </ul>
+            </>
           ))}
         </div>
       ) : (

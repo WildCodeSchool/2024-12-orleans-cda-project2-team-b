@@ -56,5 +56,22 @@
 }
 
 .article-history:hover {
-  transform: scale(1.02); /* Effet d'agrandissement */
+  transform: scale(1.02);
+}
+
+@media (max-width: 700px) {
+  .container-history {
+    width: 100%;
+    height: 81dvh;
+
+    .article-history {
+      width: 95%;
+      height: 14dvh;
+      font-size: vars.$mobile-description;
+
+      .title-like-history {
+        font-size: vars.$mobile-title3;
+      }
+    }
+  }
 }
