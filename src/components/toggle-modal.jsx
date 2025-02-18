@@ -28,24 +28,26 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <article key={index}>
                 <img className='memberPicture' src={member.picture} alt={member.name} />
-                <p>{member.name}</p>
-                <div className='linksButtons'>
-                  <img
-                    className='icon-github'
-                    src='/icons/github.svg'
-                    alt='Logo Github'
-                    onClick={() => openInNewTab(member.github)}
-                    onKeyDown={(e) => e.key === 'Enter'}
-                    style={{ cursor: 'pointer' }}
-                  />
-                  <img
-                    className='icon-linked'
-                    src='/icons/linkedin.svg'
-                    alt='Logo Linkedin'
-                    onClick={() => openInNewTab(member.linkedin)}
-                    onKeyDown={(e) => e.key === 'Enter'}
-                    style={{ cursor: 'pointer' }}
-                  />
+                <div className='name-link-group'>
+                  <p>{member.name}</p>
+                  <div className='linksButtons'>
+                    <img
+                      className='icon-github'
+                      src='/icons/github.svg'
+                      alt='Logo Github'
+                      onClick={() => openInNewTab(member.github)}
+                      onKeyDown={(e) => e.key === 'Enter'}
+                      style={{ cursor: 'pointer' }}
+                    />
+                    <img
+                      className='icon-linked'
+                      src='/icons/linkedin.svg'
+                      alt='Logo Linkedin'
+                      onClick={() => openInNewTab(member.linkedin)}
+                      onKeyDown={(e) => e.key === 'Enter'}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  </div>
                 </div>
               </article>
             ))}

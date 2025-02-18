@@ -10,3 +10,11 @@
   scrollbar-color: rgb(255, 255, 255) rgb(75, 119, 199);
   scrollbar-width: thin;
 }
+
+@media (max-width: 700px) {
+  .membersInformations {
+    flex-direction: column;
+    align-content: flex-start;
+    text-align: center;
+  }
+}
