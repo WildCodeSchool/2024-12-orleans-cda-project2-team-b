@@ -12,7 +12,7 @@ export default function History() {
 
   function handleClickHistory(article) {
     addArticleToHistory(article);
-    navigate(`/historique-choisi`);
+    navigate(`/historique-choisi/${article.article_id}`);
   }
 
   return (
