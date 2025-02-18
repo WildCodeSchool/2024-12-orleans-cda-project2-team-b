@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import '../components/main-title.scss';
+import '../pages/history.scss';
 import './button-light-dark.scss';
 import './modal.scss';
+import './results-list.scss';
 
 export default function ButtonLightDark() {
   const [darkTheme, setDarkTheme] = useState(() => {
@@ -10,32 +12,23 @@ export default function ButtonLightDark() {
   });
 
   useEffect(() => {
-    const modal = document.querySelector('.modal');
-    const modalClose = document.querySelector('.modal-close');
-    const mainTitleH1 = document.querySelector('.main-title-h1');
-    const mainTitleH2 = document.querySelector('.main-title-h2');
-    const iconGithub = document.querySelectorAll('.icon-github');
-    const iconLinked = document.querySelectorAll('.icon-linked');
+    document.body.classList.toggle('dark-mode', darkTheme);
 
-    if (darkTheme) {
-      document.body.classList.add('dark-mode');
-      if (modal) modal.classList.add('dark-mode');
-      if (modalClose) modalClose.classList.add('dark-mode');
-      if (mainTitleH1) mainTitleH1.classList.add('dark-mode');
-      if (mainTitleH2) mainTitleH2.classList.add('dark-mode');
+    const elements = [
+      '.modal',
+      '.modal-close',
+      '.container-history',
+      '.container-display-contents',
+      '.main-title-h1',
+      '.main-title-h2',
+      '.results-container',
+      '.icon-github',
+      '.icon-linked',
+    ];
 
-      iconGithub.forEach((icon) => icon.classList.add('dark-mode'));
-      iconLinked.forEach((icon) => icon.classList.add('dark-mode'));
-    } else {
-      document.body.classList.remove('dark-mode');
-      if (modal) modal.classList.remove('dark-mode');
-      if (modalClose) modalClose.classList.remove('dark-mode');
-      if (mainTitleH1) mainTitleH1.classList.remove('dark-mode');
-      if (mainTitleH2) mainTitleH2.classList.remove('dark-mode');
-
-      iconGithub.forEach((icon) => icon.classList.remove('dark-mode'));
-      iconLinked.forEach((icon) => icon.classList.remove('dark-mode'));
-    }
+    elements.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((el) => el.classList.toggle('dark-mode', darkTheme));
+    });
   }, [darkTheme]);
 
   const toggleTheme = () => {

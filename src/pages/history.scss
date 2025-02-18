@@ -75,3 +75,11 @@
     }
   }
 }
+
+.container-history.dark-mode > * {
+  color: vars.$dark-color;
+}
+
+.container-display-contents.dark-mode > * {
+  color: vars.$dark-color;
+}
