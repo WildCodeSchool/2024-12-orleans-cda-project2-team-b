@@ -62,6 +62,14 @@
     font-size: vars.$desktop-description;
   }
 }
+
+.nav-article {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
+
 @media (max-width: 770px) {
   .container-display-article {
     width: 95%;

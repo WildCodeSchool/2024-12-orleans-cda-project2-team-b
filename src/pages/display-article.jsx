@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import LikeButton from '../components/like-button';
+import NextArticle from '../components/next-article';
 import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
 
@@ -28,8 +29,10 @@ export default function DisplayArticle() {
           <LikeButton article={articleChosen} />
         </div>
       </div>
-      <div className='button-after'>précédent</div>
-      <div className='button-before'>suivant</div>
+      <div className='nav-article'>
+        <div>précédent</div>
+        <NextArticle />
+      </div>
     </>
   );
 }
