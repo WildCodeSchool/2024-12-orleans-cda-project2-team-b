@@ -6,7 +6,7 @@ export const countryList = [
   },
   { language: 'english', placeholderTraduc: 'Write your search in english', iconSrcCountry: '/icons/flag-england.svg' },
   {
-    language: 'deutch',
+    language: 'german',
     placeholderTraduc: 'Schreiben Sie Ihre Suche auf Deutsch',
     iconSrcCountry: '/icons/flag-germany.svg',
   },
