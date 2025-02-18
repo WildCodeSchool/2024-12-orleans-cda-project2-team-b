@@ -7,7 +7,7 @@ export const ChoicesContext = createContext();
 export const ChoicesContextProvider = ({ children }) => {
   const choiceLocalStorage = localStorage.getItem('choiceLocalStorage');
 
-  const [storedChoiceLanguage, setStoredChoiceLanguage] = useState(localStorage.getItem('language') || 'Français');
+  const [storedChoiceLanguage, setStoredChoiceLanguage] = useState(localStorage.getItem('language') || 'french');
   const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
   const correctPlaceholder = countryList[indexCountry].placeholderTraduc;
 

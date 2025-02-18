@@ -6,7 +6,7 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './results.scss';
 
 export default function Results() {
-  const { searchValue } = useContext(ChoicesContext);
+  const { searchValue, storedChoiceLanguage } = useContext(ChoicesContext);
   const [articles, setArticles] = useState([]);
   const navigate = useNavigate();
 
@@ -19,10 +19,16 @@ export default function Results() {
       )
         .then((response) => response.json())
         .then((data) => {
-          setArticles(data.results);
+          //Filter on keywords "technology"
+          // const onlyTech = data.results.filter((data) => data.keywords.includes("technology"));
+          const onlyTech = data.results;
+          setArticles(
+            //Filter tabl result with the language chosen
+            storedChoiceLanguage === '*' ? onlyTech : onlyTech.filter((data) => data.language === storedChoiceLanguage),
+          );
         });
     }
-  }, [searchValue]);
+  }, [searchValue, storedChoiceLanguage]);
 
   return (
     <>
