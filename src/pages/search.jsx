@@ -32,7 +32,7 @@ export default function Search() {
   const handleSearch = () => {
     if (searchValue.trim() !== '') {
       setIsRandom(false);
-      // open composant results
+      // open component results
       navigate(`/recherche-resultats`);
     }
   };
