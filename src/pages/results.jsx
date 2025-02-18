@@ -20,8 +20,12 @@ export default function Results() {
         .then((response) => response.json())
         .then((data) => {
           //Filter on keywords "technology"
-          // const onlyTech = data.results.filter((data) => data.keywords.includes("technology"));
-          const onlyTech = data.results;
+          const keyWordTech = ['news', 'tech', 'world', 'media'];
+          const onlyTech = data.results.filter(
+            (article) =>
+              Array.isArray(article.keywords) && keyWordTech.some((word) => word.toLowerCase().includes(word)),
+          );
+
           setArticles(
             //Filter tabl result with the language chosen
             storedChoiceLanguage === '*' ? onlyTech : onlyTech.filter((data) => data.language === storedChoiceLanguage),
