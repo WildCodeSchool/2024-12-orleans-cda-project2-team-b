@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import LikeButton from '../components/like-button';
-import NextArticle from '../components/next-article';
+import { NextArticle, PreviousArticle } from '../components/next-article';
 import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
 
@@ -30,7 +30,7 @@ export default function DisplayArticle() {
         </div>
       </div>
       <div className='nav-article'>
-        <div>précédent</div>
+        <PreviousArticle />
         <NextArticle />
       </div>
     </>

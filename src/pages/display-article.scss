@@ -64,10 +64,17 @@
 }
 
 .nav-article {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 80%;
+  > :first-child {
+    justify-self: start;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  > :last-child {
+    justify-self: end;
+    grid-area: 1 / 2 / 2 / 3;
+  }
 }
 
 @media (max-width: 770px) {
