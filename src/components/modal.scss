@@ -109,3 +109,7 @@ div.modal {
   background-color: vars.$dark-color;
   color: vars.$light-color;
 }
+
+.modal-close.dark-mode {
+  filter: invert(1);
+}

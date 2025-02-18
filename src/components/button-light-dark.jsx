@@ -11,6 +11,7 @@ export default function ButtonLightDark() {
 
   useEffect(() => {
     const modal = document.querySelector('.modal');
+    const modalClose = document.querySelector('.modal-close');
     const mainTitleH1 = document.querySelector('.main-title-h1');
     const mainTitleH2 = document.querySelector('.main-title-h2');
     const iconGithub = document.querySelectorAll('.icon-github');
@@ -19,6 +20,7 @@ export default function ButtonLightDark() {
     if (darkTheme) {
       document.body.classList.add('dark-mode');
       if (modal) modal.classList.add('dark-mode');
+      if (modalClose) modalClose.classList.add('dark-mode');
       if (mainTitleH1) mainTitleH1.classList.add('dark-mode');
       if (mainTitleH2) mainTitleH2.classList.add('dark-mode');
 
@@ -27,6 +29,7 @@ export default function ButtonLightDark() {
     } else {
       document.body.classList.remove('dark-mode');
       if (modal) modal.classList.remove('dark-mode');
+      if (modalClose) modalClose.classList.remove('dark-mode');
       if (mainTitleH1) mainTitleH1.classList.remove('dark-mode');
       if (mainTitleH2) mainTitleH2.classList.remove('dark-mode');
 
