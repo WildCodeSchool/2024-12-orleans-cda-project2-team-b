@@ -7,7 +7,7 @@ import { keyWordTechList } from '../data/keyword-list';
 import './results.scss';
 
 export default function Results() {
-  const { searchValue, storedChoiceLanguage } = useContext(ChoicesContext);
+  const { searchValue, storedChoiceLanguage, isRandom } = useContext(ChoicesContext);
   const [articles, setArticles] = useState([]);
   const navigate = useNavigate();
 
@@ -43,7 +43,9 @@ export default function Results() {
   return (
     <>
       <p>
-        {articles.length} article(s) ont été trouvé(s) avec votre recherche : &quot;{searchValue}&quot;
+        {isRandom
+          ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
+          : `${articles.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
       </p>
 
       <div className='article-result-wrap'>

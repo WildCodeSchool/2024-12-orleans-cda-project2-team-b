@@ -12,7 +12,6 @@ import Home from './pages/home';
 import NoFav from './pages/no-favourite';
 import NoHistory from './pages/no-history';
 import Oops from './pages/oops';
-import Random from './pages/random';
 import Results from './pages/results';
 import Search from './pages/search';
 
@@ -41,10 +40,6 @@ const router = createBrowserRouter([
       {
         path: 'recherche-resultats',
         element: <Results />,
-      },
-      {
-        path: 'recherche-article-aleatoire',
-        element: <Random />,
       },
 
       // FAVORITE PAGE
