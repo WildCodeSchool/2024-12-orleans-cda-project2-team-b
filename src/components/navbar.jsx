@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Création de la navbar icone + texte */}
+      {/* Creation NAVBAR icon+text */}
       <nav className='navbar'>
         {iconList.map((icon) =>
           icon.isModalTrigger ? (
@@ -30,7 +30,7 @@ export default function Navbar() {
               // biome-ignore lint/a11y/useSemanticElements: <explanation>
               role='button'
             >
-              {/* Affiche l'icône active ou inactive */}
+              {/* Display active or inactive icon */}
               <img src={isModalOpen ? icon.imgSrcOn : icon.imgSrcOff} alt={icon.name} title={icon.name} />
               <p>{icon.name}</p>
             </div>
@@ -47,7 +47,7 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Utilisation du composant ToggleModal */}
+      {/* Use component ToggleModal */}
       {isModalOpen && <ToggleModal isShowing={isModalOpen} hide={toggleModal} openInNewTab={openInNewTab} />}
     </>
   );

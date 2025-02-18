@@ -18,6 +18,8 @@ export const ChoicesContextProvider = ({ children }) => {
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
   const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tablFav')) || []);
 
+  const [isRandom, setIsRandom] = useState(false);
+
   // Fonction used for addArticleToHistory and addArticleToFavourite
   const updateList = (prevList, article, title, shouldRemove = false) => {
     const updatedList = [...prevList];
@@ -94,6 +96,8 @@ export const ChoicesContextProvider = ({ children }) => {
         listFavourite,
         setListFavourite,
         addArticleToFavourite,
+        isRandom,
+        setIsRandom,
       }}
     >
       {children}

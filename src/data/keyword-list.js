@@ -17,4 +17,5 @@ export const keyWordTechList = [
   'ui',
   'ux',
   'communicat',
+  'dev',
 ];
