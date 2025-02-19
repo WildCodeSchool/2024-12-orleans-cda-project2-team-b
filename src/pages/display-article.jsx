@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { ButtonNav } from '../components/button-nav-article';

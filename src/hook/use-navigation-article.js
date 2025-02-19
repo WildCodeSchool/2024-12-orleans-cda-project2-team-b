@@ -6,7 +6,7 @@ import { ChoicesContext } from '../contexts/choices-context';
 //function shared with nav button
 export default function useNavigationArticle({ direction, path }) {
   const navigate = useNavigate();
-  const { listFavourite, listHistory, articleChosen, setArticleChosen, addArticleToHistory } =
+  const { listFavourite, listHistory, listSearch, articleChosen, setArticleChosen, addArticleToHistory } =
     useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
   const [listPath, setListPath] = useState([]);
@@ -20,8 +20,11 @@ export default function useNavigationArticle({ direction, path }) {
     } else if (path.includes('historique')) {
       setListPath(listHistory.slice());
       setLinkNavigate('/historique-choisi/');
+    } else if (path.includes('recherche')) {
+      setListPath(listSearch.slice());
+      setLinkNavigate('/recherche-article-choisi/');
     }
-  }, [listFavourite, listHistory, path]);
+  }, [listFavourite, listHistory, listSearch, path]);
 
   //found the index of the article where we are
   const indexActual = listPath.findIndex((a) => a.article_id === articleChosen.article_id);
