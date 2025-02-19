@@ -37,7 +37,7 @@ export default function ButtonLightDark({ setDarkTheme }) {
       localStorage.setItem('dark-mode', newTheme);
       document.body.classList.toggle('dark-mode', newTheme);
       if (typeof setDarkTheme === 'function') {
-        setDarkTheme(newTheme); // ✅ Vérification ajoutée pour éviter l'erreur
+        setDarkTheme(newTheme);
       }
       return newTheme;
     });

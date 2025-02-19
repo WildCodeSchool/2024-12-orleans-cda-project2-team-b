@@ -25,7 +25,6 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
           <h2>Notre équipe</h2>
           <div className='membersInformations'>
             {memberList.map((member, index) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <article key={index}>
                 <img className='memberPicture' src={member.picture} alt={member.name} />
                 <div className='name-link-group'>
