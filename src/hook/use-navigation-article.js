@@ -6,7 +6,8 @@ import { ChoicesContext } from '../contexts/choices-context';
 //function shared with nav button
 export default function useNavigationArticle({ direction, path }) {
   const navigate = useNavigate();
-  const { listFavourite, listHistory, articleChosen, setArticleChosen } = useContext(ChoicesContext);
+  const { listFavourite, listHistory, articleChosen, setArticleChosen, addArticleToHistory } =
+    useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
   const [listPath, setListPath] = useState([]);
   const [linkNavigate, setLinkNavigate] = useState('');
@@ -29,6 +30,7 @@ export default function useNavigationArticle({ direction, path }) {
   function handleDirection() {
     if (isAvailable) {
       setArticleChosen(listPath[indexAsked]);
+      addArticleToHistory(listPath[indexAsked]);
       navigate(`${linkNavigate}${listPath[indexAsked].article_id}`);
     }
   }
