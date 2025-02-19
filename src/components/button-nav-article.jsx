@@ -1,8 +1,8 @@
 import useNavigationArticle from '../hook/use-navigation-article';
 import './button-nav-article.scss';
 
-export function ButtonNav({ direction, classIcon, texte }) {
-  const { handleDirection, isAvailable } = useNavigationArticle({ direction });
+export function ButtonNav({ direction, classIcon, texte, path }) {
+  const { handleDirection, isAvailable } = useNavigationArticle({ direction, path });
   return (
     <>
       <div onClick={handleDirection} className={isAvailable ? 'button-nav' : 'button-nav-disable'}>
