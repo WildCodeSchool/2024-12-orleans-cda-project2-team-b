@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import { ButtonNav } from '../components/button-nav-article';
 import LikeButton from '../components/like-button';
 import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
@@ -28,8 +29,10 @@ export default function DisplayArticle() {
           <LikeButton article={articleChosen} />
         </div>
       </div>
-      <div className='button-after'>précédent</div>
-      <div className='button-before'>suivant</div>
+      <div className='nav-article'>
+        <ButtonNav direction={-1} classIcon='icon-previous' texte='précédent' />
+        <ButtonNav direction={1} classIcon='icon-next' texte='suivant' />
+      </div>
     </>
   );
 }
