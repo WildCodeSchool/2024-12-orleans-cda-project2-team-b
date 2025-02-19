@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
@@ -16,6 +16,7 @@ export default function Search() {
     storedChoiceLanguage,
     searchValue,
     setSearchValue,
+    setIsRandom,
   } = useContext(ChoicesContext);
 
   //We keep in local only if user said Yes, if not we don't keep the language choice
@@ -30,10 +31,16 @@ export default function Search() {
 
   const handleSearch = () => {
     if (searchValue.trim() !== '') {
+      setIsRandom(false);
+      // open component results
       navigate(`/recherche-resultats`);
-      // ouvre results-list
     }
   };
+
+  //empties the input
+  useEffect(() => {
+    setSearchValue('');
+  }, [setSearchValue]);
 
   return (
     <>

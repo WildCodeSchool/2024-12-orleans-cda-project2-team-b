@@ -1,4 +1,3 @@
-// import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ export default function ResultsList({ article }) {
   const location = useLocation();
   const { addArticleToHistory } = useContext(ChoicesContext);
 
-  function handleClickArticle() {
+  function handleClickArticle(article) {
     addArticleToHistory(article);
     if (location.pathname.includes('/favoris')) {
       navigate(`/favoris-article-choisi/${article.article_id}`);
@@ -23,7 +22,7 @@ export default function ResultsList({ article }) {
   if (!article) return null;
 
   return (
-    <div className='results-container' title='Appuyer pour voir plus' onClick={handleClickArticle}>
+    <div className='results-container' title='Appuyer pour voir plus' onClick={() => handleClickArticle(article)}>
       <p className='article-title'>{article.title}</p>
 
       {article.image_url ? (
