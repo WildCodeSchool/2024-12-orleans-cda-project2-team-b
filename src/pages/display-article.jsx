@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
+import { NextArticle, PreviousArticle } from '../components/button-nav-article';
 import LikeButton from '../components/like-button';
-import { NextArticle, PreviousArticle } from '../components/next-article';
 import { ChoicesContext } from '../contexts/choices-context';
 import './display-article.scss';
 
