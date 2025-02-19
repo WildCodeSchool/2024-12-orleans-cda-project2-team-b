@@ -77,9 +77,16 @@
 }
 
 .dark-mode .container-history > * {
-  color: vars.$dark-color;
+  color: vars.$light-color;
+  background-color: vars.$primary-color;
+  border: 1px solid #5e82a0;
 }
 
 .dark-mode .container-display-contents > * {
-  color: vars.$dark-color;
+  color: vars.$light-color;
+}
+
+.dark-mode .container-display-article {
+  color: vars.$light-color;
+  border: 1px solid #5e82a0;
 }
