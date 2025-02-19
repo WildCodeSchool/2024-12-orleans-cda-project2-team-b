@@ -76,10 +76,10 @@
   }
 }
 
-.container-history.dark-mode > * {
+.dark-mode .container-history > * {
   color: vars.$dark-color;
 }
 
-.container-display-contents.dark-mode > * {
+.dark-mode .container-display-contents > * {
   color: vars.$dark-color;
 }
