@@ -5,10 +5,11 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './button-nav-article.scss';
 
 //function shared with nav button
-export function useNavigationArticle(direction) {
+export function useNavigationArticle({ direction }) {
   const navigate = useNavigate();
   const { listFavourite, articleChosen, setArticleChosen } = useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
+
   //found the index of the article where we are
   const indexActual = listFavourite.findIndex((a) => a.article_id === articleChosen.article_id);
   const indexAsked = indexActual + direction;
@@ -32,23 +33,20 @@ export function useNavigationArticle(direction) {
   return { handleDirection, isAvailable };
 }
 
-export function NextArticle() {
-  const { handleDirection, isAvailable } = useNavigationArticle(1);
+export function ButtonNav({ direction, classIcon, texte }) {
+  const { handleDirection, isAvailable } = useNavigationArticle({ direction });
   return (
     <>
       <div onClick={handleDirection} className={isAvailable ? 'button-nav' : 'button-nav-disable'}>
-        suivant <img className='icon-next' src='/icons/arrow-nav.svg' />
-      </div>
-    </>
-  );
-}
-
-export function PreviousArticle() {
-  const { handleDirection, isAvailable } = useNavigationArticle(-1);
-  return (
-    <>
-      <div onClick={handleDirection} className={isAvailable ? 'button-nav' : 'button-nav-disable'}>
-        <img className='icon-previous' src='/icons/arrow-nav.svg' /> précédent
+        {direction === 1 ? (
+          <>
+            {texte} <img className={classIcon} src='/icons/arrow-nav.svg' />
+          </>
+        ) : (
+          <>
+            <img className={classIcon} src='/icons/arrow-nav.svg' /> {texte}
+          </>
+        )}
       </div>
     </>
   );
