@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { ChoicesContext } from '../contexts/choices-context';
 import './button-nav-article.scss';
 
+//function shared with nav button
 export function useNavigationArticle(direction) {
   const navigate = useNavigate();
   const { listFavourite, articleChosen, setArticleChosen } = useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
-  //Chercher l'indice sur lequel on est + changer l'indice+1
+  //found the index of the article where we are
   const indexActual = listFavourite.findIndex((a) => a.article_id === articleChosen.article_id);
   const indexAsked = indexActual + direction;
 
@@ -18,8 +19,9 @@ export function useNavigationArticle(direction) {
       navigate(`/favoris-article-choisi/${listFavourite[indexAsked].article_id}`);
     }
   }
+
   useEffect(() => {
-    //controle si dernier article
+    //control if is the first or last article
     if (indexAsked < 0 || indexAsked >= listFavourite.length) {
       setIsAvailable(false);
     } else {
@@ -32,7 +34,6 @@ export function useNavigationArticle(direction) {
 
 export function NextArticle() {
   const { handleDirection, isAvailable } = useNavigationArticle(1);
-
   return (
     <>
       <div onClick={handleDirection} className={isAvailable ? 'button-nav' : 'button-nav-disable'}>
