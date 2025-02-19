@@ -6,13 +6,13 @@ import './button-light-dark.scss';
 import './modal.scss';
 import './results-list.scss';
 
-export default function ButtonLightDark() {
-  const [darkTheme, setDarkTheme] = useState(() => {
+export default function ButtonLightDark({ setDarkTheme }) {
+  const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('dark-mode') === 'true';
   });
 
   useEffect(() => {
-    document.body.classList.toggle('dark-mode', darkTheme);
+    document.body.classList.toggle('dark-mode', darkMode);
 
     const elements = [
       '.modal',
@@ -27,21 +27,25 @@ export default function ButtonLightDark() {
     ];
 
     elements.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((el) => el.classList.toggle('dark-mode', darkTheme));
+      document.querySelectorAll(selector).forEach((element) => element.classList.toggle('dark-mode', darkMode));
     });
-  }, [darkTheme]);
+  }, [darkMode]);
 
   const toggleTheme = () => {
-    setDarkTheme((prevTheme) => {
-      const newTheme = !prevTheme;
+    setDarkMode((prev) => {
+      const newTheme = !prev;
       localStorage.setItem('dark-mode', newTheme);
+      document.body.classList.toggle('dark-mode', newTheme);
+      if (typeof setDarkTheme === 'function') {
+        setDarkTheme(newTheme); // ✅ Vérification ajoutée pour éviter l'erreur
+      }
       return newTheme;
     });
   };
 
   return (
     <label className='switch'>
-      <input id='input' type='checkbox' checked={darkTheme} onChange={toggleTheme} />
+      <input id='input' type='checkbox' checked={darkMode} onChange={toggleTheme} />
       <div className='slider round'>
         <div className='sun-moon'>
           <svg id='moon-dot-1' className='moon-dot' viewBox='0 0 100 100'>
