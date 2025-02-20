@@ -1,9 +1,11 @@
+import Spline from '@splinetool/react-spline';
+
 import './home.scss';
 
 export default function Home() {
   return (
     <>
-      <p>Page d accueil</p>
+      <Spline scene='https://prod.spline.design/9A996GHdA8MXqhoX/scene.splinecode' />
     </>
   );
 }
