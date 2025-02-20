@@ -1,16 +1,6 @@
-.image-animation {
-  // position: absolute;
-  z-index: 0;
-  // width: 50%;
-}
-
-.text-animation {
+.animation {
   position: absolute;
-  z-index: 100;
-  // width: 50%;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
 }
-
-// .container-animation{
-//     display: flex;
-//     flex-direction: row;
-// }
