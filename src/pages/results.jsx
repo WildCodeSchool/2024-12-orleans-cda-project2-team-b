@@ -48,13 +48,18 @@ export default function Results() {
   return (
     <>
       <div className='container-results'>
-        <p className='texte-results'>
-          {isRandom
-            ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
-            : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
-        </p>
-
-        {listSearch.length > 0 ? <ResultsList tablNav={listSearch} /> : navigate(`/recherche-oops`)}
+        {listSearch.length > 0 ? (
+          <>
+            <p className='texte-results'>
+              {isRandom
+                ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
+                : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
+            </p>
+            <ResultsList tablNav={listSearch} />
+          </>
+        ) : (
+          navigate(`/recherche-oops`)
+        )}
       </div>
     </>
   );
