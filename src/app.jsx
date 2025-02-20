@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import './app.scss';
 import BackgroundCard from './components/background-card';
 import Footer from './components/footer';
-import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
 import { PopUpQuestion } from './components/pop-up-question';
 import { ChoicesContextProvider } from './contexts/choices-context';
@@ -14,8 +13,6 @@ function App() {
       <ChoicesContextProvider>
         <Navbar />
         <BackgroundCard />
-        <MainTitle />
-
         <main>
           <Outlet />
         </main>
