@@ -10,7 +10,8 @@ export default function ButtonRandom() {
   const navigate = useNavigate();
 
   const handleClickRandom = () => {
-    const randomValue = keyWordTechList[Math.floor(Math.random() * keyWordTechList.length)];
+    // const randomValue = keyWordTechList[Math.floor(Math.random() * keyWordTechList.length)];
+    const randomValue = 'seclier';
     setIsRandom(true);
     setSearchValue(randomValue);
     navigate(`/recherche-resultats`);

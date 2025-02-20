@@ -56,7 +56,7 @@ export default function Results() {
       <div className='article-result-wrap'>
         {listSearch.length > 0
           ? listSearch.map((article, index) => <ResultsList key={index} article={article} />)
-          : navigate(`/oops`)}
+          : navigate(`/recherche-oops`)}
       </div>
     </>
   );
