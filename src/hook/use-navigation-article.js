@@ -1,3 +1,4 @@
+//useNavigation is available only for Favoris and Search
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,13 +9,13 @@ export default function useNavigationArticle({ direction, tablNav, pathNav }) {
   const { articleChosen, setArticleChosen, addArticleToHistory } = useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
 
-  // Vérification que tablNav est défini et que articleChosen a un article_id
-  useEffect(() => {
-    if (tablNav && Array.isArray(tablNav) && articleChosen?.article_id) {
-      const indexActuel = tablNav.findIndex((a) => a.article_id === articleChosen.article_id);
-      const indexAsked = indexActuel + direction;
+  //find the index of article in display to navigate
+  const indexActuel = tablNav.findIndex((a) => a.article_id === articleChosen.article_id);
+  const indexAsked = indexActuel + direction;
 
-      // Vérifier que indexAsked est valide
+  // check if is first or last article in the tabl to not display component
+  useEffect(() => {
+    if (tablNav) {
       if (indexAsked >= 0 && indexAsked < tablNav.length) {
         setIsAvailable(true);
       } else {
@@ -23,15 +24,10 @@ export default function useNavigationArticle({ direction, tablNav, pathNav }) {
     } else {
       setIsAvailable(false);
     }
-  }, [articleChosen, direction, tablNav]);
+  }, [articleChosen, direction, tablNav, indexActuel, indexAsked]);
 
-  // Fonction de navigation
+  // create function to navigate
   function handleDirection() {
-    if (!isAvailable || !tablNav) return; // Si isAvailable est false ou tablNav est invalide, on ne fait rien
-
-    const indexActuel = tablNav.findIndex((a) => a.article_id === articleChosen?.article_id);
-    const indexAsked = indexActuel + direction;
-
     if (tablNav[indexAsked]) {
       setArticleChosen(tablNav[indexAsked]);
       addArticleToHistory(tablNav[indexAsked]);

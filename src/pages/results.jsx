@@ -13,7 +13,7 @@ export default function Results() {
 
   useEffect(() => {
     if (searchValue) {
-      // Vider sessionStorage avant la nouvelle recherche
+      // Clear sessionStorage before new search
       sessionStorage.setItem('tablSearch', JSON.stringify([]));
 
       //launch the request
