@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
+import MainTitle from '../components/main-title';
 import { ChoicesContext } from '../contexts/choices-context';
 import { countryList } from '../data/country-list';
 import './search.scss';
@@ -46,6 +47,12 @@ export default function Search() {
     <>
       {/* SEARCHBAR */}
       <div className='search-container'>
+        <div className='search-title'>
+          <div>
+            <h1>Wild&apos;s News</h1>
+            <h2>L&apos;actu tech</h2>
+          </div>
+        </div>
         <div className='search-bar'>
           <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
           <input
