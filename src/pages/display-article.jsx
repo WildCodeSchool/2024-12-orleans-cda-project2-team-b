@@ -10,6 +10,7 @@ export default function DisplayArticle() {
   const { articleChosen } = useContext(ChoicesContext);
   const location = useLocation();
   const tablNav = location.state?.tablNav;
+  const pathNav = location.state?.pathNav;
 
   return (
     <>
@@ -33,14 +34,8 @@ export default function DisplayArticle() {
         </div>
       </div>
       <div className='nav-article'>
-        <ButtonNav
-          direction={-1}
-          classIcon='icon-previous'
-          texte='précédent'
-          path={location.pathname}
-          tablNav={tablNav}
-        />
-        <ButtonNav direction={1} classIcon='icon-next' texte='suivant' path={location.pathname} tablNav={tablNav} />
+        <ButtonNav direction={-1} classIcon='icon-previous' texte='précédent' pathNav={pathNav} tablNav={tablNav} />
+        <ButtonNav direction={1} classIcon='icon-next' texte='suivant' pathNav={pathNav} tablNav={tablNav} />
       </div>
     </>
   );

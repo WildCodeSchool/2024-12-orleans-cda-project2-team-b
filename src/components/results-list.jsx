@@ -5,7 +5,7 @@ import { ChoicesContext } from '../contexts/choices-context';
 import LikeButton from './like-button';
 import './results-list.scss';
 
-export default function ResultsList({ tablNav }) {
+export default function ResultsList({ tablNav, pathNav }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { addArticleToHistory } = useContext(ChoicesContext);
@@ -13,9 +13,9 @@ export default function ResultsList({ tablNav }) {
   function handleClickArticle(article) {
     addArticleToHistory(article);
     if (location.pathname.includes('/favoris')) {
-      navigate(`/favoris-article-choisi/${article.article_id}`, { state: { tablNav } });
+      navigate(`/favoris-article-choisi/${article.article_id}`, { state: { tablNav, pathNav } });
     } else {
-      navigate(`/recherche-article-choisi/${article.article_id}`, { state: { tablNav } });
+      navigate(`/recherche-article-choisi/${article.article_id}`, { state: { tablNav, pathNav } });
     }
   }
 

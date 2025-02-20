@@ -55,7 +55,7 @@ export default function Results() {
                 ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
                 : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
             </p>
-            <ResultsList tablNav={listSearch} />
+            <ResultsList tablNav={listSearch} pathNav='/recherche-article-choisi/' />
           </>
         ) : (
           navigate(`/recherche-oops`)

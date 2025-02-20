@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
 
-export default function useNavigationArticle({ direction, tablNav }) {
+export default function useNavigationArticle({ direction, tablNav, pathNav }) {
   const navigate = useNavigate();
   const { articleChosen, setArticleChosen, addArticleToHistory } = useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
@@ -35,7 +35,7 @@ export default function useNavigationArticle({ direction, tablNav }) {
     if (tablNav[indexAsked]) {
       setArticleChosen(tablNav[indexAsked]);
       addArticleToHistory(tablNav[indexAsked]);
-      navigate(`/favoris-article-choisi/${tablNav[indexAsked].article_id}`, { state: { tablNav } });
+      navigate(`${pathNav}${tablNav[indexAsked].article_id}`, { state: { tablNav, pathNav } });
     }
   }
 
