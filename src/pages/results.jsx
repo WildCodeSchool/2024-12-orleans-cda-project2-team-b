@@ -47,16 +47,14 @@ export default function Results() {
 
   return (
     <>
-      <p>
-        {isRandom
-          ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
-          : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
-      </p>
+      <div className='container-results'>
+        <p className='texte-results'>
+          {isRandom
+            ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
+            : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
+        </p>
 
-      <div className='article-result-wrap'>
-        {listSearch.length > 0
-          ? listSearch.map((article, index) => <ResultsList key={index} article={article} />)
-          : navigate(`/recherche-oops`)}
+        {listSearch.length > 0 ? <ResultsList tablNav={listSearch} /> : navigate(`/recherche-oops`)}
       </div>
     </>
   );

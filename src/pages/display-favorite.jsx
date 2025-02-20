@@ -16,10 +16,10 @@ export default function DisplayFavorite() {
         <DisplayArticle />
         {location.pathname.includes('favoris') && <img className='background-article' src={articleChosen.image_url} />}
       </div>
-      <div className='nav-article'>
+      {/* <div className='nav-article'>
         <ButtonNav direction={-1} classIcon='icon-previous' texte='précédent' path={location.pathname} />
         <ButtonNav direction={1} classIcon='icon-next' texte='suivant' path={location.pathname} />
-      </div>
+      </div> */}
     </>
   );
 }

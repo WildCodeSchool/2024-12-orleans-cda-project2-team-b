@@ -54,6 +54,22 @@
   transform: scale(1.08);
 }
 
+.article-result-wrap {
+  height: 74dvh;
+  width: 100dvw;
+  display: grid;
+  justify-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto auto auto;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 700px) {
+  .article-result-wrap {
+    grid-template-columns: auto auto;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .results-container {
     margin: 2dvh;
