@@ -10,10 +10,7 @@ export default function Oops() {
   return (
     <>
       <div className='no-search-container'>
-        <p>
-          Oops... 🫢
-          <br />
-        </p>
+        <p>Oops... 🫢</p>
 
         {isRandom ? (
           <>
