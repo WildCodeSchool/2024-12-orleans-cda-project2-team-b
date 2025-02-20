@@ -30,7 +30,7 @@
 
 @media screen and (max-width: 700px) {
   .main-title-h1 {
-    color: vars.$primary-color;
+    color: vars.$text-color;
     font-family: vars.$font-family;
     font-size: vars.$mobile-title1;
     font-weight: normal;
@@ -38,7 +38,7 @@
   }
 
   .main-title-h2 {
-    color: vars.$primary-color;
+    color: vars.$text-color;
     font-family: vars.$font-family;
     font-size: vars.$mobile-title2;
     font-weight: normal;
@@ -49,6 +49,9 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100dvw;
+    width: 100%;
+    background-color: vars.$primary-color;
+    top: 0dvh;
+    left: 0dvw;
   }
 }

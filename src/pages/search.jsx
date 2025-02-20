@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ButtonRandom from '../components/button-random';
-import MainTitle from '../components/main-title';
 import { ChoicesContext } from '../contexts/choices-context';
 import { countryList } from '../data/country-list';
 import './search.scss';
