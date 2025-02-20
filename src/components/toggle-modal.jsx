@@ -10,7 +10,6 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>
         <ButtonLightDark />
-        {/* <ButtonLightDark setDarkTheme={setDarkTheme} /> */}
 
         <div className='aboutContent'>
           <h2>Présentation et but du projet :</h2>
