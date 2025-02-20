@@ -1,12 +1,11 @@
-import { useState } from 'react';
-
+import { useDarkTheme } from '../contexts/dark-theme-context.jsx';
 import './button-light-dark.scss';
 
 export default function ButtonLightDark() {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const { darkTheme, setDarkTheme } = useDarkTheme();
 
   const toggleTheme = () => {
-    setDarkTheme((prevTheme) => !prevTheme);
+    setDarkTheme((prev) => !prev);
   };
 
   return (

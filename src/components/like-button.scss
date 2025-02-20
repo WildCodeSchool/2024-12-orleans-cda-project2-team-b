@@ -14,3 +14,7 @@
     width: 1rem;
   }
 }
+
+.dark-mode .button-like > img {
+  filter: invert(1);
+}
