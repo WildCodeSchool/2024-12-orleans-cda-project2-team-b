@@ -3,49 +3,41 @@ import { useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
 
-//function shared with nav button
-export default function useNavigationArticle({ direction, path }) {
+export default function useNavigationArticle({ direction, tablNav }) {
   const navigate = useNavigate();
-  const { listFavourite, listHistory, listSearch, articleChosen, setArticleChosen, addArticleToHistory } =
-    useContext(ChoicesContext);
+  const { articleChosen, setArticleChosen, addArticleToHistory } = useContext(ChoicesContext);
   const [isAvailable, setIsAvailable] = useState(false);
-  const [listPath, setListPath] = useState([]);
-  const [linkNavigate, setLinkNavigate] = useState('');
 
+  // Vérification que tablNav est défini et que articleChosen a un article_id
   useEffect(() => {
-    //Initialization depending where we are (favoris/histo/search/random)
-    if (path.includes('favoris')) {
-      setListPath(listFavourite.slice());
-      setLinkNavigate('/favoris-article-choisi/');
-    } else if (path.includes('historique')) {
-      setListPath(listHistory.slice());
-      setLinkNavigate('/historique-choisi/');
-    } else if (path.includes('recherche')) {
-      setListPath(listSearch.slice());
-      setLinkNavigate('/recherche-article-choisi/');
+    if (tablNav && Array.isArray(tablNav) && articleChosen?.article_id) {
+      const indexActuel = tablNav.findIndex((a) => a.article_id === articleChosen.article_id);
+      const indexAsked = indexActuel + direction;
+
+      // Vérifier que indexAsked est valide
+      if (indexAsked >= 0 && indexAsked < tablNav.length) {
+        setIsAvailable(true);
+      } else {
+        setIsAvailable(false);
+      }
+    } else {
+      setIsAvailable(false);
     }
-  }, [listFavourite, listHistory, listSearch, path]);
+  }, [articleChosen, direction, tablNav]);
 
-  //found the index of the article where we are
-  const indexActual = listPath.findIndex((a) => a.article_id === articleChosen.article_id);
-  const indexAsked = indexActual + direction;
-
+  // Fonction de navigation
   function handleDirection() {
-    if (isAvailable) {
-      setArticleChosen(listPath[indexAsked]);
-      addArticleToHistory(listPath[indexAsked]);
-      navigate(`${linkNavigate}${listPath[indexAsked].article_id}`);
+    if (!isAvailable || !tablNav) return; // Si isAvailable est false ou tablNav est invalide, on ne fait rien
+
+    const indexActuel = tablNav.findIndex((a) => a.article_id === articleChosen?.article_id);
+    const indexAsked = indexActuel + direction;
+
+    if (tablNav[indexAsked]) {
+      setArticleChosen(tablNav[indexAsked]);
+      addArticleToHistory(tablNav[indexAsked]);
+      navigate(`/favoris-article-choisi/${tablNav[indexAsked].article_id}`, { state: { tablNav } });
     }
   }
-
-  useEffect(() => {
-    //control if is the first or last article
-    if (indexAsked < 0 || indexAsked >= listPath.length) {
-      setIsAvailable(false);
-    } else {
-      setIsAvailable(true);
-    }
-  }, [indexActual, indexAsked, listPath]);
 
   return { handleDirection, isAvailable };
 }
