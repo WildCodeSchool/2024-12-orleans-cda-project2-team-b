@@ -1,4 +1,5 @@
 @use '../variables.scss' as vars;
+
 .container-display-article {
   background-color: vars.$secondary-color;
   width: 70%;
@@ -99,4 +100,14 @@
       font-size: vars.$mobile-description;
     }
   }
+}
+
+.dark-mode .container-display-article {
+  background-color: vars.$primary-color;
+  color: vars.$text-color;
+  box-shadow: none;
+}
+
+.dark-mode .container-display-contents > h3 {
+  text-shadow: none;
 }

@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { memberList } from '../data/member-list';
 import ButtonLightDark from './button-light-dark';
 import Modal from './modal';
+import './toggle-modal.scss';
 
 export default function ToggleModal({ isShowing, hide, openInNewTab }) {
   return (
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>
         <ButtonLightDark />
+
         <div className='aboutContent'>
           <h2>Présentation et but du projet :</h2>
           <p>
@@ -24,25 +26,28 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
           <h2>Notre équipe</h2>
           <div className='membersInformations'>
             {memberList.map((member, index) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <article key={index}>
                 <img className='memberPicture' src={member.picture} alt={member.name} />
-                <p>{member.name}</p>
-                <div className='linksButtons'>
-                  <img
-                    src='/icons/github.svg'
-                    alt='Logo Github'
-                    onClick={() => openInNewTab(member.github)}
-                    onKeyDown={(e) => e.key === 'Enter'}
-                    style={{ cursor: 'pointer' }}
-                  />
-                  <img
-                    src='/icons/linkedin.svg'
-                    alt='Logo Linkedin'
-                    onClick={() => openInNewTab(member.linkedin)}
-                    onKeyDown={(e) => e.key === 'Enter'}
-                    style={{ cursor: 'pointer' }}
-                  />
+                <div className='name-link-group'>
+                  <p>{member.name}</p>
+                  <div className='linksButtons'>
+                    <img
+                      className='icon-github'
+                      src='/icons/github.svg'
+                      alt='Logo Github'
+                      onClick={() => openInNewTab(member.github)}
+                      onKeyDown={(e) => e.key === 'Enter'}
+                      style={{ cursor: 'pointer' }}
+                    />
+                    <img
+                      className='icon-linked'
+                      src='/icons/linkedin.svg'
+                      alt='Logo Linkedin'
+                      onClick={() => openInNewTab(member.linkedin)}
+                      onKeyDown={(e) => e.key === 'Enter'}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  </div>
                 </div>
               </article>
             ))}

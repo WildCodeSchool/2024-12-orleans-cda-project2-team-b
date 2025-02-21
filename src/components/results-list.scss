@@ -88,3 +88,8 @@
     }
   }
 }
+
+.dark-mode .results-container {
+  background-color: vars.$primary-color;
+  border: 1px solid #5e82a0;
+}

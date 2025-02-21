@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from './app';
+import { ChoicesContextProvider } from './contexts/choices-context';
+import { DarkThemeProvider } from './contexts/dark-theme-context';
 import './main.scss';
 import DisplayArticle from './pages/display-article';
 import DisplayFavorite from './pages/display-favorite';
@@ -80,4 +82,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <DarkThemeProvider>
+    <ChoicesContextProvider>
+      <RouterProvider router={router} />
+    </ChoicesContextProvider>
+  </DarkThemeProvider>,
+);
