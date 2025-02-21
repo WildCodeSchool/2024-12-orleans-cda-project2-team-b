@@ -9,7 +9,6 @@ export function DarkThemeProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('dark-mode', darkTheme);
-    document.body.classList.toggle('dark-mode', darkTheme);
   }, [darkTheme]);
 
   return <DarkThemeContext.Provider value={{ darkTheme, setDarkTheme }}>{children}</DarkThemeContext.Provider>;
