@@ -1,17 +1,15 @@
 @use '../variables.scss' as vars;
-.article-result-wrap {
-  height: 74dvh;
-  width: 100dvw;
-  display: grid;
+
+.container-results {
+  margin-top: 9dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
-  justify-content: space-between;
-  grid-template-columns: auto auto auto;
-  flex-wrap: wrap;
-  overflow-y: scroll;
-}
-@media screen and (max-width: 700px) {
-  .article-result-wrap {
-    width: 100%;
-    grid-template-columns: auto auto;
+  justify-content: center;
+  width: 100dvw;
+
+  .texte-results {
+    align-self: center;
   }
 }

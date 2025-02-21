@@ -1,51 +1,16 @@
-import { useEffect, useState } from 'react';
-
-import '../components/main-title.scss';
-import '../pages/history.scss';
+import { useDarkTheme } from '../contexts/dark-theme-context.jsx';
 import './button-light-dark.scss';
-import './modal.scss';
-import './results-list.scss';
 
-export default function ButtonLightDark({ setDarkTheme }) {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('dark-mode') === 'true';
-  });
-
-  useEffect(() => {
-    document.body.classList.toggle('dark-mode', darkMode);
-
-    const elements = [
-      '.modal',
-      '.modal-close',
-      '.container-history',
-      '.container-display-contents',
-      '.main-title-h1',
-      '.main-title-h2',
-      '.results-container',
-      '.icon-github',
-      '.icon-linked',
-    ];
-
-    elements.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((element) => element.classList.toggle('dark-mode', darkMode));
-    });
-  }, [darkMode]);
+export default function ButtonLightDark() {
+  const { darkTheme, setDarkTheme } = useDarkTheme();
 
   const toggleTheme = () => {
-    setDarkMode((prev) => {
-      const newTheme = !prev;
-      localStorage.setItem('dark-mode', newTheme);
-      document.body.classList.toggle('dark-mode', newTheme);
-      if (typeof setDarkTheme === 'function') {
-        setDarkTheme(newTheme);
-      }
-      return newTheme;
-    });
+    setDarkTheme((prev) => !prev);
   };
 
   return (
     <label className='switch'>
-      <input id='input' type='checkbox' checked={darkMode} onChange={toggleTheme} />
+      <input id='input' type='checkbox' checked={darkTheme} onChange={toggleTheme} />
       <div className='slider round'>
         <div className='sun-moon'>
           <svg id='moon-dot-1' className='moon-dot' viewBox='0 0 100 100'>

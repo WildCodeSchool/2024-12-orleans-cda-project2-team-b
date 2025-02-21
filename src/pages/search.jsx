@@ -46,6 +46,12 @@ export default function Search() {
     <>
       {/* SEARCHBAR */}
       <div className='search-container'>
+        <div className='search-title'>
+          <div>
+            <h1>Wild&apos;s News</h1>
+            <h2>L&apos;actu tech</h2>
+          </div>
+        </div>
         <div className='search-bar'>
           <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
           <input

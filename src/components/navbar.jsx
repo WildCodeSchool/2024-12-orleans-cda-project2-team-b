@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { iconList } from '../data/icon-list';
+import MainTitle from './main-title';
 import './navbar.scss';
 import ToggleModal from './toggle-modal';
 
@@ -46,6 +47,9 @@ export default function Navbar() {
           ),
         )}
       </nav>
+      <div>
+        <MainTitle />
+      </div>
 
       {/* Use component ToggleModal */}
       {isModalOpen && <ToggleModal isShowing={isModalOpen} hide={toggleModal} openInNewTab={openInNewTab} />}
