@@ -1,5 +1,18 @@
 @use '../variables.scss' as vars;
 
+.main-title-position {
+  text-align: left;
+  line-height: 0.84;
+  position: absolute;
+  z-index: 1000;
+  top: 1dvh;
+  left: 2dvw;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
 .main-title-h1 {
   color: vars.$text-color;
   font-family: vars.$font-family;
@@ -12,20 +25,10 @@
 .main-title-h2 {
   color: vars.$text-color;
   font-family: vars.$font-family;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: normal;
   letter-spacing: 0.2rem;
   cursor: pointer;
-}
-
-.main-title-position {
-  text-align: left;
-  line-height: 0.84;
-  position: absolute;
-  z-index: 1000;
-  top: 1dvh;
-  left: 2dvw;
-  width: 20dvw;
 }
 
 @media screen and (max-width: 700px) {
