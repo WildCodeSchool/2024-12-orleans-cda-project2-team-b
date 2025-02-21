@@ -1,9 +1,9 @@
 import useNavigationArticle from '../hook/use-navigation-article';
 import './button-nav-article.scss';
 
-export function ButtonNav({ direction, classIcon, texte, tablNav, pathNav }) {
+export function ButtonNav({ direction, classIcon, texte, tableNav, pathNav }) {
   //use the hook use-navigation-article
-  const { handleDirection, isAvailable } = useNavigationArticle({ direction, tablNav, pathNav });
+  const { handleDirection, isAvailable } = useNavigationArticle({ direction, tableNav, pathNav });
 
   return (
     <>

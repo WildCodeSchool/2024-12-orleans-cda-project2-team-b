@@ -9,7 +9,7 @@ import './display-article.scss';
 export default function DisplayArticle() {
   const { articleChosen } = useContext(ChoicesContext);
   const location = useLocation();
-  const tablNav = location.state?.tablNav;
+  const tableNav = location.state?.tableNav;
   const pathNav = location.state?.pathNav;
 
   return (
@@ -34,8 +34,8 @@ export default function DisplayArticle() {
         </div>
       </div>
       <div className='nav-article'>
-        <ButtonNav direction={-1} classIcon='icon-previous' texte='précédent' pathNav={pathNav} tablNav={tablNav} />
-        <ButtonNav direction={1} classIcon='icon-next' texte='suivant' pathNav={pathNav} tablNav={tablNav} />
+        <ButtonNav direction={-1} classIcon='icon-previous' texte='précédent' pathNav={pathNav} tableNav={tableNav} />
+        <ButtonNav direction={1} classIcon='icon-next' texte='suivant' pathNav={pathNav} tableNav={tableNav} />
       </div>
     </>
   );

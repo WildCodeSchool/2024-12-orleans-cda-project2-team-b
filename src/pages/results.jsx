@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import ResultsList from '../components/results-list';
 import { ChoicesContext } from '../contexts/choices-context';
@@ -9,12 +9,10 @@ import './results.scss';
 export default function Results() {
   const { searchValue, storedChoiceLanguage, isRandom, listSearch, setListSearch } = useContext(ChoicesContext);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (searchValue) {
       // Clear sessionStorage before new search
-      sessionStorage.setItem('tablSearch', JSON.stringify([]));
+      sessionStorage.setItem('tableSearch', JSON.stringify([]));
 
       //launch the request
       fetch(
@@ -36,7 +34,7 @@ export default function Results() {
             return hasKeyword || hasDescription;
           });
 
-          //Filter tabl result with the language chosen
+          //Filter table result with the language chosen
           const articleFilter =
             storedChoiceLanguage === '*' ? onlyTech : onlyTech.filter((data) => data.language === storedChoiceLanguage);
 
@@ -55,10 +53,10 @@ export default function Results() {
                 ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
                 : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
             </p>
-            <ResultsList tablNav={listSearch} pathNav='/recherche-article-choisi/' />
+            <ResultsList tableNav={listSearch} pathNav='/recherche-article-choisi/' />
           </>
         ) : (
-          navigate(`/recherche-oops`)
+          <Navigate to='/recherche-oops' />
         )}
       </div>
     </>
