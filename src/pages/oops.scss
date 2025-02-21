@@ -1,6 +1,12 @@
 @use '../variables.scss' as vars;
 
 .no-search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 88dvh;
+  width: 100%;
   text-align: center;
   font-size: vars.$desktop-content;
   @media screen and (max-width: 700px) {

@@ -1,4 +1,3 @@
-// import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 
 import { ChoicesContext } from '../contexts/choices-context';

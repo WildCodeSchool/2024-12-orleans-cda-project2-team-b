@@ -1,33 +1,34 @@
-import { useContext, useEffect, useState } from 'react';
+//useNavigation is available only for Favoris and Search
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
 
-//function shared with nav button
-export default function useNavigationArticle({ direction }) {
+export default function useNavigationArticle({ direction, tableNav, pathNav }) {
   const navigate = useNavigate();
-  const { listFavourite, articleChosen, setArticleChosen } = useContext(ChoicesContext);
-  const [isAvailable, setIsAvailable] = useState(false);
+  const { articleChosen, setArticleChosen, addArticleToHistory } = useContext(ChoicesContext);
+  let isAvailable = false;
 
-  //found the index of the article where we are
-  const indexActual = listFavourite.findIndex((a) => a.article_id === articleChosen.article_id);
-  const indexAsked = indexActual + direction;
-
-  function handleDirection() {
-    if (isAvailable) {
-      setArticleChosen(listFavourite[indexAsked]);
-      navigate(`/favoris-article-choisi/${listFavourite[indexAsked].article_id}`);
-    }
+  //Check if tableNav is empty for the history case for example
+  if (!tableNav || tableNav.length === 0) {
+    return { handleDirection: () => {}, isAvailable: false };
   }
 
-  useEffect(() => {
-    //control if is the first or last article
-    if (indexAsked < 0 || indexAsked >= listFavourite.length) {
-      setIsAvailable(false);
-    } else {
-      setIsAvailable(true);
+  //find the index of article in display to navigate
+  const indexActuel = tableNav.findIndex((a) => a.article_id === articleChosen.article_id);
+  const indexAsked = indexActuel + direction;
+
+  // check if is first or last article in the table to not display component
+  isAvailable = tableNav && indexAsked >= 0 && indexAsked < tableNav.length;
+
+  // create function to navigate
+  function handleDirection() {
+    if (tableNav[indexAsked]) {
+      setArticleChosen(tableNav[indexAsked]);
+      addArticleToHistory(tableNav[indexAsked]);
+      navigate(`${pathNav}${tableNav[indexAsked].article_id}`, { state: { tableNav, pathNav } });
     }
-  }, [indexActual, indexAsked, listFavourite]);
+  }
 
   return { handleDirection, isAvailable };
 }

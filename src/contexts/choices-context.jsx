@@ -15,8 +15,9 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [articleChosen, setArticleChosen] = useState({});
 
-  const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tablHistory')) || []);
-  const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tablFav')) || []);
+  const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tableHistory')) || []);
+  const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tableFav')) || []);
+  const [listSearch, setListSearch] = useState(JSON.parse(sessionStorage.getItem('tableSearch')) || []);
 
   const [isRandom, setIsRandom] = useState(false);
 
@@ -74,10 +75,11 @@ export const ChoicesContextProvider = ({ children }) => {
   useEffect(() => {
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
-      localStorage.setItem('tablHistory', JSON.stringify(listHistory));
-      localStorage.setItem('tablFav', JSON.stringify(listFavourite));
+      localStorage.setItem('tableHistory', JSON.stringify(listHistory));
+      localStorage.setItem('tableFav', JSON.stringify(listFavourite));
+      sessionStorage.setItem('tableSearch', JSON.stringify(listSearch));
     }
-  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite]);
+  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite, listSearch]);
 
   return (
     <ChoicesContext.Provider
@@ -98,6 +100,8 @@ export const ChoicesContextProvider = ({ children }) => {
         addArticleToFavourite,
         isRandom,
         setIsRandom,
+        listSearch,
+        setListSearch,
       }}
     >
       {children}
