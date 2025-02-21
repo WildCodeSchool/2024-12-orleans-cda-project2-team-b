@@ -1,4 +1,5 @@
 @use '../variables.scss' as vars;
+
 .container-display-article {
   background-color: vars.$secondary-color;
   width: 70%;
@@ -63,20 +64,6 @@
   }
 }
 
-.nav-article {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 80%;
-  > :first-child {
-    justify-self: start;
-    grid-area: 1 / 1 / 2 / 2;
-  }
-  > :last-child {
-    justify-self: end;
-    grid-area: 1 / 2 / 2 / 3;
-  }
-}
-
 @media (max-width: 770px) {
   .container-display-article {
     width: 95%;
@@ -113,4 +100,14 @@
       font-size: vars.$mobile-description;
     }
   }
+}
+
+.dark-mode .container-display-article {
+  background-color: vars.$primary-color;
+  color: vars.$text-color;
+  box-shadow: none;
+}
+
+.dark-mode .container-display-contents > h3 {
+  text-shadow: none;
 }

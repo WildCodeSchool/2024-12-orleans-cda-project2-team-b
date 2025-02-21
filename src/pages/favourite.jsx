@@ -11,18 +11,16 @@ export default function Favourite() {
 
   return (
     <>
-      {listFavourite.length > 0 ? (
-        <>
-          <p>Vous avez {listFavourite.length} 💙 dans votre liste. </p>
-          <div className='article-result-wrap'>
-            {listFavourite.map((article, index) => (
-              <ResultsList key={index} article={article} />
-            ))}
-          </div>
-        </>
-      ) : (
-        <NoFavourite />
-      )}
+      <div className='container-results'>
+        {listFavourite.length > 0 ? (
+          <>
+            <p className='texte-results'>Vous avez {listFavourite.length} 💙 dans votre liste. </p>
+            <ResultsList tableNav={listFavourite} pathNav='/favoris-article-choisi/' />
+          </>
+        ) : (
+          <NoFavourite />
+        )}
+      </div>
     </>
   );
 }

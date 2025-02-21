@@ -142,3 +142,24 @@
   flex-direction: column;
   align-items: center;
 }
+
+.search-title {
+  font-family: vars.$font-family;
+  color: vars.$primary-color;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30dvh;
+    h1 {
+      font-size: 5rem;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: 4rem;
+      font-weight: 500;
+    }
+  }
+}

@@ -21,7 +21,13 @@ body {
 }
 
 main {
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main.dark-mode {
+  background-color: vars.$dark-color;
+  color: vars.$light-color;
 }

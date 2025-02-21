@@ -1,3 +1,5 @@
+@use '../variables.scss' as vars;
+
 .switch {
   position: relative;
   width: 60px;
@@ -271,4 +273,10 @@
   100% {
     transform: scale(1);
   }
+}
+
+.dark-mode .modal {
+  background-color: vars.$dark-color;
+  color: vars.$light-color;
+  border: #aec2d5 2px solid;
 }
