@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import './app.scss';
 import BackgroundCard from './components/background-card';
@@ -13,19 +13,38 @@ import { useDarkTheme } from './contexts/dark-theme-context';
 function App() {
   const { darkTheme } = useDarkTheme();
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (
+      location.pathname === '/' ||
+      location.pathname === '/recherche-oops' ||
+      location.pathname === '/recherche-article-choisi'
+    ) {
+      setIsLoading(true);
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
+
+  const handleSearch = () => {
+    setIsLoading(true);
+
     setTimeout(() => {
       setIsLoading(false);
+      navigate('/');
     }, 3000);
-  }, []);
+  };
 
   return (
     <>
       {isLoading && <Loader />}
       {!isLoading && (
         <main className={`app-container ${darkTheme ? 'dark-mode' : ''}`}>
-          <Navbar />
+          <Navbar onSearch={handleSearch} />
           <BackgroundCard />
           <MainTitle />
           <Outlet />
