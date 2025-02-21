@@ -48,7 +48,7 @@ div.modal {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 0 25%;
+    padding: 0 10%;
   }
   h2 {
     display: flex;
@@ -66,8 +66,15 @@ div.modal {
     justify-content: center;
     text-align: center;
     padding-bottom: 5dvh;
+    @media (max-width: 700px) {
+      padding-bottom: 1dvh;
+    }
     .memberPicture {
       height: 10rem;
+      @media (max-width: 700px) {
+        height: 6rem;
+        padding: 0;
+      }
     }
     .linksButtons {
       display: flex;
@@ -76,10 +83,18 @@ div.modal {
   }
 }
 
-@media screen and (min-width: 960px) and (max-width: 1024px) {
+@media screen and (min-width: 1025px) {
+  .modal {
+    height: 80dvh;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1024px) {
   div.modal {
     max-height: 90dvh;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    scrollbar-color: #eff4f6 #25384d;
+    scrollbar-width: thin;
   }
   .membersInformations {
     flex-direction: column;
@@ -89,7 +104,9 @@ div.modal {
 @media (max-width: 700px) {
   div.modal {
     max-height: 90dvh;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    scrollbar-color: #eff4f6 #25384d;
+    scrollbar-width: thin;
   }
 
   .aboutSection p {
@@ -99,4 +116,24 @@ div.modal {
   .membersInformations {
     padding: 0 !important;
   }
+  .membersInformations > article {
+    font-size: vars.$mobile-description;
+    display: flex;
+    flex-direction: row;
+  }
+  .name-link-group {
+    margin-left: 0.5rem;
+  }
+  .linksButtons > img {
+    margin-left: 0.3rem;
+  }
+}
+
+.dark-mode .modal {
+  background-color: vars.$dark-color;
+  color: vars.$light-color;
+}
+
+.dark-mode .modal-close {
+  filter: invert(1);
 }
