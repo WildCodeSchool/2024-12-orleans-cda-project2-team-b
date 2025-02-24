@@ -14,7 +14,7 @@ export default function DisplayFavorite() {
     <>
       <div className='article-container'>
         <DisplayArticle />
-        <img className='background-article' src={articleChosen.image_url} />
+        <img className='background-article' src={articleChosen?.image_url} />
       </div>
     </>
   );
