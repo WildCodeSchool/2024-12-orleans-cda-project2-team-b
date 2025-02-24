@@ -22,6 +22,7 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
             Nous espérons sincèrement que Wild&apos;s News et son concept sauront vous ravir.
           </p>
         </div>
+
         <div>
           <h2>Notre équipe</h2>
           <div className='membersInformations'>
@@ -36,16 +37,22 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
                       src='/icons/github.svg'
                       alt='Logo Github'
                       onClick={() => openInNewTab(member.github)}
-                      onKeyDown={(e) => e.key === 'Enter'}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') openInNewTab(member.github);
+                      }}
                       style={{ cursor: 'pointer' }}
+                      tabIndex={0}
                     />
                     <img
                       className='icon-linked'
                       src='/icons/linkedin.svg'
                       alt='Logo Linkedin'
                       onClick={() => openInNewTab(member.linkedin)}
-                      onKeyDown={(e) => e.key === 'Enter'}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') openInNewTab(member.linkedin);
+                      }}
                       style={{ cursor: 'pointer' }}
+                      tabIndex={0}
                     />
                   </div>
                 </div>
