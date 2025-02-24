@@ -1,3 +1,5 @@
+@use '../variables.scss' as vars;
+
 .dark-mode .icon-github {
   filter: invert(1);
 }

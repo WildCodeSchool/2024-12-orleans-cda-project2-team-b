@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 
+import { useDarkTheme } from '../contexts/dark-theme-context';
 import './modal.scss';
 
 export default function Modal({ isShowing, hide, children }) {
@@ -9,22 +10,26 @@ export default function Modal({ isShowing, hide, children }) {
     }
   };
 
+  const { darkTheme } = useDarkTheme();
+
   return isShowing
     ? createPortal(
         <>
-          <div className='modal-overlay' onClick={hide} onKeyDown={handleKeyDown} tabIndex={0} role='button' />
-          <div className='modal'>
-            <div className='modal-header'>
-              <button
-                type='button'
-                onClick={hide}
-                onKeyDown={(e) => e.key === 'Enter' && hide()}
-                className='modal-close'
-              >
-                ×
-              </button>
+          <div className={`modal-container ${darkTheme ? 'dark-mode' : ''}`}>
+            <div className='modal-overlay' onClick={hide} onKeyDown={handleKeyDown} tabIndex={0} role='button' />
+            <div className='modal'>
+              <div className='modal-header'>
+                <button
+                  type='button'
+                  onClick={hide}
+                  onKeyDown={(e) => e.key === 'Enter' && hide()}
+                  className='modal-close'
+                >
+                  ×
+                </button>
+              </div>
+              <div className='modal-content'>{children}</div>
             </div>
-            <div className='modal-content'>{children}</div>
           </div>
         </>,
         document.body,
