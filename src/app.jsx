@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
 import { PopUpQuestion } from './components/pop-up-question';
+import ToggleModal from './components/toggle-modal';
 import { useDarkTheme } from './contexts/dark-theme-context';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   return (
     <main className={`app-container ${darkTheme ? 'dark-mode' : ''}`}>
       <Navbar />
+      <ToggleModal />
       <BackgroundCard />
       <MainTitle />
       <Outlet />
