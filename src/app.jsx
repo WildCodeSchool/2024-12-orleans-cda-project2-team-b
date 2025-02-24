@@ -17,7 +17,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname === '/' || location.pathname === '/recherche-resultats') {
+    if (location.pathname === '/') {
       setIsLoading(true);
       const timer = setTimeout(() => {
         setIsLoading(false);
