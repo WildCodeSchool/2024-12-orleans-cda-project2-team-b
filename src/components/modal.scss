@@ -57,7 +57,7 @@ div.modal {
   p {
     display: flex;
     justify-content: center;
-    padding: 0 25%;
+    padding: 0 10%;
   }
   article {
     display: flex;
@@ -95,9 +95,16 @@ div.modal {
     overflow-y: scroll;
     scrollbar-color: #eff4f6 #25384d;
     scrollbar-width: thin;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
   }
   .membersInformations {
     flex-direction: column;
+  }
+  p {
+    font-size: vars.$mobile-description;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 

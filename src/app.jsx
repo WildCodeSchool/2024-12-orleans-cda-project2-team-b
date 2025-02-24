@@ -8,6 +8,7 @@ import Loader from './components/loader';
 import MainTitle from './components/main-title';
 import Navbar from './components/navbar';
 import { PopUpQuestion } from './components/pop-up-question';
+import ToggleModal from './components/toggle-modal';
 import { useDarkTheme } from './contexts/dark-theme-context';
 
 function App() {

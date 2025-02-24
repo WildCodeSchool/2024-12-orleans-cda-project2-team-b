@@ -1,5 +1,10 @@
 @use '../variables.scss' as vars;
 
+div.nav-article {
+  position: absolute;
+  bottom: 5dvh;
+}
+
 .button-nav {
   position: relative;
   display: flex;
@@ -29,4 +34,11 @@
 
 .button-nav-disable {
   display: none;
+}
+
+@media screen and (max-width: 700px) {
+  div.nav-article {
+    position: absolute;
+    bottom: 10dvh;
+  }
 }
