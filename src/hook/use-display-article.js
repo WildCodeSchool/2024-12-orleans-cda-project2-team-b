@@ -1,13 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-import { ChoicesContext } from '../contexts/choices-context';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function useDisplayArticle() {
   const { article_id } = useParams();
-  const { setArticleChosen } = useContext(ChoicesContext);
+  const [article, setArticle] = useState([]);
 
   useEffect(() => {
     if (article_id) {
@@ -15,8 +13,9 @@ export default function useDisplayArticle() {
         .then((response) => response.json())
         .then((data) => {
           const article = data.results[0];
-          setArticleChosen(article);
+          setArticle(article);
         });
     }
-  }, [setArticleChosen, article_id]);
+  }, [setArticle, article_id]);
+  return { article };
 }
