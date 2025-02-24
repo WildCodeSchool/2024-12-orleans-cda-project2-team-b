@@ -79,7 +79,7 @@ export const ChoicesContextProvider = ({ children }) => {
       localStorage.setItem('tableFav', JSON.stringify(listFavourite));
       sessionStorage.setItem('tableSearch', JSON.stringify(listSearch));
     }
-  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite, listSearch, articleChosen]);
+  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite, listSearch]);
 
   return (
     <ChoicesContext.Provider
