@@ -2,12 +2,13 @@
 .article-result-wrap {
   height: 84.5dvh;
   width: 100dvw;
-  display: grid;
+  display: flex;
   justify-items: center;
-  justify-content: space-between;
-  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
   flex-wrap: wrap;
   overflow-y: scroll;
+  scrollbar-color: #eff4f6 #25384d;
+  scrollbar-width: thin;
 
   .results-container {
     display: flex;
@@ -62,12 +63,6 @@
   -ms-transform: scale(1.08); /* IE 9 */
   -webkit-transform: scale(1.08); /* Safari 3-8 */
   transform: scale(1.08);
-}
-
-@media screen and (max-width: 700px) {
-  .article-result-wrap {
-    grid-template-columns: auto auto;
-  }
 }
 
 @media screen and (max-width: 700px) {
