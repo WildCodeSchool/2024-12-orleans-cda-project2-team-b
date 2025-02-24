@@ -11,6 +11,8 @@
   padding: 1% 3.5% 1% 3.5%;
   box-shadow: 10px 5px 5px rgb(173, 173, 183);
   overflow-y: auto;
+  scrollbar-color: #eff4f6 #25384d;
+  scrollbar-width: thin;
 
   .container-display-contents {
     display: grid;
