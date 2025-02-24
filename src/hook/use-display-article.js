@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function useDisplayArticle() {
   const { article_id } = useParams();
-  const [article, setArticle] = useState([]);
+  const [article, setArticle] = useState({});
 
   useEffect(() => {
     if (article_id) {
