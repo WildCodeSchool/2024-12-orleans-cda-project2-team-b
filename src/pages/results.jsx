@@ -36,12 +36,14 @@ export default function Results() {
 
           //Filter table result with the language chosen
           const articleFilter =
-            storedChoiceLanguage === '*' ? onlyTech : onlyTech.filter((data) => data.language === storedChoiceLanguage);
+            storedChoiceLanguage === '*' || isRandom
+              ? onlyTech
+              : onlyTech.filter((data) => data.language === storedChoiceLanguage);
 
           setListSearch(articleFilter);
         });
     }
-  }, [searchValue, storedChoiceLanguage, setListSearch]);
+  }, [searchValue, storedChoiceLanguage, setListSearch, isRandom]);
 
   return (
     <>
