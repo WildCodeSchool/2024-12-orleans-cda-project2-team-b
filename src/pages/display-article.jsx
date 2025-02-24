@@ -10,27 +10,27 @@ export default function DisplayArticle() {
   const tableNav = location.state?.tableNav;
   const pathNav = location.state?.pathNav;
 
-  const { articleChosen2 } = useDisplayArticle();
+  const { articleChosen } = useDisplayArticle();
 
   return (
     <>
       <div className='container-display-article'>
         <div className='container-display-contents'>
-          <h2>{articleChosen2?.title || 'titre inconnu'}</h2>
-          <h3>-{articleChosen2?.source_id || 'source introuvable'}-</h3>
-          <img src={articleChosen2?.image_url || '/no-image.svg'} alt='image article' title='image article'></img>
-          <p> {articleChosen2?.description || "Nous n'avons pas de texte à vous proposer pour cet article..."}</p>
+          <h2>{articleChosen?.title || 'titre inconnu'}</h2>
+          <h3>-{articleChosen?.source_id || 'source introuvable'}-</h3>
+          <img src={articleChosen?.image_url || '/no-image.svg'} alt='image article' title='image article'></img>
+          <p> {articleChosen?.description || "Nous n'avons pas de texte à vous proposer pour cet article..."}</p>
         </div>
         <div className='container-plus-like'>
-          {articleChosen2?.link ? (
-            <a href={articleChosen2?.link} target='_blank' rel='noreferrer'>
+          {articleChosen?.link ? (
+            <a href={articleChosen?.link} target='_blank' rel='noreferrer'>
               Article complet
             </a>
           ) : (
             "Pas d'information"
           )}
 
-          <LikeButton article={articleChosen2} />
+          <LikeButton article={articleChosen} />
         </div>
       </div>
       <div className='nav-article'>

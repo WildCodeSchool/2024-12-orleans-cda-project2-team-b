@@ -7,10 +7,10 @@ import useDisplayArticle from './use-display-article';
 
 export default function useNavigationArticle({ direction, tableNav, pathNav }) {
   const navigate = useNavigate();
-  const { articleChosen2 } = useDisplayArticle();
+  const { articleChosen } = useDisplayArticle();
   const { addArticleToHistory } = useContext(ChoicesContext);
 
-  if (!articleChosen2) {
+  if (!articleChosen) {
     return null;
   }
 
@@ -22,7 +22,7 @@ export default function useNavigationArticle({ direction, tableNav, pathNav }) {
   }
 
   //find the index of article in display to navigate
-  const indexActuel = tableNav.findIndex((a) => a.article_id === articleChosen2.article_id);
+  const indexActuel = tableNav.findIndex((a) => a.article_id === articleChosen.article_id);
   const indexAsked = indexActuel + direction;
 
   if (indexActuel === -1) {
