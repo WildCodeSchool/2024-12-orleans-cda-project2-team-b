@@ -1,32 +1,19 @@
-import { useContext, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { ButtonNav } from '../components/button-nav-article';
 import LikeButton from '../components/like-button';
 import { ChoicesContext } from '../contexts/choices-context';
+import useDisplayArticle from '../hook/use-display-article';
 import './display-article.scss';
 
-const API_KEY = import.meta.env.VITE_API_KEY;
 export default function DisplayArticle() {
-  const { articleChosen, setArticleChosen } = useContext(ChoicesContext);
+  const { articleChosen } = useContext(ChoicesContext);
   const location = useLocation();
   const tableNav = location.state?.tableNav;
   const pathNav = location.state?.pathNav;
-  const { article_id } = useParams();
 
-  //----------------------------------
-  useEffect(() => {
-    if (article_id) {
-      fetch(`https://newsdata.io/api/1/latest?apikey=${API_KEY}&id=${article_id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          const article = data.results;
-          setArticleChosen(article);
-        });
-    }
-  }, [setArticleChosen, article_id]);
-  // ---------------------------------------------------------------
-  console.log(articleChosen);
+  useDisplayArticle();
 
   return (
     <>
