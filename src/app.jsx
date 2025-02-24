@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       {isLoading && <Loader />}
-      {!isLoading && (
+      {
         <main className={`app-container ${darkTheme ? 'dark-mode' : ''}`}>
           <Navbar onSearch={handleSearch} />
           <BackgroundCard />
@@ -47,7 +47,7 @@ function App() {
           <PopUpQuestion />
           <Footer />
         </main>
-      )}
+      }
     </>
   );
 }
