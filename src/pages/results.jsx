@@ -6,20 +6,17 @@ import { ChoicesContext } from '../contexts/choices-context';
 import { keyWordTechList } from '../data/keyword-list';
 import './results.scss';
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 export default function Results() {
   const { searchValue, storedChoiceLanguage, isRandom, listSearch, setListSearch } = useContext(ChoicesContext);
-
   useEffect(() => {
     if (searchValue) {
       // Clear sessionStorage before new search
       sessionStorage.setItem('tableSearch', JSON.stringify([]));
 
       //launch the request
-      fetch(
-        `https://newsdata.io/api/1/latest?apikey=pub_65232fbbf2a92bccb58b53492c068ed55dc6a&q=${encodeURIComponent(
-          searchValue,
-        )}`,
-      )
+      fetch(`https://newsdata.io/api/1/latest?apikey=${API_KEY}&q=${encodeURIComponent(searchValue)}`)
         .then((response) => response.json())
         .then((data) => {
           //Filter on keywords "technology", to have more results we check also description
