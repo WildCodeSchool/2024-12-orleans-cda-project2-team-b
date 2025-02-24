@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function useDisplayArticle() {
   const { article_id } = useParams();
-  const [article, setArticle] = useState({});
+  const [articleChosen2, setArticleChosen2] = useState({});
 
   useEffect(() => {
     if (article_id) {
@@ -13,9 +13,9 @@ export default function useDisplayArticle() {
         .then((response) => response.json())
         .then((data) => {
           const article = data.results[0];
-          setArticle(article);
+          setArticleChosen2(article);
         });
     }
-  }, [setArticle, article_id]);
-  return { article };
+  }, [setArticleChosen2, article_id]);
+  return { articleChosen2 };
 }
