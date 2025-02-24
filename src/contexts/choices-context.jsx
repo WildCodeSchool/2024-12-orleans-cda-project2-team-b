@@ -13,8 +13,6 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  // const [articleChosen, setArticleChosen] = useState({});
-
   const [articleChosen, setArticleChosen] = useState(() => {
     const savedArticle = localStorage.getItem('articleChosen');
     return savedArticle ? JSON.parse(savedArticle) : {};
@@ -54,10 +52,6 @@ export const ChoicesContextProvider = ({ children }) => {
     [choiceLocalStorage],
   );
 
-  useEffect(() => {
-    localStorage.setItem('articleChosen', JSON.stringify(articleChosen));
-  }, [articleChosen]);
-
   const addArticleToFavourite = useCallback(
     (article) => {
       setArticleChosen(article);
@@ -82,13 +76,14 @@ export const ChoicesContextProvider = ({ children }) => {
   );
 
   useEffect(() => {
+    localStorage.setItem('articleChosen', JSON.stringify(articleChosen));
     if (choiceLocalStorage === 'yes') {
       localStorage.setItem('language', storedChoiceLanguage);
       localStorage.setItem('tableHistory', JSON.stringify(listHistory));
       localStorage.setItem('tableFav', JSON.stringify(listFavourite));
       sessionStorage.setItem('tableSearch', JSON.stringify(listSearch));
     }
-  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite, listSearch]);
+  }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite, listSearch, articleChosen]);
 
   return (
     <ChoicesContext.Provider
