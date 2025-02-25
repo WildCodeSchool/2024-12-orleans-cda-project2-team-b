@@ -12,16 +12,14 @@ function App() {
   const { darkTheme } = useDarkTheme();
 
   return (
-    <>
-      <main className={`app-container ${darkTheme ? 'dark-mode' : ''}`}>
-        <Navbar />
-        <BackgroundCard />
-        <MainTitle />
-        <Outlet />
-        <PopUpQuestion />
-        <Footer />
-      </main>
-    </>
+    <main className={`app-container ${darkTheme ? 'dark-mode' : ''}`}>
+      <Navbar />
+      <BackgroundCard />
+      <MainTitle />
+      <Outlet />
+      <PopUpQuestion />
+      <Footer />
+    </main>
   );
 }
 
