@@ -40,7 +40,7 @@ export default function ResultsList({ tableNav, pathNav }) {
 
           <div className='under-image-results'>
             <div className='source'>{article.source_id}</div>
-            <LikeButton article={article} />
+            <LikeButton articleChosen={article} />
           </div>
         </div>
       ))}

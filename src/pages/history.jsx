@@ -25,7 +25,7 @@ export default function History() {
                 <div className='title-like-history'>
                   <li>{article.title}</li>
                   <li>
-                    <LikeButton article={article} />
+                    <LikeButton articleChosen={article} />
                   </li>
                 </div>
                 <li>{article.description}</li>

@@ -7,31 +7,34 @@ import './like-button.scss';
 export default function LikeButton({ articleChosen }) {
   const { addArticleToFavourite, listFavourite } = useContext(ChoicesContext);
   const { darkTheme } = useDarkTheme();
+  const isLiked = listFavourite.some((fav) => fav.article_id === articleChosen?.article_id);
 
   function handleClickLike(event) {
-    //to not declenche the handleClickHistory or handleClickArticle
-    event.stopPropagation();
-    addArticleToFavourite(articleChosen);
+    if (articleChosen) {
+      //to not declenche the handleClickHistory or handleClickArticle
+      event.stopPropagation();
+      addArticleToFavourite(articleChosen);
+    }
   }
 
   return (
     <>
       <button className='button-like' type='button' onClick={handleClickLike}>
-        {(articleChosen?.article_id
-          ? listFavourite.findIndex((fav) => fav.article_id === articleChosen.article_id)
-          : -1) === -1 ? (
+        {
           <img
-            src={darkTheme ? '/icons/like-for-dark-empty.svg' : '/icons/like-empty.svg'}
-            alt='not-like'
-            title='Ajouter aux favoris'
+            src={
+              darkTheme
+                ? isLiked
+                  ? '/icons/like-for-dark-full.svg'
+                  : '/icons/like-for-dark-empty.svg'
+                : isLiked
+                ? '/icons/like-full.svg'
+                : '/icons/like-empty.svg'
+            }
+            alt={isLiked ? 'like' : 'not-like'}
+            title={isLiked ? 'Retirer des favoris' : 'Ajouter aux favoris'}
           />
-        ) : (
-          <img
-            src={darkTheme ? '/icons/like-for-dark-full.svg' : '/icons/like-full.svg'}
-            alt='like'
-            title='Retirer des favoris'
-          />
-        )}
+        }
       </button>
     </>
   );
