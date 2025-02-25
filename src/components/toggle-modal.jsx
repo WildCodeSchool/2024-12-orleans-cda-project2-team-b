@@ -1,11 +1,9 @@
-import PropTypes from 'prop-types';
-
 import { memberList } from '../data/member-list';
 import ButtonLightDark from './button-light-dark';
 import Modal from './modal';
 import './toggle-modal.scss';
 
-export default function ToggleModal({ isShowing, hide, openInNewTab }) {
+export default function ToggleModal({ isShowing, hide }) {
   return (
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>
