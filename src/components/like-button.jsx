@@ -9,8 +9,6 @@ export default function LikeButton({ articleChosen }) {
   const { darkTheme } = useDarkTheme();
   const isLiked = listFavourite.some((fav) => fav.article_id === articleChosen?.article_id);
 
-  // if (!articleChosen) return null;
-
   function handleClickLike(event) {
     if (articleChosen) {
       //to not declenche the handleClickHistory or handleClickArticle
