@@ -8,7 +8,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     {
-      setIsLoading(true);
       const timer = setTimeout(() => {
         setIsLoading(false);
       }, 1000);
