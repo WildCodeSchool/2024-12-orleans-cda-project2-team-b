@@ -13,8 +13,6 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  const [articleChosen, setArticleChosen] = useState({});
-
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tableHistory')) || []);
   const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tableFav')) || []);
   const [listSearch, setListSearch] = useState(JSON.parse(sessionStorage.getItem('tableSearch')) || []);
@@ -41,7 +39,6 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const addArticleToHistory = useCallback(
     (article) => {
-      setArticleChosen(article);
       if (choiceLocalStorage === 'yes') {
         setListHistory((prev) => updateList(prev, article, 'title').slice(0, 10));
       }
@@ -51,7 +48,6 @@ export const ChoicesContextProvider = ({ children }) => {
 
   const addArticleToFavourite = useCallback(
     (article) => {
-      setArticleChosen(article);
       if (article.title) {
         if (choiceLocalStorage === 'yes') {
           setListFavourite((prev) =>
@@ -90,8 +86,6 @@ export const ChoicesContextProvider = ({ children }) => {
         setStoredChoiceLanguage,
         searchValue,
         setSearchValue,
-        articleChosen,
-        setArticleChosen,
         setListHistory,
         listHistory,
         addArticleToHistory,

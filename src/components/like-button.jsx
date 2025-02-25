@@ -4,20 +4,22 @@ import { ChoicesContext } from '../contexts/choices-context';
 import { useDarkTheme } from '../contexts/dark-theme-context';
 import './like-button.scss';
 
-export default function LikeButton({ article }) {
+export default function LikeButton({ articleChosen }) {
   const { addArticleToFavourite, listFavourite } = useContext(ChoicesContext);
   const { darkTheme } = useDarkTheme();
 
   function handleClickLike(event) {
     //to not declenche the handleClickHistory or handleClickArticle
     event.stopPropagation();
-    addArticleToFavourite(article);
+    addArticleToFavourite(articleChosen);
   }
 
   return (
     <>
       <button className='button-like' type='button' onClick={handleClickLike}>
-        {(article?.article_id ? listFavourite.findIndex((fav) => fav.article_id === article.article_id) : -1) === -1 ? (
+        {(articleChosen?.article_id
+          ? listFavourite.findIndex((fav) => fav.article_id === articleChosen.article_id)
+          : -1) === -1 ? (
           <img
             src={darkTheme ? '/icons/like-for-dark-empty.svg' : '/icons/like-empty.svg'}
             alt='not-like'
