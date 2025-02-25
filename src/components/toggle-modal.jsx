@@ -32,28 +32,22 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
                 <div className='name-link-group'>
                   <p>{member.name}</p>
                   <div className='linksButtons'>
-                    <img
-                      className='icon-github'
-                      src='/icons/github.svg'
-                      alt='Logo Github'
-                      onClick={() => openInNewTab(member.github)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') openInNewTab(member.github);
-                      }}
-                      style={{ cursor: 'pointer' }}
-                      tabIndex={0}
-                    />
-                    <img
-                      className='icon-linked'
-                      src='/icons/linkedin.svg'
-                      alt='Logo Linkedin'
-                      onClick={() => openInNewTab(member.linkedin)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') openInNewTab(member.linkedin);
-                      }}
-                      style={{ cursor: 'pointer' }}
-                      tabIndex={0}
-                    />
+                    <a href={member.github} target='_blank' rel='noopener noreferrer'>
+                      <img
+                        className='icon-github'
+                        src='/icons/github.svg'
+                        alt={`Logo Github de ${member.name}`}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </a>
+                    <a href={member.linkedin} target='_blank' rel='noopener noreferrer'>
+                      <img
+                        className='icon-linked'
+                        src='/icons/linkedin.svg'
+                        alt={`Logo Linkedin de ${member.name}`}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </a>
                   </div>
                 </div>
               </article>
@@ -64,9 +58,3 @@ export default function ToggleModal({ isShowing, hide, openInNewTab }) {
     </Modal>
   );
 }
-
-ToggleModal.propTypes = {
-  isShowing: PropTypes.bool.isRequired,
-  hide: PropTypes.func.isRequired,
-  openInNewTab: PropTypes.func.isRequired,
-};
