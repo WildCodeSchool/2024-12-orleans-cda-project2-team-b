@@ -34,7 +34,7 @@ export default function Results() {
               ? `Nous vous proposons une recherche 🎲 pour : "${searchValue}"`
               : `${listSearch.length} article(s) ont été trouvé(s) avec votre recherche : "${searchValue}"`}
           </p>
-          <ResultsList tableNav={listSearch} pathNav='/recherche-article-choisi/' />
+          <ResultsList tableNav={listSearch} pathNav='/recherche-article/' />
         </>
       )}
     </div>
