@@ -10,9 +10,7 @@ export function PopUpQuestion() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (choiceLocalStorage === 'yes') {
-      setIsVisible(false);
-    } else {
+    if (choiceLocalStorage !== 'yes') {
       setTimeout(() => {
         setIsVisible(true);
       }, 400);
