@@ -6,6 +6,8 @@
   justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: scroll;
+  scrollbar-color: #eff4f6 #25384d;
+  scrollbar-width: thin;
 }
 .article-history {
   width: 80dvw;

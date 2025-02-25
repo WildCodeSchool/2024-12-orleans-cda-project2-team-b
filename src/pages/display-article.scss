@@ -43,8 +43,8 @@
       text-shadow: 3px 3px vars.$color-details;
     }
     img {
-      width: 9.375rem;
-      margin-right: 0.313rem;
+      width: 18.375rem;
+      margin-right: 1.313rem;
       grid-area: 3/1/4/2;
       justify-self: center;
       align-self: center;
@@ -67,7 +67,7 @@
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 1024px) {
   .container-display-article {
     width: 95%;
     .container-display-contents {
