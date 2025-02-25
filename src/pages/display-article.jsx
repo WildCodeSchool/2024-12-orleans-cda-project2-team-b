@@ -30,7 +30,7 @@ export default function DisplayArticle() {
             "Pas d'information"
           )}
 
-          <LikeButton article={articleChosen} />
+          <LikeButton articleChosen={articleChosen} />
         </div>
       </div>
       <div className='nav-article'>
