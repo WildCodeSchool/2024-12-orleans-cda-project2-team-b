@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
-import useDisplayArticle from '../hook/use-display-article';
 import LikeButton from './like-button';
 import './results-list.scss';
 
