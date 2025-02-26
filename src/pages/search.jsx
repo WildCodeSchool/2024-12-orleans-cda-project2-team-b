@@ -8,6 +8,7 @@ import './search.scss';
 
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
+  const BASE_URL = import.meta.env.BASE_URL;
 
   const {
     choiceLocalStorage,
@@ -68,7 +69,7 @@ export default function Search() {
       <div className='container-language'>
         <div className='container-text' onClick={() => setIsActiveLanguageList((prev) => !prev)}>
           Langue de recherche
-          <img className={isActiveLanguageList ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
+          <img className={isActiveLanguageList ? 'arrow-return' : ''} src={`${BASE_URL}icons/arrow-nav.svg`} />
         </div>
 
         <div className={isActiveLanguageList ? 'container-flags' : 'container-flags-no-display'}>
