@@ -9,16 +9,13 @@ import ToggleModal from './toggle-modal';
 export default function Navbar() {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
-  };
-  const openInNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <>
-      {/* Creation NAVBAR icon+text */}
       <nav className='navbar'>
         {iconList.map((icon) =>
           icon.isModalTrigger ? (
@@ -28,10 +25,8 @@ export default function Navbar() {
               onClick={toggleModal}
               onKeyDown={(e) => e.key === 'Enter' && toggleModal()}
               tabIndex={0}
-              // biome-ignore lint/a11y/useSemanticElements: <explanation>
               role='button'
             >
-              {/* Display active or inactive icon */}
               <img src={isModalOpen ? icon.imgSrcOn : icon.imgSrcOff} alt={icon.name} title={icon.name} />
               <p>{icon.name}</p>
             </div>
@@ -51,8 +46,7 @@ export default function Navbar() {
         <MainTitle />
       </div>
 
-      {/* Use component ToggleModal */}
-      {isModalOpen && <ToggleModal isShowing={isModalOpen} hide={toggleModal} openInNewTab={openInNewTab} />}
+      {isModalOpen && <ToggleModal isShowing={isModalOpen} hide={toggleModal} />}
     </>
   );
 }
