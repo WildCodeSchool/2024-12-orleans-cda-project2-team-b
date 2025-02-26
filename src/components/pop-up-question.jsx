@@ -3,10 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import { ChoicesContext } from '../contexts/choices-context';
 import './pop-up-question.scss';
 
-// If user answer "yes" we keep in localstorage the choice, so no-display pop up for the next opening
-// if answer "no", for the next connection or page update we display the pop-up
 export function PopUpQuestion() {
-  const { choiceLocalStorage } = useContext(ChoicesContext);
+  const { choiceLocalStorage, updateChoiceLocalStorage } = useContext(ChoicesContext);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,7 +18,7 @@ export function PopUpQuestion() {
   function handleChoice(value) {
     setIsVisible(false);
     if (value === 'yes') {
-      localStorage.setItem('choiceLocalStorage', 'yes');
+      updateChoiceLocalStorage('yes');
     }
   }
 
