@@ -2,7 +2,7 @@ import { useDarkTheme } from '../contexts/dark-theme-context';
 import useNavigationArticle from '../hook/use-navigation-article';
 import './button-nav-article.scss';
 
-export function ButtonNav({ direction, classIcon, texte, tableNav, pathNav }) {
+export function ButtonNavArticle({ direction, classIcon, texte, tableNav, pathNav }) {
   //use the hook use-navigation-article
   const navigation = useNavigationArticle({ direction, tableNav, pathNav });
   const { darkTheme } = useDarkTheme();
