@@ -13,9 +13,9 @@ export default function ResultsList({ tableNav, pathNav }) {
   function handleClickArticle(article) {
     addArticleToHistory(article);
     if (location.pathname.includes('/favoris')) {
-      navigate(`/favoris-article-choisi/${article.article_id}`, { state: { tableNav, pathNav } });
+      navigate(`/favoris-article/${article.article_id}`, { state: { tableNav, pathNav } });
     } else {
-      navigate(`/recherche-article-choisi/${article.article_id}`, { state: { tableNav, pathNav } });
+      navigate(`/recherche-article/${article.article_id}`, { state: { tableNav, pathNav } });
     }
   }
 

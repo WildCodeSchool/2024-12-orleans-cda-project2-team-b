@@ -15,7 +15,7 @@ export default function Favourite() {
         {listFavourite.length > 0 ? (
           <>
             <p className='texte-results'>Vous avez {listFavourite.length} 💙 dans votre liste. </p>
-            <ResultsList tableNav={listFavourite} pathNav='/favoris-article-choisi/' />
+            <ResultsList tableNav={listFavourite} pathNav='/favoris-article/' />
           </>
         ) : (
           <NoFavourite />

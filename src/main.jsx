@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Search />,
       },
       {
-        path: 'recherche-article-choisi/:article_id',
+        path: 'recherche-article/:article_id',
         element: <DisplayArticle />,
       },
       {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         element: <NoFav />,
       },
       {
-        path: 'favoris-article-choisi/:article_id',
+        path: 'favoris-article/:article_id',
         element: <DisplayFavorite />,
       },
 
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <NoHistory />,
       },
       {
-        path: 'historique-choisi/:article_id',
+        path: 'historique/:article_id',
         element: <DisplayArticle />,
       },
 

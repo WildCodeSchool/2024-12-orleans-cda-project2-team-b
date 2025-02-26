@@ -3,7 +3,15 @@ import './button-nav-article.scss';
 
 export function ButtonNav({ direction, classIcon, texte, tableNav, pathNav }) {
   //use the hook use-navigation-article
-  const { handleDirection, isAvailable } = useNavigationArticle({ direction, tableNav, pathNav });
+  const navigation = useNavigationArticle({ direction, tableNav, pathNav });
+
+  // check if navigation is null
+  if (!navigation) {
+    return null;
+  }
+
+  //destructuration for security
+  const { handleDirection, isAvailable } = navigation;
 
   return (
     <>
