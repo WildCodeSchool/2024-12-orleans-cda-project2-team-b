@@ -17,70 +17,30 @@ import Oops from './pages/oops';
 import Results from './pages/results';
 import Search from './pages/search';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      element: <App />,
+      children: [
+        { path: '/', element: <Home /> },
+        { path: 'recherche', element: <Search /> },
+        { path: 'recherche-article/:article_id', element: <DisplayArticle /> },
+        { path: 'recherche-oops', element: <Oops /> },
+        { path: 'recherche-resultats', element: <Results /> },
+        { path: 'favoris', element: <Favourite /> },
+        { path: 'favoris-inconnu', element: <NoFav /> },
+        { path: 'favoris-article/:article_id', element: <DisplayFavorite /> },
+        { path: 'historique', element: <History /> },
+        { path: 'pas-d-historique', element: <NoHistory /> },
+        { path: 'historique/:article_id', element: <DisplayArticle /> },
+        { path: '*', element: <Error404 /> },
+      ],
+    },
+  ],
   {
-    element: <App />,
-    children: [
-      {
-        path: '/',
-        element: <Home />,
-      },
-
-      // SEARCH PAGE
-      {
-        path: 'recherche',
-        element: <Search />,
-      },
-      {
-        path: 'recherche-article/:article_id',
-        element: <DisplayArticle />,
-      },
-      {
-        path: 'recherche-oops',
-        element: <Oops />,
-      },
-      {
-        path: 'recherche-resultats',
-        element: <Results />,
-      },
-
-      // FAVORITE PAGE
-      {
-        path: 'favoris',
-        element: <Favourite />,
-      },
-      {
-        path: 'favoris-inconnu',
-        element: <NoFav />,
-      },
-      {
-        path: 'favoris-article/:article_id',
-        element: <DisplayFavorite />,
-      },
-
-      //HISTORY PAGE
-      {
-        path: 'historique',
-        element: <History />,
-      },
-
-      {
-        path: 'pas-d-historique',
-        element: <NoHistory />,
-      },
-      {
-        path: 'historique/:article_id',
-        element: <DisplayArticle />,
-      },
-
-      //ERROR PAGE
-      {
-        path: '*',
-        element: <Error404 />,
-      },
-    ],
+    basename: import.meta.env.BASE_URL,
   },
-]);
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <DarkThemeProvider>
