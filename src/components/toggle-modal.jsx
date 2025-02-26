@@ -34,10 +34,10 @@ export default function ToggleModal({ isShowing, hide }) {
                 <div className='name-link-group'>
                   <p>{member.name}</p>
                   <div className='linksButtons'>
-                    <a onClick={() => openInNewTab(member.github)} style={{ cursor: 'pointer' }}>
+                    <a href={member.github}>
                       <img className='icon-github' src='/icons/github.svg' alt={`Logo Github de ${member.name}`} />
                     </a>
-                    <a onClick={() => openInNewTab(member.linkedin)} style={{ cursor: 'pointer' }}>
+                    <a href={member.linkedin}>
                       <img className='icon-linked' src='/icons/linkedin.svg' alt={`Logo Linkedin de ${member.name}`} />
                     </a>
                   </div>
