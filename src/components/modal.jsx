@@ -19,14 +19,7 @@ export default function Modal({ isShowing, hide, children }) {
             <div className='modal-overlay' onClick={hide} onKeyDown={handleKeyDown} tabIndex={0} role='button' />
             <div className='modal'>
               <div className='modal-header'>
-                <button
-                  type='button'
-                  onClick={hide}
-                  onKeyDown={(e) => e.key === 'Enter' && hide()}
-                  className='modal-close'
-                >
-                  ×
-                </button>
+                <button type='button' onClick={hide} onKeyDown={handleKeyDown} className='modal-close'></button>
               </div>
               <div className='modal-content'>{children}</div>
             </div>

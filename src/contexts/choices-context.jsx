@@ -5,21 +5,18 @@ import { countryList } from '../data/country-list';
 export const ChoicesContext = createContext();
 
 export const ChoicesContextProvider = ({ children }) => {
-  const choiceLocalStorage = localStorage.getItem('choiceLocalStorage');
+  const [choiceLocalStorage, setChoiceLocalStorage] = useState(localStorage.getItem('choiceLocalStorage'));
 
   const [storedChoiceLanguage, setStoredChoiceLanguage] = useState(localStorage.getItem('language') || 'fr');
   const indexCountry = countryList.findIndex((country) => country.language === storedChoiceLanguage);
   const correctPlaceholder = countryList[indexCountry].placeholderTraduc;
 
   const [searchValue, setSearchValue] = useState('');
-
   const [listHistory, setListHistory] = useState(JSON.parse(localStorage.getItem('tableHistory')) || []);
   const [listFavourite, setListFavourite] = useState(JSON.parse(localStorage.getItem('tableFav')) || []);
   const [listSearch, setListSearch] = useState(JSON.parse(sessionStorage.getItem('tableSearch')) || []);
-
   const [isRandom, setIsRandom] = useState(false);
 
-  // Fonction used for addArticleToHistory and addArticleToFavourite
   const updateList = (prevList, article, title, shouldRemove = false) => {
     const updatedList = [...prevList];
     const hour = new Date().getTime();
@@ -60,7 +57,7 @@ export const ChoicesContextProvider = ({ children }) => {
           );
         } else {
           alert(
-            "Vous n'avez pas souhaité enregistrer de favoris, cette option n'est donc pas disponible. 😬 Avez-vous changé d'avis ? Actualisez la page et répondez oui pour débloquer cette option. ✅",
+            "Vous n'avez pas souhaité enregistrer de favoris. Cette option n'est donc pas disponible. 😬 Avez-vous changé d'avis ? Actualisez la page et répondez oui pour débloquer cette option. ✅",
           );
         }
       }
@@ -77,10 +74,16 @@ export const ChoicesContextProvider = ({ children }) => {
     }
   }, [storedChoiceLanguage, choiceLocalStorage, listHistory, listFavourite, listSearch]);
 
+  const updateChoiceLocalStorage = (value) => {
+    setChoiceLocalStorage(value);
+    localStorage.setItem('choiceLocalStorage', value);
+  };
+
   return (
     <ChoicesContext.Provider
       value={{
         choiceLocalStorage,
+        updateChoiceLocalStorage,
         correctPlaceholder,
         storedChoiceLanguage,
         setStoredChoiceLanguage,

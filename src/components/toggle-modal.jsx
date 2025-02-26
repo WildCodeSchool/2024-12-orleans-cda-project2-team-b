@@ -4,6 +4,10 @@ import Modal from './modal';
 import './toggle-modal.scss';
 
 export default function ToggleModal({ isShowing, hide }) {
+  const openInNewTab = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>
@@ -30,21 +34,11 @@ export default function ToggleModal({ isShowing, hide }) {
                 <div className='name-link-group'>
                   <p>{member.name}</p>
                   <div className='linksButtons'>
-                    <a href={member.github} target='_blank' rel='noopener noreferrer'>
-                      <img
-                        className='icon-github'
-                        src='/icons/github.svg'
-                        alt={`Logo Github de ${member.name}`}
-                        style={{ cursor: 'pointer' }}
-                      />
+                    <a onClick={() => openInNewTab(member.github)} style={{ cursor: 'pointer' }}>
+                      <img className='icon-github' src='/icons/github.svg' alt={`Logo Github de ${member.name}`} />
                     </a>
-                    <a href={member.linkedin} target='_blank' rel='noopener noreferrer'>
-                      <img
-                        className='icon-linked'
-                        src='/icons/linkedin.svg'
-                        alt={`Logo Linkedin de ${member.name}`}
-                        style={{ cursor: 'pointer' }}
-                      />
+                    <a onClick={() => openInNewTab(member.linkedin)} style={{ cursor: 'pointer' }}>
+                      <img className='icon-linked' src='/icons/linkedin.svg' alt={`Logo Linkedin de ${member.name}`} />
                     </a>
                   </div>
                 </div>

@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import LikeButton from '../components/like-button';
 import { ChoicesContext } from '../contexts/choices-context';
+import useDisplayArticle from '../hook/use-display-article';
 import './history.scss';
 import NoHistory from './no-history';
-import useDisplayArticle from '../hook/use-display-article';
 
 export default function History({ tableNav, pathNav }) {
   const { listHistory, addArticleToHistory } = useContext(ChoicesContext);

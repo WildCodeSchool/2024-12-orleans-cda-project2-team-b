@@ -5,9 +5,6 @@
 //   const  articleChosen=location.state?.articleChosen;
 //   const  isTooManyRequest=location.state?.isTooManyRequest;
 //   // console.log();
-  
-
-
 
 //   return (
 //     <>

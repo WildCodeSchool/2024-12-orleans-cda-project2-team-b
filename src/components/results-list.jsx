@@ -13,18 +13,17 @@ export default function ResultsList({ tableNav, pathNav }) {
   // const { articleChosen, isTooManyRequest } = useDisplayArticle();
 
   function handleClickArticle(article) {
-
-    let isFav=false;
+    let isFav = false;
 
     addArticleToHistory(article);
 
     if (location.pathname.includes('/favoris')) {
-      isFav=true;
+      isFav = true;
       navigate(`/favoris-article/${article.article_id}`, {
-        state: { tableNav, pathNav,  isFav },
+        state: { tableNav, pathNav, isFav },
       });
     } else {
-      isFav=false;
+      isFav = false;
       navigate(`/recherche-article/${article.article_id}`, {
         state: { tableNav, pathNav, isFav },
       });
