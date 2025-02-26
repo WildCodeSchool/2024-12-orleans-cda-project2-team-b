@@ -4,10 +4,6 @@ import Modal from './modal';
 import './toggle-modal.scss';
 
 export default function ToggleModal({ isShowing, hide }) {
-  const openInNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>
