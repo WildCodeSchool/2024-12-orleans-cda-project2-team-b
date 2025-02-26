@@ -6,7 +6,7 @@ import { ChoicesContextProvider } from './contexts/choices-context';
 import { DarkThemeProvider } from './contexts/dark-theme-context';
 import './main.scss';
 import DisplayArticle from './pages/display-article';
-import DisplayFavorite from './pages/display-favorite';
+// import DisplayFavorite from './pages/display-favorite';
 import Error404 from './pages/error-404';
 import Favourite from './pages/favourite';
 import History from './pages/history';
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'favoris-article/:article_id',
-        element: <DisplayFavorite />,
+        element: <DisplayArticle />,
       },
 
       //HISTORY PAGE

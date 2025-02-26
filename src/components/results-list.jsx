@@ -1,7 +1,8 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
+import useDisplayArticle from '../hook/use-display-article';
 import LikeButton from './like-button';
 import './results-list.scss';
 
@@ -9,13 +10,24 @@ export default function ResultsList({ tableNav, pathNav }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { addArticleToHistory } = useContext(ChoicesContext);
+  // const { articleChosen, isTooManyRequest } = useDisplayArticle();
 
   function handleClickArticle(article) {
+
+    let isFav=false;
+
     addArticleToHistory(article);
+
     if (location.pathname.includes('/favoris')) {
-      navigate(`/favoris-article/${article.article_id}`, { state: { tableNav, pathNav } });
+      isFav=true;
+      navigate(`/favoris-article/${article.article_id}`, {
+        state: { tableNav, pathNav,  isFav },
+      });
     } else {
-      navigate(`/recherche-article/${article.article_id}`, { state: { tableNav, pathNav } });
+      isFav=false;
+      navigate(`/recherche-article/${article.article_id}`, {
+        state: { tableNav, pathNav, isFav },
+      });
     }
   }
 
