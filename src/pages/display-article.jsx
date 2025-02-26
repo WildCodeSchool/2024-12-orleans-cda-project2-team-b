@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { ButtonNav } from '../components/button-nav-article';
 import LikeButton from '../components/like-button';
 import useDisplayArticle from '../hook/use-display-article';
-// import useDisplayArticle from '../hook/use-display-article';
 import './display-article.scss';
 
 export default function DisplayArticle() {

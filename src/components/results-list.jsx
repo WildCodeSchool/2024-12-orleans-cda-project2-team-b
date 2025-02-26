@@ -9,7 +9,6 @@ export default function ResultsList({ tableNav, pathNav }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { addArticleToHistory } = useContext(ChoicesContext);
-  // const { articleChosen, isTooManyRequest } = useDisplayArticle();
 
   function handleClickArticle(article) {
     let isFav = false;
