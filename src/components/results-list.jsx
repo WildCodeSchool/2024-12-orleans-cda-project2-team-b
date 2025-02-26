@@ -29,7 +29,6 @@ export default function ResultsList({ tableNav, pathNav }) {
   }
 
   if (!tableNav) return null;
-  console.log(tableNav);
 
   return Array.isArray(tableNav) ? (
     <>

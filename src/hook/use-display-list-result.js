@@ -20,7 +20,7 @@ export default function useDisplayListResult() {
     }
 
     if (searchValue) {
-      fetch(`https://newsdata.io/api/1/latest?aikey=${API_KEY}${requestLanguage}&q=${searchValue}`)
+      fetch(`https://newsdata.io/api/1/latest?apikey=${API_KEY}${requestLanguage}&q=${searchValue}`)
         .then((response) => {
           // if we are too many request update the variable
           if (response.status === 429) {
