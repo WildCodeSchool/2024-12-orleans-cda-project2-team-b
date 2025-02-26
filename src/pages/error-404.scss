@@ -1,0 +1,25 @@
+.page-not-found {
+  overflow: hidden;
+  position: absolute;
+  top: 10dvh;
+  max-height: 90dvh;
+}
+
+.content-of-page-not-found {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIconButton {
+  position: absolute;
+  bottom: 10dvh;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .page-not-found {
+    transform: scale(0.6);
+  }
+}

@@ -1,0 +1,22 @@
+.animation-desktop {
+  position: absolute;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
+}
+.animation-mobile {
+  display: none;
+  position: absolute;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+@media (max-width: 700px) {
+  .animation-desktop {
+    display: none;
+  }
+  .animation-mobile {
+    display: block;
+  }
+}

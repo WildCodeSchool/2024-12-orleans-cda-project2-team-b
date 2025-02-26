@@ -1,0 +1,15 @@
+@use '../variables.scss' as vars;
+
+.container-results {
+  margin-top: 9dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  width: 100dvw;
+
+  .texte-results {
+    align-self: center;
+  }
+}

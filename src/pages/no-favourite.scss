@@ -1,0 +1,18 @@
+@use '../variables.scss' as vars;
+
+.no-favourite-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: vars.$desktop-content;
+  gap: 1.2rem;
+
+  @media screen and (max-width: 700px) {
+    font-size: vars.$desktop-description;
+  }
+}

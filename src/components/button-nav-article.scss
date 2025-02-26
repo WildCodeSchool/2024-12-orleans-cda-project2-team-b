@@ -1,0 +1,48 @@
+@use '../variables.scss' as vars;
+
+div.nav-article {
+  position: absolute;
+  bottom: 5dvh;
+}
+
+.button-nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: vars.$primary-color;
+  font-size: vars.$desktop-description;
+  gap: 0.5rem;
+  border-bottom: 1.5px solid transparent;
+}
+
+.button-nav:hover {
+  border-bottom: 1.5px solid vars.$primary-color;
+  opacity: 0.85;
+}
+
+.icon-next {
+  rotate: 90deg;
+  width: 1rem;
+}
+
+.icon-previous {
+  rotate: 270deg;
+  width: 1rem;
+}
+
+.button-nav-disable {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  div.nav-article {
+    position: absolute;
+    bottom: 10dvh;
+  }
+}
+
+.dark-mode .button-nav {
+  color: white;
+}

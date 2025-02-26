@@ -1,0 +1,16 @@
+.button-like img {
+  width: 1.6rem;
+}
+
+.button-like {
+  background-color: transparent;
+  border: none;
+  color: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .button-like img {
+    width: 1rem;
+  }
+}

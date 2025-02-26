@@ -1,0 +1,147 @@
+@use '../variables.scss' as vars;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+div.modal {
+  width: 70dvw;
+}
+
+.modal {
+  border: 2px solid transparent;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: vars.$light-color;
+  padding: 1rem;
+  z-index: 1001;
+  border-radius: 8px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-content {
+  margin-top: 1rem;
+}
+
+.aboutSection {
+  display: flex;
+  flex-direction: column;
+  .membersInformations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 10%;
+  }
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    padding: 0 10%;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 5dvh;
+    @media (max-width: 700px) {
+      padding-bottom: 1dvh;
+    }
+    .memberPicture {
+      height: 10rem;
+      @media (max-width: 700px) {
+        height: 6rem;
+        padding: 0;
+      }
+    }
+    .linksButtons {
+      display: flex;
+      height: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .modal {
+    height: 80dvh;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+  div.modal {
+    max-height: 90dvh;
+    overflow-y: scroll;
+    scrollbar-color: #eff4f6 #25384d;
+    scrollbar-width: thin;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+  .membersInformations {
+    flex-direction: column;
+  }
+  p {
+    font-size: vars.$mobile-description;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@media (max-width: 700px) {
+  div.modal {
+    max-height: 90dvh;
+    overflow-y: scroll;
+    scrollbar-color: #eff4f6 #25384d;
+    scrollbar-width: thin;
+  }
+
+  .aboutSection p {
+    padding: 0 0 5% 0;
+  }
+  .aboutSection,
+  .membersInformations {
+    padding: 0 !important;
+  }
+  .membersInformations > article {
+    font-size: vars.$mobile-description;
+    display: flex;
+    flex-direction: row;
+  }
+  .name-link-group {
+    margin-left: 0.5rem;
+  }
+  .linksButtons > img {
+    margin-left: 0.3rem;
+  }
+}
+
+.dark-mode .modal {
+  background-color: vars.$dark-color;
+  color: vars.$light-color;
+}
+
+.dark-mode .modal-close {
+  filter: invert(1);
+}

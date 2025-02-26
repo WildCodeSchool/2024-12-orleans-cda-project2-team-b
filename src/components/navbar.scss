@@ -1,0 +1,77 @@
+@use '../variables.scss' as vars;
+
+.navbar * {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  background-color: vars.$primary-color;
+  color: vars.$text-color;
+  height: 8.64dvh;
+  position: sticky;
+  width: 100dvw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1000;
+  gap: 2%;
+  padding-top: 0.72dvh;
+}
+
+nav.navbar {
+  position: absolute;
+  top: 0;
+}
+
+.navbar img,
+.navbar p {
+  color: vars.$text-color;
+  font-family: vars.$font-family;
+  font-weight: 100;
+
+  letter-spacing: 0.05rem;
+  font-size: vars.$desktop-description;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar img {
+  width: 2dvw;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  opacity: 0.15;
+}
+
+.modal-trigger {
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  nav.navbar {
+    position: absolute;
+    bottom: 0;
+    top: auto;
+  }
+
+  .navbar {
+    justify-content: space-around;
+    bottom: 0;
+    height: 8.64dvh;
+  }
+
+  .navbar p {
+    display: none;
+  }
+
+  .navbar img {
+    width: 6dvw;
+  }
+}

@@ -1,0 +1,20 @@
+.background {
+  background-image: url('/back-card.svg');
+  position: absolute;
+  top: 9dvh; //pour commencer en dessous de la navbar
+  width: 60dvw;
+  height: 91dvh;
+  background-size: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-repeat: no-repeat;
+  opacity: 9%;
+  z-index: -1;
+}
+
+@media (max-width: 770px) {
+  .background {
+    width: 98dvw;
+    height: 90dvh;
+  }
+}
