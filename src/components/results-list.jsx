@@ -11,11 +11,20 @@ export default function ResultsList({ tableNav, pathNav }) {
   const { addArticleToHistory } = useContext(ChoicesContext);
 
   function handleClickArticle(article) {
+    let isFav = false;
+
     addArticleToHistory(article);
+
     if (location.pathname.includes('/favoris')) {
-      navigate(`/favoris-article-choisi/${article.article_id}`, { state: { tableNav, pathNav } });
+      isFav = true;
+      navigate(`/favoris-article/${article.article_id}`, {
+        state: { tableNav, pathNav, isFav },
+      });
     } else {
-      navigate(`/recherche-article-choisi/${article.article_id}`, { state: { tableNav, pathNav } });
+      isFav = false;
+      navigate(`/recherche-article/${article.article_id}`, {
+        state: { tableNav, pathNav, isFav },
+      });
     }
   }
 

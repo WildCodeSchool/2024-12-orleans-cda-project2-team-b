@@ -6,13 +6,15 @@ import { ChoicesContext } from '../contexts/choices-context';
 import './history.scss';
 import NoHistory from './no-history';
 
-export default function History() {
+export default function History({ tableNav, pathNav }) {
   const { listHistory, addArticleToHistory } = useContext(ChoicesContext);
   const navigate = useNavigate();
 
   function handleClickHistory(article) {
     addArticleToHistory(article);
-    navigate(`/historique-choisi/${article.article_id}`);
+    navigate(`/historique/${article.article_id}`, {
+      state: { tableNav, pathNav },
+    });
   }
 
   return (

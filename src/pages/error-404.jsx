@@ -10,8 +10,8 @@ export default function Error404() {
   };
 
   return (
-    <div className='page404'>
-      <div className='contentOf404'>
+    <div className='page-not-found'>
+      <div className='content-of-page-not-found'>
         <img src='/images/404-not-found.svg' alt='Erreur 404' className='picture404' />
         <img
           src='/icons/search.svg'

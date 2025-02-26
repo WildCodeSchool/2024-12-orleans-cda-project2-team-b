@@ -1,18 +1,18 @@
 export const countryList = [
   {
-    language: 'french',
+    language: 'fr',
     placeholderTraduc: 'Ecrivez votre recherche en français',
     iconSrcCountry: '/icons/flag-france.svg',
   },
-  { language: 'english', placeholderTraduc: 'Write your search in english', iconSrcCountry: '/icons/flag-england.svg' },
+  { language: 'en', placeholderTraduc: 'Write your search in english', iconSrcCountry: '/icons/flag-england.svg' },
   {
-    language: 'german',
+    language: 'de',
     placeholderTraduc: 'Schreiben Sie Ihre Suche auf Deutsch',
     iconSrcCountry: '/icons/flag-germany.svg',
   },
-  { language: 'chinese', placeholderTraduc: '用中文写下您的搜索', iconSrcCountry: '/icons/flag-china.svg' },
+  { language: 'zh', placeholderTraduc: '用中文写下您的搜索', iconSrcCountry: '/icons/flag-china.svg' },
   {
-    language: 'spanish',
+    language: 'es',
     placeholderTraduc: 'Escriba su investigación en español',
     iconSrcCountry: '/icons/flag-spain.svg',
   },
