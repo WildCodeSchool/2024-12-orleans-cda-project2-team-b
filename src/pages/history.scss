@@ -1,7 +1,8 @@
 @use '../variables.scss' as vars;
 .container-history {
   width: 90%;
-  height: 74dvh;
+  height: 86dvh;
+  margin-top: 5dvh;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -64,7 +65,8 @@
 @media (max-width: 700px) {
   .container-history {
     width: 100%;
-    height: 81dvh;
+    margin-top: 1dvh;
+    height: 80dvh;
 
     .article-history {
       width: 95%;
