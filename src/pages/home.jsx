@@ -1,28 +1,33 @@
 import Spline from '@splinetool/react-spline';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Loader from '../components/loader';
 import './home.scss';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (!isLoading) {
+      const timer = setTimeout(() => {
+        navigate('/recherche');
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, navigate]);
 
   return (
     <>
       {isLoading && <Loader />}
 
-      <div className='animation-desktop'>
-        <Spline scene='https://prod.spline.design/9A996GHdA8MXqhoX/scene.splinecode' />
-      </div>
-      <div className='animation-mobile'>
-        <Spline scene='https://prod.spline.design/5LWIT65K-jrDiLgr/scene.splinecode' />
+      <div className='animation'>
+        <Spline
+          scene='https://prod.spline.design/NirVvyozskvRVRJh/scene.splinecode'
+          onLoad={() => setIsLoading(false)}
+        />
       </div>
     </>
   );
