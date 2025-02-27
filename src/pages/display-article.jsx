@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 import { ButtonNavArticle } from '../components/button-nav-article';
 import LikeButton from '../components/like-button';
@@ -12,7 +12,14 @@ export default function DisplayArticle() {
   const tableNav = location.state?.tableNav;
   const pathNav = location.state?.pathNav;
   const isFav = location.state?.isFav;
-  const { articleChosen, isTooManyRequest } = useDisplayArticle();
+  const { articleChosen, isTooManyRequest, isLoading } = useDisplayArticle();
+
+  if (isLoading) {
+    return <p>Chargement en cours...</p>;
+  }
+  if (!articleChosen || typeof articleChosen !== 'object') {
+    return <Navigate to='/recherche-oops' />;
+  }
 
   return (
     <>
