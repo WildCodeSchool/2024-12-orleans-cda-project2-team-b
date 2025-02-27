@@ -21,18 +21,16 @@ export default function History({ tableNav, pathNav }) {
     <>
       {listHistory.length > 0 ? (
         <div className='container-history' title='Cliquez pour voir plus'>
-          {listHistory.map((article, index) => (
-            <>
-              <ul key={index} className='article-history' onClick={() => handleClickHistory(article)}>
-                <div className='title-like-history'>
-                  <li>{article.title}</li>
-                  <li>
-                    <LikeButton articleChosen={article} />
-                  </li>
-                </div>
-                <li>{article.description}</li>
-              </ul>
-            </>
+          {listHistory.map((article) => (
+            <ul key={article.article_id} className='article-history' onClick={() => handleClickHistory(article)}>
+              <div className='title-like-history'>
+                <li>{article.title}</li>
+                <li>
+                  <LikeButton articleChosen={article} />
+                </li>
+              </div>
+              <li>{article.description}</li>
+            </ul>
           ))}
         </div>
       ) : (
