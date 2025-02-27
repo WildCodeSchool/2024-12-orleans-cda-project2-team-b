@@ -20,7 +20,7 @@ export const countryList = [
   {
     language: 'es',
     placeholderTraduc: 'Escriba su investigación en español',
-    iconSrcCountry: `${BASE_URL}icons/flag-spain.svg,`,
+    iconSrcCountry: `${BASE_URL}icons/flag-spain.svg`,
   },
   {
     language: '*',
