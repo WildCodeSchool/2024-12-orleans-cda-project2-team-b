@@ -2,8 +2,9 @@ import { useDarkTheme } from '../contexts/dark-theme-context';
 import useNavigationArticle from '../hook/use-navigation-article';
 import './button-nav-article.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export function ButtonNavArticle({ direction, classIcon, texte, tableNav, pathNav }) {
-  const BASE_URL = import.meta.env.BASE_URL;
   //use the hook use-navigation-article
   const navigation = useNavigationArticle({ direction, tableNav, pathNav });
   const { darkTheme } = useDarkTheme();

@@ -5,11 +5,12 @@ import { ChoicesContext } from '../contexts/choices-context';
 import LikeButton from './like-button';
 import './results-list.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function ResultsList({ tableNav, pathNav }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { addArticleToHistory } = useContext(ChoicesContext);
-  const BASE_URL = import.meta.env.BASE_URL;
 
   function handleClickArticle(article) {
     let isFav = false;
@@ -43,11 +44,11 @@ export default function ResultsList({ tableNav, pathNav }) {
           >
             <p className='article-title'>{article.title}</p>
 
-          {article.image_url ? (
-            <img src={article.image_url} alt="photo de l'article" />
-          ) : (
-            <img src={`${BASE_URL}no-image.svg`} alt='photo logo' />
-          )}
+            {article.image_url ? (
+              <img src={article.image_url} alt="photo de l'article" />
+            ) : (
+              <img src={`${BASE_URL}no-image.svg`} alt='photo logo' />
+            )}
 
             <div className='under-image-results'>
               <div className='source'>{article.source_id}</div>

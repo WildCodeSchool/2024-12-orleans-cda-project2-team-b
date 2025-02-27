@@ -2,9 +2,10 @@ import { useNavigate } from 'react-router-dom';
 
 import './error-404.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function Error404() {
   const navigate = useNavigate();
-  const BASE_URL = import.meta.env.BASE_URL;
   const searchRedirection = () => {
     navigate('/recherche');
   };

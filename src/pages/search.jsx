@@ -6,9 +6,10 @@ import { ChoicesContext } from '../contexts/choices-context';
 import { countryList } from '../data/country-list';
 import './search.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
-  const BASE_URL = import.meta.env.BASE_URL;
 
   const {
     choiceLocalStorage,

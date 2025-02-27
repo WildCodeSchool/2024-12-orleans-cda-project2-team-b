@@ -4,11 +4,12 @@ import { ChoicesContext } from '../contexts/choices-context';
 import { useDarkTheme } from '../contexts/dark-theme-context';
 import './like-button.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function LikeButton({ articleChosen }) {
   const { addArticleToFavourite, listFavourite } = useContext(ChoicesContext);
   const { darkTheme } = useDarkTheme();
   const isLiked = listFavourite.some((fav) => fav.article_id === articleChosen?.article_id);
-  const BASE_URL = import.meta.env.BASE_URL;
 
   function handleClickLike(event) {
     if (articleChosen) {

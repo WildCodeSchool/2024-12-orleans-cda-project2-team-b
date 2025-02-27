@@ -3,9 +3,9 @@ import ButtonLightDark from './button-light-dark';
 import Modal from './modal';
 import './toggle-modal.scss';
 
-export default function ToggleModal({ isShowing, hide }) {
-  const BASE_URL = import.meta.env.BASE_URL;
+const BASE_URL = import.meta.env.BASE_URL;
 
+export default function ToggleModal({ isShowing, hide }) {
   return (
     <Modal isShowing={isShowing} hide={hide}>
       <section className='aboutSection'>

@@ -5,9 +5,10 @@ import ButtonRandom from '../components/button-random';
 import { ChoicesContext } from '../contexts/choices-context';
 import './oops.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function Oops() {
   const { isRandom } = useContext(ChoicesContext);
-  const BASE_URL = import.meta.env.BASE_URL;
   return (
     <>
       <div className='no-search-container'>

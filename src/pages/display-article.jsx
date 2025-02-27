@@ -5,12 +5,13 @@ import LikeButton from '../components/like-button';
 import useDisplayArticle from '../hook/use-display-article';
 import './display-article.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function DisplayArticle() {
   const location = useLocation();
   const tableNav = location.state?.tableNav;
   const pathNav = location.state?.pathNav;
   const isFav = location.state?.isFav;
-  const BASE_URL = import.meta.env.BASE_URL;
   const { articleChosen, isTooManyRequest } = useDisplayArticle();
 
   return (
