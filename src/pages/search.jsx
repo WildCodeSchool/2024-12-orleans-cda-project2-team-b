@@ -52,7 +52,12 @@ export default function Search() {
           <h2>L&apos;actu tech</h2>
         </div>
         <div className='search-bar'>
-          <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
+          <img
+            src={`${BASE_URL}icons/search.svg`}
+            onClick={handleSearch}
+            style={{ cursor: 'pointer' }}
+            alt='Rechercher'
+          />
           <input
             type='search'
             placeholder={correctPlaceholder}
