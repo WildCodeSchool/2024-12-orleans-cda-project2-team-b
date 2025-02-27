@@ -4,7 +4,7 @@ import './error-404.scss';
 
 export default function Error404() {
   const navigate = useNavigate();
-
+  const BASE_URL = import.meta.env.BASE_URL;
   const searchRedirection = () => {
     navigate('/recherche');
   };
@@ -12,9 +12,9 @@ export default function Error404() {
   return (
     <div className='page-not-found'>
       <div className='content-of-page-not-found'>
-        <img src='/images/404-not-found.svg' alt='Erreur 404' className='picture404' />
+        <img src={`${BASE_URL}images/404-not-found.svg`} alt='Erreur 404' className='picture404' />
         <img
-          src='/icons/search.svg'
+          src={`${BASE_URL}icons/search.svg`}
           alt='recherche'
           className='searchIconButton'
           onClick={searchRedirection}

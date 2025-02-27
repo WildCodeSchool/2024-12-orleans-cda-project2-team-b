@@ -7,6 +7,7 @@ import './oops.scss';
 
 export default function Oops() {
   const { isRandom } = useContext(ChoicesContext);
+  const BASE_URL = import.meta.env.BASE_URL;
   return (
     <>
       <div className='no-search-container'>
@@ -23,7 +24,7 @@ export default function Oops() {
             <Link to='/recherche'>
               <img
                 className='no-search-icon'
-                src='./../icons/search-inactive-black.png'
+                src={`${BASE_URL}icons/search-inactive-black.png`}
                 alt='loupe lien vers recherche'
               />
             </Link>
