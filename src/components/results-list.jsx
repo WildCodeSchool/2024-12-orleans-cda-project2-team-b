@@ -5,6 +5,8 @@ import { ChoicesContext } from '../contexts/choices-context';
 import LikeButton from './like-button';
 import './results-list.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function ResultsList({ tableNav, pathNav }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,7 +47,7 @@ export default function ResultsList({ tableNav, pathNav }) {
             {article.image_url ? (
               <img src={article.image_url} alt="photo de l'article" />
             ) : (
-              <img src='/no-image.svg' alt='photo logo' />
+              <img src={`${BASE_URL}no-image.svg`} alt='photo logo' />
             )}
 
             <div className='under-image-results'>

@@ -3,6 +3,8 @@ import ButtonLightDark from './button-light-dark';
 import Modal from './modal';
 import './toggle-modal.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function ToggleModal({ isShowing, hide }) {
   return (
     <Modal isShowing={isShowing} hide={hide}>
@@ -31,10 +33,18 @@ export default function ToggleModal({ isShowing, hide }) {
                   <p>{member.name}</p>
                   <div className='linksButtons'>
                     <a href={member.github}>
-                      <img className='icon-github' src='/icons/github.svg' alt={`Logo Github de ${member.name}`} />
+                      <img
+                        className='icon-github'
+                        src={`${BASE_URL}icons/github.svg`}
+                        alt={`Logo Github de ${member.name}`}
+                      />
                     </a>
                     <a href={member.linkedin}>
-                      <img className='icon-linked' src='/icons/linkedin.svg' alt={`Logo Linkedin de ${member.name}`} />
+                      <img
+                        className='icon-linked'
+                        src={`${BASE_URL}icons/linkedin.svg`}
+                        alt={`Logo Linkedin de ${member.name}`}
+                      />
                     </a>
                   </div>
                 </div>
