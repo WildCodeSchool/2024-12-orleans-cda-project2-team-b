@@ -3,6 +3,7 @@ import useNavigationArticle from '../hook/use-navigation-article';
 import './button-nav-article.scss';
 
 export function ButtonNavArticle({ direction, classIcon, texte, tableNav, pathNav }) {
+  const BASE_URL = import.meta.env.BASE_URL;
   //use the hook use-navigation-article
   const navigation = useNavigationArticle({ direction, tableNav, pathNav });
   const { darkTheme } = useDarkTheme();
@@ -22,11 +23,17 @@ export function ButtonNavArticle({ direction, classIcon, texte, tableNav, pathNa
         {direction === 1 ? (
           <>
             {texte}
-            <img className={classIcon} src={darkTheme ? '/icons/arrow-black-nav.svg' : '/icons/arrow-nav.svg'} />
+            <img
+              className={classIcon}
+              src={darkTheme ? `${BASE_URL}icons/arrow-black-nav.svg` : `${BASE_URL}icons/arrow-nav.svg`}
+            />
           </>
         ) : (
           <>
-            <img className={classIcon} src={darkTheme ? '/icons/arrow-black-nav.svg' : '/icons/arrow-nav.svg'} />
+            <img
+              className={classIcon}
+              src={darkTheme ? `${BASE_URL}icons/arrow-black-nav.svg` : `${BASE_URL}icons/arrow-nav.svg`}
+            />
             {texte}
           </>
         )}
