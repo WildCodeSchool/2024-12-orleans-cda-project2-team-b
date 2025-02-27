@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import { ChoicesContext } from '../contexts/choices-context';
 import LikeButton from './like-button';
@@ -30,29 +30,33 @@ export default function ResultsList({ tableNav, pathNav }) {
 
   if (!tableNav) return null;
 
-  return (
-    <div className='article-result-wrap'>
-      {tableNav.map((article, index) => (
-        <div
-          key={index}
-          className='results-container'
-          title='Appuyer pour voir plus'
-          onClick={() => handleClickArticle(article)}
-        >
-          <p className='article-title'>{article.title}</p>
+  return Array.isArray(tableNav) ? (
+    <>
+      <div className='article-result-wrap'>
+        {tableNav.map((article, index) => (
+          <div
+            key={index}
+            className='results-container'
+            title='Appuyer pour voir plus'
+            onClick={() => handleClickArticle(article)}
+          >
+            <p className='article-title'>{article.title}</p>
 
-          {article.image_url ? (
-            <img src={article.image_url} alt="photo de l'article" />
-          ) : (
-            <img src='/no-image.svg' alt='photo logo' />
-          )}
+            {article.image_url ? (
+              <img src={article.image_url} alt="photo de l'article" />
+            ) : (
+              <img src='/no-image.svg' alt='photo logo' />
+            )}
 
-          <div className='under-image-results'>
-            <div className='source'>{article.source_id}</div>
-            <LikeButton articleChosen={article} />
+            <div className='under-image-results'>
+              <div className='source'>{article.source_id}</div>
+              <LikeButton articleChosen={article} />
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
+  ) : (
+    <Navigate to='/recherche-oops' />
   );
 }
