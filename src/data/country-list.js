@@ -1,20 +1,30 @@
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const countryList = [
   {
     language: 'fr',
     placeholderTraduc: 'Ecrivez votre recherche en français',
-    iconSrcCountry: '/icons/flag-france.svg',
+    iconSrcCountry: `${BASE_URL}icons/flag-france.svg`,
   },
-  { language: 'en', placeholderTraduc: 'Write your search in english', iconSrcCountry: '/icons/flag-england.svg' },
+  {
+    language: 'en',
+    placeholderTraduc: 'Write your search in english',
+    iconSrcCountry: `${BASE_URL}icons/flag-england.svg`,
+  },
   {
     language: 'de',
     placeholderTraduc: 'Schreiben Sie Ihre Suche auf Deutsch',
-    iconSrcCountry: '/icons/flag-germany.svg',
+    iconSrcCountry: `${BASE_URL}icons/flag-germany.svg`,
   },
-  { language: 'zh', placeholderTraduc: '用中文写下您的搜索', iconSrcCountry: '/icons/flag-china.svg' },
+  { language: 'zh', placeholderTraduc: '用中文写下您的搜索', iconSrcCountry: `${BASE_URL}icons/flag-china.svg` },
   {
     language: 'es',
     placeholderTraduc: 'Escriba su investigación en español',
-    iconSrcCountry: '/icons/flag-spain.svg',
+    iconSrcCountry: `${BASE_URL}icons/flag-spain.svg,`,
   },
-  { language: '*', placeholderTraduc: 'You can write in any language 🤪', iconSrcCountry: '/icons/flag-earth.svg' },
+  {
+    language: '*',
+    placeholderTraduc: 'You can write in any language 🤪',
+    iconSrcCountry: `${BASE_URL}icons/flag-earth.svg`,
+  },
 ];
