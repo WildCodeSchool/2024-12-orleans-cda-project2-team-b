@@ -6,6 +6,8 @@ import { ChoicesContext } from '../contexts/choices-context';
 import { countryList } from '../data/country-list';
 import './search.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function Search() {
   const [isActiveLanguageList, setIsActiveLanguageList] = useState(false);
 
@@ -51,7 +53,12 @@ export default function Search() {
           <h2>L&apos;actu tech</h2>
         </div>
         <div className='search-bar'>
-          <img src='/icons/search.png' onClick={handleSearch} style={{ cursor: 'pointer' }} alt='Rechercher' />
+          <img
+            src={`${BASE_URL}icons/search.svg`}
+            onClick={handleSearch}
+            style={{ cursor: 'pointer' }}
+            alt='Rechercher'
+          />
           <input
             type='search'
             placeholder={correctPlaceholder}
@@ -68,7 +75,7 @@ export default function Search() {
       <div className='container-language'>
         <div className='container-text' onClick={() => setIsActiveLanguageList((prev) => !prev)}>
           Langue de recherche
-          <img className={isActiveLanguageList ? 'arrow-return' : ''} src='/icons/arrow-nav.svg' />
+          <img className={isActiveLanguageList ? 'arrow-return' : ''} src={`${BASE_URL}icons/arrow-nav.svg`} />
         </div>
 
         <div className={isActiveLanguageList ? 'container-flags' : 'container-flags-no-display'}>

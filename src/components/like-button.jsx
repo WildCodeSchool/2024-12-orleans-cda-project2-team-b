@@ -4,6 +4,8 @@ import { ChoicesContext } from '../contexts/choices-context';
 import { useDarkTheme } from '../contexts/dark-theme-context';
 import './like-button.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function LikeButton({ articleChosen }) {
   const { addArticleToFavourite, listFavourite } = useContext(ChoicesContext);
   const { darkTheme } = useDarkTheme();
@@ -25,11 +27,11 @@ export default function LikeButton({ articleChosen }) {
             src={
               darkTheme
                 ? isLiked
-                  ? '/icons/like-for-dark-full.svg'
-                  : '/icons/like-for-dark-empty.svg'
+                  ? `${BASE_URL}icons/like-for-dark-full.svg`
+                  : `${BASE_URL}icons/like-for-dark-empty.svg`
                 : isLiked
-                ? '/icons/like-full.svg'
-                : '/icons/like-empty.svg'
+                ? `${BASE_URL}icons/like-full.svg`
+                : `${BASE_URL}icons/like-empty.svg`
             }
             alt={isLiked ? 'like' : 'not-like'}
             title={isLiked ? 'Retirer des favoris' : 'Ajouter aux favoris'}

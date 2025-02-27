@@ -5,6 +5,8 @@ import ButtonRandom from '../components/button-random';
 import { ChoicesContext } from '../contexts/choices-context';
 import './oops.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function Oops() {
   const { isRandom } = useContext(ChoicesContext);
   return (
@@ -23,7 +25,7 @@ export default function Oops() {
             <Link to='/recherche'>
               <img
                 className='no-search-icon'
-                src='./../icons/search-inactive-black.png'
+                src={`${BASE_URL}icons/search-inactive-black.png`}
                 alt='loupe lien vers recherche'
               />
             </Link>

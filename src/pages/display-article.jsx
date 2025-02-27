@@ -5,12 +5,13 @@ import LikeButton from '../components/like-button';
 import useDisplayArticle from '../hook/use-display-article';
 import './display-article.scss';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export default function DisplayArticle() {
   const location = useLocation();
   const tableNav = location.state?.tableNav;
   const pathNav = location.state?.pathNav;
   const isFav = location.state?.isFav;
-
   const { articleChosen, isTooManyRequest } = useDisplayArticle();
 
   return (
@@ -26,7 +27,11 @@ export default function DisplayArticle() {
               <div className='container-display-contents'>
                 <h2>{articleChosen?.title || 'titre inconnu'}</h2>
                 <h3>-{articleChosen?.source_id || 'source introuvable'}-</h3>
-                <img src={articleChosen?.image_url || '/no-image.svg'} alt='image article' title='image article'></img>
+                <img
+                  src={articleChosen?.image_url || `${BASE_URL}no-image.svg`}
+                  alt='image article'
+                  title='image article'
+                ></img>
                 <p> {articleChosen?.description || "Nous n'avons pas de texte à vous proposer pour cet article..."}</p>
               </div>
               <div className='container-plus-like'>
