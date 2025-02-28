@@ -15,7 +15,7 @@ export default function useDisplayListResult() {
     setIsLoading(true);
 
     let requestLanguage = '';
-    if (!isRandom && choiceLocalStorage === 'yes') {
+    if (isRandom && choiceLocalStorage === 'yes') {
       requestLanguage = `&language=${storedChoiceLanguage}`;
     }
 
@@ -28,7 +28,7 @@ export default function useDisplayListResult() {
           }
 
           if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+            throw new Error(`Erreur : ${response.status}`);
           }
 
           return response.json();
