@@ -15,25 +15,31 @@ export default function useDisplayListResult() {
     setIsLoading(true);
 
     let requestLanguage = '';
-    if (!isRandom && choiceLocalStorage === 'yes') {
+    if (isRandom && choiceLocalStorage === 'yes') {
       requestLanguage = `&language=${storedChoiceLanguage}`;
     }
 
     if (searchValue) {
       fetch(`https://newsdata.io/api/1/latest?apikey=${API_KEY}${requestLanguage}&q=${searchValue}`)
-        .then((response) => {
-          // if we are too many request update the variable
+        .then(async (response) => {
           if (response.status === 429) {
             setIsTooManyRequest(true);
-            throw new Error('TOO MANY REQUESTS');
+            return null;
           }
+
+          if (!response.ok) {
+            throw new Error(`Erreur : ${response.status}`);
+          }
+
           return response.json();
         })
         .then((data) => {
-          setIsLoading(false);
-          const articles = data.results;
-          setListSearch(articles);
-          setIsTooManyRequest(false);
+          if (data) {
+            setIsLoading(false);
+            const articles = data.results;
+            setListSearch(articles);
+            setIsTooManyRequest(false);
+          }
         })
 
         .finally(() => {
