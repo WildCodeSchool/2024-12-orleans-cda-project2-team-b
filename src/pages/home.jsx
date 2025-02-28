@@ -1,23 +1,11 @@
 import Spline from '@splinetool/react-spline';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Loader from '../components/loader';
 import './home.scss';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoading) {
-      const timer = setTimeout(() => {
-        navigate('/recherche');
-      }, 10000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isLoading, navigate]);
 
   return (
     <>
