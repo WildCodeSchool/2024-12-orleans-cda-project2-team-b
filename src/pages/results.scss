@@ -1,7 +1,8 @@
 @use '../variables.scss' as vars;
 
 .container-results {
-  margin-top: 9dvh;
+  margin-top: 3dvh;
+  height: 86dvh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,5 +12,12 @@
 
   .texte-results {
     align-self: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container-results {
+    height: 81dvh;
+    margin-bottom: 4dvh;
   }
 }
