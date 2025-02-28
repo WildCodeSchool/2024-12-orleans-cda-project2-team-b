@@ -21,19 +21,25 @@ export default function useDisplayListResult() {
 
     if (searchValue) {
       fetch(`https://newsdata.io/api/1/latest?apikey=${API_KEY}${requestLanguage}&q=${searchValue}`)
-        .then((response) => {
-          // if we are too many request update the variable
+        .then(async (response) => {
           if (response.status === 429) {
             setIsTooManyRequest(true);
-            throw new Error('TOO MANY REQUESTS');
+            return null;
           }
+
+          if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+          }
+
           return response.json();
         })
         .then((data) => {
-          setIsLoading(false);
-          const articles = data.results;
-          setListSearch(articles);
-          setIsTooManyRequest(false);
+          if (data) {
+            setIsLoading(false);
+            const articles = data.results;
+            setListSearch(articles);
+            setIsTooManyRequest(false);
+          }
         })
 
         .finally(() => {
